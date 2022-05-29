@@ -26,7 +26,7 @@ public class Spawn : MonoBehaviour
     public bool runMachine;
     public TextMeshPro[] textMesh;
 
-    //[Header("PRODUCT LÝNE")]
+    //[Header("PRODUCT L?NE")]
     //public bool runLine;
 
 
@@ -74,7 +74,7 @@ public class Spawn : MonoBehaviour
             list[a].transform.DOLocalRotate(new Vector3(0, 0, 0), 1f);
             list[a].transform.DOLocalJump(new Vector3(0, bagYaxis, 0), 3, 0, 0.4f, false).SetEase(Ease.OutQuint);
             list.RemoveAt(a);
-            humanCollider.bagYAxis += 0.2f;
+            humanCollider.bagYAxis += 0.35f;
             Vibration.Vibrate(10);
         }
         else
