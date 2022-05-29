@@ -6971,6 +6971,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 955804799}
+  - component: {fileID: 955804800}
   m_Layer: 0
   m_Name: Production Line
   m_TagString: Untagged
@@ -6995,6 +6996,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &955804800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955804798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6e70bab3595674e8268df8f1d6e256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  car: {fileID: 8004965225206824656}
+  component:
+  - {fileID: 661652948}
+  - {fileID: 1034591949}
+  - {fileID: 1549875498}
+  - {fileID: 1519136834}
+  - {fileID: 1389942681}
+  - {fileID: 366682911}
+  carParca:
+  - {fileID: 4415810213904323250}
+  - {fileID: 3723294570777584013}
+  - {fileID: 5960900858832914541}
+  - {fileID: 7272681048895837861}
+  - {fileID: 7712374360942110697}
+  - {fileID: 8864615905352369913}
+  turn: 0
+  run: 1
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -15547,7 +15577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3738163340569785663
 Transform:
   m_ObjectHideFlags: 0
@@ -15737,7 +15767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4486647986724204177
 Transform:
   m_ObjectHideFlags: 0
@@ -16192,7 +16222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!137 &5969651740434903228
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -16708,7 +16738,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8004965225206824656}
   m_LocalRotation: {x: -0, y: -0.6755673, z: -0, w: 0.73729837}
-  m_LocalPosition: {x: 7.99, y: 4.88, z: -0.7}
+  m_LocalPosition: {x: 16.4, y: 5, z: -0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16738,7 +16768,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &7331096069244196830
 GameObject:
   m_ObjectHideFlags: 0
@@ -16822,7 +16852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7770702590382999796
 Transform:
   m_ObjectHideFlags: 0
@@ -17335,7 +17365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &8892427306242744233
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -26,6 +26,8 @@ public class Spawn : MonoBehaviour
     public bool runMachine;
     public TextMeshPro[] textMesh;
 
+    //[Header("PRODUCT LÝNE")]
+    //public bool runLine;
 
 
     void Start()
@@ -51,6 +53,8 @@ public class Spawn : MonoBehaviour
     int x;
     int y;
     int z;
+    bool oneTime = true;
+
     public void ComeObj(Transform bag,float bagYaxis,bool add)
     {
 
@@ -180,6 +184,8 @@ public class Spawn : MonoBehaviour
         }
         outPutCount = 0;
     }
+   
+
     public enum ListSelect {
         metal,polimer,cam,kablo,
         sase,wheel,koltuk,engine, body, pencere,
