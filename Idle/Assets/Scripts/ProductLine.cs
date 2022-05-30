@@ -36,8 +36,8 @@ public class ProductLine : MonoBehaviour
         if (run)
         {
             transform.GetChild(turn).gameObject.SetActive(true);
-            transform.DOLocalMove(new Vector3(component[turn].transform.position.x, transform.localPosition.y,transform.localPosition.z), 2f)
-                .OnComplete(()=> {  if (turn < component.Length-1) turn++; oneTime = false; run = false;});
+            transform.DOLocalMove(new Vector3(component[turn+1].transform.position.x, transform.localPosition.y,transform.localPosition.z), 2f)
+                .OnComplete(()=> {  if (turn < component.Length) turn++; oneTime = false; run = false;});
             yield return new WaitForSeconds(0.1f);
         }
 
