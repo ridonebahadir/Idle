@@ -15,6 +15,10 @@ public class Spawn : MonoBehaviour
     public HumanCollider humanCollider;
     public bool start;
 
+    [Header("SHAKE")]
+    public Transform machine;
+    public float shakePower;
+    public float shakeTimer;
    
     
 
@@ -54,7 +58,15 @@ public class Spawn : MonoBehaviour
     int y;
     int z;
     bool oneTime = true;
-
+    bool shake;
+    private void Update()
+    {
+        if (shake)
+        {
+            machine.DOShakePosition(shakeTimer, shakePower, fadeOut: true);
+        }
+       
+    }
     public void ComeObj(Transform bag,float bagYaxis,bool add)
     {
 
@@ -67,7 +79,9 @@ public class Spawn : MonoBehaviour
             }
             else
             {
+               
                transform.parent.GetChild(2).GetComponent<Spawn>().currentList.Add(list[a]);
+               
             }
            
             list[a].transform.parent = bag;
@@ -113,6 +127,7 @@ public class Spawn : MonoBehaviour
         }
         else
         {
+            machine.DOShakePosition(0.3f, 0.3f, fadeOut: true);
             obj.transform.DOLocalJump(new Vector3(0, 0, 0), 3, 1, 0.3f, false)
            .OnComplete(() => { if (!grid) obj.transform.gameObject.SetActive(false); }).SetEase(Ease.InQuint);
         }

@@ -1769,6 +1769,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 1
+  machine: {fileID: 0}
+  shakePower: 0
+  shakeTimer: 0
   outPoint: {fileID: 1416536297}
   breakPoint: {fileID: 0}
   productCount: 
@@ -2503,6 +2506,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 1
+  machine: {fileID: 0}
+  shakePower: 0
+  shakeTimer: 0
   outPoint: {fileID: 528866029}
   breakPoint: {fileID: 0}
   productCount: 
@@ -5530,6 +5536,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 1
+  machine: {fileID: 0}
+  shakePower: 0
+  shakeTimer: 0
   outPoint: {fileID: 1499595537}
   breakPoint: {fileID: 0}
   productCount: 
@@ -8449,6 +8458,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 1442175907}
+  shakePower: 1
+  shakeTimer: 3
   outPoint: {fileID: 1393489155}
   breakPoint: {fileID: 1129917646}
   productCount: 0000000000000000
@@ -9034,6 +9046,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 0}
+  shakePower: 0
+  shakeTimer: 0
   outPoint: {fileID: 1393489155}
   breakPoint: {fileID: 1393489155}
   productCount: 
@@ -9505,6 +9520,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 2336483157328479367}
+  shakePower: 1
+  shakeTimer: 3
   outPoint: {fileID: 633762071}
   breakPoint: {fileID: 870814757}
   productCount: 0000000000000000
@@ -11066,6 +11084,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 688273046}
+  shakePower: 1
+  shakeTimer: 3
   outPoint: {fileID: 787917711}
   breakPoint: {fileID: 492664141}
   productCount: 0000000000000000
@@ -11257,6 +11278,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 1
+  machine: {fileID: 0}
+  shakePower: 0
+  shakeTimer: 0
   outPoint: {fileID: 1970956886}
   breakPoint: {fileID: 0}
   productCount: 
@@ -12186,6 +12210,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 0}
+  shakePower: 0
+  shakeTimer: 0
   outPoint: {fileID: 1794578802}
   breakPoint: {fileID: 1794578802}
   productCount: 00000000
@@ -13420,6 +13447,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 0}
+  shakePower: 0
+  shakeTimer: 0
   outPoint: {fileID: 787917711}
   breakPoint: {fileID: 787917711}
   productCount: 
@@ -13867,6 +13897,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 0}
+  shakePower: 0
+  shakeTimer: 0
   outPoint: {fileID: 1034591949}
   breakPoint: {fileID: 1034591949}
   productCount: 00000000
@@ -13931,6 +13964,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 248616603}
+  shakePower: 1
+  shakeTimer: 3
   outPoint: {fileID: 1597691070}
   breakPoint: {fileID: 368523041}
   productCount: 0000000000000000
@@ -14122,6 +14158,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 0}
+  shakePower: 0
+  shakeTimer: 0
   outPoint: {fileID: 661652948}
   breakPoint: {fileID: 661652948}
   productCount: 00000000
@@ -14220,6 +14259,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 0}
+  shakePower: 0
+  shakeTimer: 0
   outPoint: {fileID: 1528994975}
   breakPoint: {fileID: 1528994975}
   productCount: 
@@ -14995,6 +15037,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 0}
+  shakePower: 0
+  shakeTimer: 0
   outPoint: {fileID: 1371181579}
   breakPoint: {fileID: 1371181579}
   productCount: 
@@ -15293,6 +15338,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 641449741}
+  shakePower: 1
+  shakeTimer: 3
   outPoint: {fileID: 1528994975}
   breakPoint: {fileID: 1504356422}
   productCount: 0000000000000000
@@ -15600,6 +15648,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 0}
+  shakePower: 0
+  shakeTimer: 0
   outPoint: {fileID: 1519136834}
   breakPoint: {fileID: 1519136834}
   productCount: 00000000
@@ -15811,6 +15862,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 0}
+  shakePower: 0
+  shakeTimer: 0
   outPoint: {fileID: 1389942681}
   breakPoint: {fileID: 1389942681}
   productCount: 00000000
@@ -16619,6 +16673,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 0}
+  shakePower: 0
+  shakeTimer: 0
   outPoint: {fileID: 1597691070}
   breakPoint: {fileID: 1597691070}
   productCount: 
@@ -17409,6 +17466,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 0}
+  shakePower: 0
+  shakeTimer: 0
   outPoint: {fileID: 1549875498}
   breakPoint: {fileID: 1549875498}
   productCount: 00000000
@@ -18493,6 +18553,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 0}
+  shakePower: 0
+  shakeTimer: 0
   outPoint: {fileID: 633762071}
   breakPoint: {fileID: 633762071}
   productCount: 
@@ -21047,6 +21110,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 1368221855}
+  shakePower: 1
+  shakeTimer: 3
   outPoint: {fileID: 1371181579}
   breakPoint: {fileID: 443729537}
   productCount: 0000000000000000
@@ -22830,6 +22896,9 @@ MonoBehaviour:
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
+  machine: {fileID: 0}
+  shakePower: 0
+  shakeTimer: 0
   outPoint: {fileID: 366682911}
   breakPoint: {fileID: 366682911}
   productCount: 00000000
