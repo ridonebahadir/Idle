@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class ProductLine : MonoBehaviour
 {
-    public GameObject car;
+   
     public Transform[] component;
   
     public int turn;
@@ -35,8 +35,9 @@ public class ProductLine : MonoBehaviour
     {
         if (run)
         {
-            car.transform.DOLocalMove(new Vector3(component[turn].transform.position.x, car.transform.localPosition.y,car.transform.localPosition.z), 2f)
-                .OnComplete(()=> { car.transform.GetChild(turn).gameObject.SetActive(true); if (turn < component.Length-1) turn++; oneTime = false; run = false;});
+            transform.GetChild(turn).gameObject.SetActive(true);
+            transform.DOLocalMove(new Vector3(component[turn].transform.position.x, transform.localPosition.y,transform.localPosition.z), 2f)
+                .OnComplete(()=> {  if (turn < component.Length-1) turn++; oneTime = false; run = false;});
             yield return new WaitForSeconds(0.1f);
         }
 
