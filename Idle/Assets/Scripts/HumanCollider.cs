@@ -181,7 +181,7 @@ public class HumanCollider : MonoBehaviour
             if (list.Count>0)
             {
                 spawn.GoObj(list,id,grid);
-                bagYAxis -= 0.2f;
+                bagYAxis -= 0.35f;
                
             }
             else
@@ -221,7 +221,7 @@ public class HumanCollider : MonoBehaviour
 
                 bagList[count].transform.DOJump(SellArea.transform.position, 3, 0, 0.1f, false)
                .OnComplete(() => {
-                   bagYAxis -= 0.2f;
+                   bagYAxis -= 0.35f;
                    bagList[count].transform.parent = SellArea;
                    bagList.RemoveAt(count);
                    count--;
