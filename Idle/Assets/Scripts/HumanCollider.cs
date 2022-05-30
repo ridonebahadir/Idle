@@ -204,7 +204,7 @@ public class HumanCollider : MonoBehaviour
     {
         for (int i = 0; i < bag.transform.childCount; i++)
         {
-            bag.transform.GetChild(i).transform.DOLocalMove(new Vector3(0, i * 0.2f, 0),1f);
+            bag.transform.GetChild(i).transform.DOLocalMove(new Vector3(0, i * 0.35f, 0),1f);
             yield return new WaitForSeconds(0.1f);
         }
     }
