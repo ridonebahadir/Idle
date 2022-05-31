@@ -16172,6 +16172,7 @@ MonoBehaviour:
   speed: 7
   anim: {fileID: 6100412871719980661}
   humanBody: {fileID: 164709023674455055}
+  bag: {fileID: 149593228}
 --- !u!54 &1285986722
 Rigidbody:
   m_ObjectHideFlags: 0
