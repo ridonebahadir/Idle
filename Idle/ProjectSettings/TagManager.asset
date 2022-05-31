@@ -21,6 +21,7 @@ TagManager:
   - Engine
   - Pay
   - Component
+  - Kasa
   layers:
   - Default
   - TransparentFX

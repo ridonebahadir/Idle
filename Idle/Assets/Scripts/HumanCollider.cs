@@ -7,6 +7,7 @@ using System;
 public class HumanCollider : MonoBehaviour
 {
    
+    public AllLine allLine;
     private Spawn spawn;
     public GameManager gameManager;
     public Transform bag;
@@ -113,6 +114,11 @@ public class HumanCollider : MonoBehaviour
             StartCoroutine(GoObj(spawn.currentList, 0,true));
             
         }
+        if (other.tag == "Kasa")
+        {
+            allLine.transform.GetChild(allLine.currentCarNumber).transform.GetComponent<ProductLine>().SellCar();
+
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -155,7 +161,9 @@ public class HumanCollider : MonoBehaviour
            
 
         }
+       
     }
+  
     public bool run;
    
     IEnumerator ComeObj(bool add)

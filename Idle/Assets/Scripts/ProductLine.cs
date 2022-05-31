@@ -9,7 +9,8 @@ public class ProductLine : MonoBehaviour
     public int id;
     public Transform[] component;
     public GameObject car;
-  
+    public AllLine allLine;
+   
     public int turn;
     
     bool oneTime;
@@ -19,6 +20,7 @@ public class ProductLine : MonoBehaviour
    
     private void Start()
     {
+        allLine = transform.parent.GetComponent<AllLine>();
         id = transform.parent.GetComponent<AllLine>().a;
         transform.parent.GetComponent<AllLine>().a++;
         pos = transform.position;
@@ -96,7 +98,7 @@ public class ProductLine : MonoBehaviour
                    transform.parent.GetChild(id + 1).gameObject.SetActive(true);
                     //transform.parent.GetChild(id + 1).GetComponent<ProductLine>().move = true;
                     Destroy(component[turn].transform.GetChild(0).gameObject);
-                   if (turn < component.Length) turn++;
+                    turn++;
                    oneTime = false;
                    run = false;
 
@@ -106,7 +108,12 @@ public class ProductLine : MonoBehaviour
             }
             else
             {
-                transform.DOLocalMove(new Vector3(component[turn].transform.position.x, transform.localPosition.y, component[turn].transform.GetChild(id).localPosition.z), 2f);
+                transform.DOLocalMove(new Vector3(component[turn].transform.position.x, transform.localPosition.y, transform.parent.GetComponent<AllLine>().showRoomZAxis), 2f)
+                    .OnComplete(()=> {
+
+                        allLine.showRoomZAxis += 4;
+                        
+                        complateCar = true; });
 
             }
 
@@ -119,10 +126,31 @@ public class ProductLine : MonoBehaviour
         //    ParkCar();
         //}
     }
-
-    private void ParkCar()
+    bool complateCar;
+    public void SellCar()
     {
-        transform.DOLocalMove(new Vector3(component[turn].transform.position.x, transform.localPosition.y, component[turn].transform.GetChild(id).localPosition.z), 2f);
+        if (complateCar)
+        {
+            allLine.oneTime = false;
+            allLine.go = true;
+           
+            transform.DOLocalMove(new Vector3(transform.localPosition.x, 0, transform.localPosition.z), 2f).OnComplete(()=>GoSellCar());
+            allLine.currentCarNumber++;
+            transform.GetChild(6).gameObject.SetActive(false);
+            if (transform.parent.GetChild(id + 1).GetComponent<ProductLine>().turn==6)
+            {
+                transform.parent.GetChild(id + 1).transform.DOLocalMove(new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z), 2f);
 
+            }
+            allLine.showRoomZAxis -= 4;
+        }
+       
+
+
+
+    }
+    void GoSellCar()
+    {
+        transform.DOLocalMove(new Vector3(transform.localPosition.x-30, 0, transform.localPosition.z), 2f);
     }
 }
