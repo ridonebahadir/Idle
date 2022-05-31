@@ -181,7 +181,7 @@ public class HumanCollider : MonoBehaviour
             if (list.Count>0)
             {
                 spawn.GoObj(list,id,grid);
-                bagYAxis -= 0.35f;
+                bagYAxis -= 0.25f;
                
             }
             else
@@ -204,7 +204,7 @@ public class HumanCollider : MonoBehaviour
     {
         for (int i = 0; i < bag.transform.childCount; i++)
         {
-            bag.transform.GetChild(i).transform.DOLocalMove(new Vector3(0, i * 0.35f, 0),1f);
+            bag.transform.GetChild(i).transform.DOLocalMove(new Vector3(0, i * 0.25f, 0),1f);
             yield return new WaitForSeconds(0.1f);
         }
     }
@@ -221,7 +221,7 @@ public class HumanCollider : MonoBehaviour
 
                 bagList[count].transform.DOJump(SellArea.transform.position, 3, 0, 0.1f, false)
                .OnComplete(() => {
-                   bagYAxis -= 0.35f;
+                   bagYAxis -= 0.25f;
                    bagList[count].transform.parent = SellArea;
                    bagList.RemoveAt(count);
                    count--;

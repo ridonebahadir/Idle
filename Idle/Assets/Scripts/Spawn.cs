@@ -14,7 +14,7 @@ public class Spawn : MonoBehaviour
     public List<GameObject> list = new List<GameObject>();
     public HumanCollider humanCollider;
     public bool start;
-
+    public GameObject warning;
     [Header("SHAKE")]
     public Transform machine;
     public float shakePower;
@@ -58,15 +58,8 @@ public class Spawn : MonoBehaviour
     int y;
     int z;
     bool oneTime = true;
-    bool shake;
-    private void Update()
-    {
-        if (shake)
-        {
-            machine.DOShakePosition(shakeTimer, shakePower, fadeOut: true);
-        }
-       
-    }
+    
+   
     public void ComeObj(Transform bag,float bagYaxis,bool add)
     {
 
@@ -88,7 +81,7 @@ public class Spawn : MonoBehaviour
             list[a].transform.DOLocalRotate(new Vector3(0, 0, 0), 1f);
             list[a].transform.DOLocalJump(new Vector3(0, bagYaxis, 0), 3, 0, 0.4f, false).SetEase(Ease.OutQuint);
             list.RemoveAt(a);
-            humanCollider.bagYAxis += 0.35f;
+            humanCollider.bagYAxis += 0.25f;
             Vibration.Vibrate(10);
         }
         else
@@ -137,17 +130,19 @@ public class Spawn : MonoBehaviour
         productCount[id]++;
         textMesh[id].text = productCount[id].ToString();
         Vibration.Vibrate(40);
-
+       
     }
     
     public IEnumerator OutPut(int a,int b)
     {
         yield return new WaitForSeconds(3f);
+       
         while (runMachine)
         {
 
             if (((productCount[0] -= a) >= 0) && ((productCount[1] -= b) >= 0))
             {
+              
                 textMesh[0].text = productCount[0].ToString();
                 textMesh[1].text = productCount[1].ToString();
                 //for (int i = 0; i < productCount.Length; i++)
@@ -157,13 +152,16 @@ public class Spawn : MonoBehaviour
 
                 outPutCount++;
             }
+           
             if (productCount[0] <= 0)
             {
+               
                 runMachine = false;
                 productCount[0] = 0;
             }
             if (productCount[1] <= 0)
             {
+                
                 runMachine = false;
                 productCount[1] = 0;
             }
@@ -194,6 +192,8 @@ public class Spawn : MonoBehaviour
             
             
             list.Add(obj);
+            textMesh[0].text = productCount[0].ToString();
+            textMesh[1].text = productCount[1].ToString();  
             yield return new WaitForSeconds(0.1f);
 
         }
