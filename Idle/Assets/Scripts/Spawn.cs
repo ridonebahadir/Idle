@@ -14,7 +14,7 @@ public class Spawn : MonoBehaviour
     public List<GameObject> list = new List<GameObject>();
     public HumanCollider humanCollider;
     public bool start;
-    public GameObject warning;
+    //public GameObject warning;
     [Header("SHAKE")]
     public Transform machine;
     public float shakePower;
@@ -58,8 +58,24 @@ public class Spawn : MonoBehaviour
     int y;
     int z;
     bool oneTime = true;
-    
-   
+    public bool productLine;
+    private void Update()
+    {
+        if (productLine)
+        {
+            if (breakPoint.childCount<=0)
+            {
+                transform.GetChild(0).gameObject.SetActive(true);
+            }
+            else
+            {
+                transform.GetChild(0).gameObject.SetActive(false);
+            }
+           productCount[0] = breakPoint.childCount;
+            textMesh[0].text = productCount[0].ToString();
+        }
+    }
+
     public void ComeObj(Transform bag,float bagYaxis,bool add)
     {
 
