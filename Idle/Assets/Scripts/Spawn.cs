@@ -17,8 +17,8 @@ public class Spawn : MonoBehaviour
     //public GameObject warning;
     [Header("SHAKE")]
     public Transform machine;
-    public float shakePower;
-    public float shakeTimer;
+    private float shakePower = 0.3f;
+    private float shakeTimer = 0.5f;
    
     
 
@@ -136,7 +136,7 @@ public class Spawn : MonoBehaviour
         }
         else
         {
-            machine.DOShakePosition(0.3f, 0.3f, fadeOut: true);
+           
             obj.transform.DOLocalJump(new Vector3(0, 0, 0), 3, 1, 0.3f, false)
            .OnComplete(() => { if (!grid) obj.transform.gameObject.SetActive(false); }).SetEase(Ease.InQuint);
         }
@@ -158,7 +158,7 @@ public class Spawn : MonoBehaviour
 
             if (((productCount[0] -= a) >= 0) && ((productCount[1] -= b) >= 0))
             {
-              
+                machine.DOShakePosition(shakeTimer, shakePower, fadeOut: true);
                 textMesh[0].text = productCount[0].ToString();
                 textMesh[1].text = productCount[1].ToString();
                 //for (int i = 0; i < productCount.Length; i++)
