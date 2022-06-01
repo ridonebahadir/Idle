@@ -131,12 +131,12 @@ public class Spawn : MonoBehaviour
         if (grid)
         {
             obj.transform.DOLocalJump(new Vector3(x, y, z), 3, 0, 0.3f, false).SetEase(Ease.InQuint);
-            x+=xOutPut;
-            if (x == xOutPut*enOutPut)
+            x+=xComponent;
+            if (x == xComponent*enComponent)
             {
                 x = 0;
-                z+=zOutPut;
-                if (z == zOutPut*boyComponent)
+                z+=zComponent;
+                if (z == zComponent*boyComponent)
                 {
                     y++;
                     z = 0;
@@ -203,12 +203,12 @@ public class Spawn : MonoBehaviour
             obj.transform.DOLocalRotate(new Vector3(0, 0, 0), 1f);
             obj.transform.DOLocalJump(new Vector3(x*0.5f, y*0.5f, z*0.5f), 3, 3, 0.3f, false).SetEase(Ease.InQuint);
 
-            x+=xComponent;
-                if (x == xComponent*enComponent)
+            x+=xOutPut;
+                if (x == xOutPut*enOutPut)
                 {
                     x = 0;
-                    z+=zComponent;
-                    if (z == zComponent*boyComponent)
+                    z+=zOutPut;
+                    if (z == zOutPut*boyOutPut)
                     {
                         y++;
                         z = 0;
