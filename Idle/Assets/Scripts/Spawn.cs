@@ -193,12 +193,12 @@ public class Spawn : MonoBehaviour
             obj.transform.DOLocalRotate(new Vector3(0, 0, 0), 1f);
             obj.transform.DOLocalJump(new Vector3(x*0.5f, y*0.5f, z*0.5f), 3, 3, 0.3f, false).SetEase(Ease.InQuint);
 
-            x++;
-                if (x == 4)
+            x+=2;
+                if (x == 6)
                 {
                     x = 0;
-                    z++;
-                    if (z == 4)
+                    z+=2;
+                    if (z == 6)
                     {
                         y++;
                         z = 0;
