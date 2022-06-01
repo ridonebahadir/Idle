@@ -30,6 +30,16 @@ public class Spawn : MonoBehaviour
     public bool runMachine;
     public TextMeshPro[] textMesh;
 
+    [Header("COMPONENT ARALIK")]
+    public int xComponent;
+    public int zComponent;
+    public int enComponent;
+    public int boyComponent;
+    [Header("OUTPUT ARALIK")]
+    public int xOutPut;
+    public int zOutPut;
+    public int enOutPut;
+    public int boyOutPut;
     //[Header("PRODUCT L?NE")]
     //public bool runLine;
 
@@ -121,12 +131,12 @@ public class Spawn : MonoBehaviour
         if (grid)
         {
             obj.transform.DOLocalJump(new Vector3(x, y, z), 3, 0, 0.3f, false).SetEase(Ease.InQuint);
-            x++;
-            if (x == 4)
+            x+=xOutPut;
+            if (x == xOutPut*enOutPut)
             {
                 x = 0;
-                z++;
-                if (z == 4)
+                z+=zOutPut;
+                if (z == zOutPut*boyComponent)
                 {
                     y++;
                     z = 0;
@@ -193,12 +203,12 @@ public class Spawn : MonoBehaviour
             obj.transform.DOLocalRotate(new Vector3(0, 0, 0), 1f);
             obj.transform.DOLocalJump(new Vector3(x*0.5f, y*0.5f, z*0.5f), 3, 3, 0.3f, false).SetEase(Ease.InQuint);
 
-            x+=2;
-                if (x == 6)
+            x+=xComponent;
+                if (x == xComponent*enComponent)
                 {
                     x = 0;
-                    z+=2;
-                    if (z == 6)
+                    z+=zComponent;
+                    if (z == zComponent*boyComponent)
                     {
                         y++;
                         z = 0;
