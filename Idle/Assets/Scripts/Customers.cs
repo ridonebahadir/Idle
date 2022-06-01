@@ -5,19 +5,18 @@ using UnityEngine;
 public class Customers : MonoBehaviour
 {
     public GameObject money;
+    public Transform moneyParent;
+   
     int count = 10;
     void Start()
     {
         for (int i = 0; i < count; i++)
         {
-            Instantiate(money, transform);
+           GameObject obj= Instantiate(money, moneyParent);
+            obj.SetActive(false);
         }
        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }

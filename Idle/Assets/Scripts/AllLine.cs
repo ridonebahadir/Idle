@@ -31,37 +31,36 @@ public class AllLine : MonoBehaviour
 
     private void Go()
     {
-        StartCoroutine(Sell(SellCustomer, customers.transform.GetChild(0),1,true));
+        StartCoroutine(Sell(SellCustomer, customers.transform.GetChild(0).GetChild(2).transform,true));
         customers.transform.GetChild(0).DOLocalMove(new Vector3(0, 0, 6), 2f).OnComplete(() => Destroy(customers.transform.GetChild(0).gameObject));
         customers.transform.GetChild(0).GetComponent<Animator>().SetBool("Walk",true);
         go = false;
     }
 
-  
-    IEnumerator Sell(Transform SellArea, Transform child, int money, bool runSell)
+
+    IEnumerator Sell(Transform SellArea, Transform customer, bool runSell)
     {
-        int count = child.childCount-1;
 
-        if (count > 2)
-        {
-            while (runSell)
+        int count = customer.childCount - 1;
+
+        while (runSell)
             {
-
-                child.GetChild(count).transform.DOJump(SellArea.transform.position, 3, 0, 0.1f, false)
-                .OnComplete(() => {
-
-                    child.GetChild(count).transform.parent = SellArea;
-
-                    count--;
-
-
-                    if (count < 0) runSell = false;
-
-                }).SetEase(Ease.InQuint);
+            customer.GetChild(count).gameObject.SetActive(true);
+            
+            customer.GetChild(count).transform.DOJump(SellArea.transform.position, 3, 0, 0.1f, false)
+               .OnComplete(() => {
+                   customer.GetChild(count).gameObject.SetActive(false);
+                   count--;
+                   if (count<=0)
+                   {
+                       runSell = false;
+                   }
+               }).SetEase(Ease.InQuint);
                 yield return new WaitForSeconds(0.1f);
             }
-            yield return new WaitForSeconds(2f);
-            //StartCoroutine(PayMoney(SellArea));
-        }
+           
+          
+        
     }
+
 }
