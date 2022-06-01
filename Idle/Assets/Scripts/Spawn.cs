@@ -33,11 +33,14 @@ public class Spawn : MonoBehaviour
     [Header("COMPONENT ARALIK")]
     public int xComponent;
     public int zComponent;
+    public int yComponent;
     public int enComponent;
     public int boyComponent;
+
     [Header("OUTPUT ARALIK")]
     public int xOutPut;
     public int zOutPut;
+    public int yOutPut;
     public int enOutPut;
     public int boyOutPut;
     //[Header("PRODUCT L?NE")]
@@ -138,7 +141,7 @@ public class Spawn : MonoBehaviour
                 z+=zComponent;
                 if (z == zComponent*boyComponent)
                 {
-                    y++;
+                    y+=yComponent;
                     z = 0;
                 }
 
@@ -210,7 +213,7 @@ public class Spawn : MonoBehaviour
                     z+=zOutPut;
                     if (z == zOutPut*boyOutPut)
                     {
-                        y++;
+                        y+=yOutPut;
                         z = 0;
                     }
 
