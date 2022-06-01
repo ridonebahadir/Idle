@@ -10,7 +10,8 @@ public class Spawn : MonoBehaviour
     public GameObject prefab;
     public float gridX = 0.3f;
     public float gridY = 0.3f;
-    public float spacing = 0.1f;
+    public float spacingx = 0.1f;
+    public float spacingy = 0.1f;
     public List<GameObject> list = new List<GameObject>();
     public HumanCollider humanCollider;
     public bool start;
@@ -58,7 +59,7 @@ public class Spawn : MonoBehaviour
                 {
                     GameObject obj = Instantiate(prefab);
                     obj.transform.parent = outPoint;
-                    Vector3 pos = new Vector3(x, 0, y) * spacing;
+                    Vector3 pos = new Vector3(x * spacingx, 0, y * spacingy);
                     obj.transform.localPosition = pos;
                     list.Add(obj);
 

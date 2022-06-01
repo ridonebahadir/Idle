@@ -3023,7 +3023,8 @@ MonoBehaviour:
   prefab: {fileID: 6680835220796806059, guid: 4b92666337e0024488f02938e43077fc, type: 3}
   gridX: 5
   gridY: 5
-  spacing: 0.35
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 1
@@ -3034,6 +3035,16 @@ MonoBehaviour:
   outPutCount: 0
   runMachine: 0
   textMesh: []
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 0
   whichList: 3
   currentList: []
@@ -4265,7 +4276,8 @@ MonoBehaviour:
   prefab: {fileID: 6680835220796806059, guid: b55f3bc2f2413814c97558cce1b77dcb, type: 3}
   gridX: 5
   gridY: 5
-  spacing: 0.35
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 1
@@ -4276,6 +4288,16 @@ MonoBehaviour:
   outPutCount: 0
   runMachine: 0
   textMesh: []
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 0
   whichList: 0
   currentList: []
@@ -8919,7 +8941,8 @@ MonoBehaviour:
   prefab: {fileID: 7184374846540170255, guid: d5b6b6ef6ff186b4b80768ef1ab6d2ab, type: 3}
   gridX: 5
   gridY: 5
-  spacing: 0.35
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 1
@@ -8930,6 +8953,16 @@ MonoBehaviour:
   outPutCount: 0
   runMachine: 0
   textMesh: []
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 0
   whichList: 2
   currentList: []
@@ -12940,7 +12973,8 @@ MonoBehaviour:
   prefab: {fileID: 6097780482355094886, guid: 8223b54597fb5774184c1836d0af8162, type: 3}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -12953,6 +12987,16 @@ MonoBehaviour:
   textMesh:
   - {fileID: 1550187403}
   - {fileID: 543156483}
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 0
   whichList: 7
   currentList: []
@@ -13888,7 +13932,8 @@ MonoBehaviour:
   prefab: {fileID: 0}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -13899,6 +13944,16 @@ MonoBehaviour:
   outPutCount: 0
   runMachine: 0
   textMesh: []
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 0
   whichList: 13
   currentList: []
@@ -14771,7 +14826,8 @@ MonoBehaviour:
   prefab: {fileID: 5446526415714955722, guid: 436c1d4ae224d1b418f01035233c33e9, type: 3}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -14784,6 +14840,16 @@ MonoBehaviour:
   textMesh:
   - {fileID: 1908869151}
   - {fileID: 340333273}
+  xComponent: 3
+  zComponent: 4
+  yComponent: 2
+  enComponent: 2
+  boyComponent: 2
+  xOutPut: 3
+  zOutPut: 4
+  yOutPut: 2
+  enOutPut: 2
+  boyOutPut: 1
   productLine: 0
   whichList: 4
   currentList: []
@@ -16237,7 +16303,8 @@ MonoBehaviour:
   prefab: {fileID: 5446526415714955722, guid: feb68571062300a42a22f59a2b55f72d, type: 3}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -16250,6 +16317,16 @@ MonoBehaviour:
   textMesh:
   - {fileID: 2041916494}
   - {fileID: 1561475478}
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 0
   whichList: 5
   currentList: []
@@ -16425,9 +16502,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 6612747112060463158, guid: f805deb90a272e7479e6591e0fa713c0, type: 3}
-  gridX: 5
-  gridY: 5
-  spacing: 0.35
+  gridX: 6
+  gridY: 4
+  spacingx: 0.45
+  spacingy: 0.65
   list: []
   humanCollider: {fileID: 1285986723}
   start: 1
@@ -16438,6 +16516,16 @@ MonoBehaviour:
   outPutCount: 0
   runMachine: 0
   textMesh: []
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 0
   whichList: 1
   currentList: []
@@ -17486,7 +17574,8 @@ MonoBehaviour:
   prefab: {fileID: 0}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -17498,6 +17587,16 @@ MonoBehaviour:
   runMachine: 0
   textMesh:
   - {fileID: 1541030539}
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 1
   whichList: 21
   currentList: []
@@ -19299,7 +19398,8 @@ MonoBehaviour:
   prefab: {fileID: 0}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -19310,6 +19410,16 @@ MonoBehaviour:
   outPutCount: 0
   runMachine: 0
   textMesh: []
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 0
   whichList: 11
   currentList: []
@@ -19919,7 +20029,8 @@ MonoBehaviour:
   prefab: {fileID: 0}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -19931,6 +20042,16 @@ MonoBehaviour:
   runMachine: 0
   textMesh:
   - {fileID: 1990117029}
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 1
   whichList: 17
   currentList: []
@@ -19984,7 +20105,8 @@ MonoBehaviour:
   prefab: {fileID: 5446526415714955722, guid: 87fcac97e8e0fc5429d2e20eb0a46f3f, type: 3}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -19997,6 +20119,16 @@ MonoBehaviour:
   textMesh:
   - {fileID: 1205840242}
   - {fileID: 78577816}
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 0
   whichList: 9
   currentList: []
@@ -20175,7 +20307,8 @@ MonoBehaviour:
   prefab: {fileID: 0}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -20187,6 +20320,16 @@ MonoBehaviour:
   runMachine: 0
   textMesh:
   - {fileID: 671453796}
+  xComponent: 2
+  zComponent: 2
+  yComponent: 2
+  enComponent: 3
+  boyComponent: 2
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 1
   whichList: 16
   currentList: []
@@ -20385,7 +20528,8 @@ MonoBehaviour:
   prefab: {fileID: 0}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -20396,6 +20540,16 @@ MonoBehaviour:
   outPutCount: 0
   runMachine: 0
   textMesh: []
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 0
   whichList: 12
   currentList: []
@@ -21681,7 +21835,8 @@ MonoBehaviour:
   prefab: {fileID: 0}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -21692,6 +21847,16 @@ MonoBehaviour:
   outPutCount: 0
   runMachine: 0
   textMesh: []
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 0
   whichList: 14
   currentList: []
@@ -22090,7 +22255,8 @@ MonoBehaviour:
   prefab: {fileID: 5446526415714955722, guid: f47b0eb3b67f0504ebd04f3b9773b48b, type: 3}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -22103,6 +22269,16 @@ MonoBehaviour:
   textMesh:
   - {fileID: 255388616}
   - {fileID: 1639699887}
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 0
   whichList: 6
   currentList: []
@@ -22538,7 +22714,8 @@ MonoBehaviour:
   prefab: {fileID: 0}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -22550,6 +22727,16 @@ MonoBehaviour:
   runMachine: 0
   textMesh:
   - {fileID: 1302916099}
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 1
   whichList: 19
   currentList: []
@@ -22859,7 +23046,8 @@ MonoBehaviour:
   prefab: {fileID: 0}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -22871,6 +23059,16 @@ MonoBehaviour:
   runMachine: 0
   textMesh:
   - {fileID: 1716678962}
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 1
   whichList: 20
   currentList: []
@@ -24108,7 +24306,8 @@ MonoBehaviour:
   prefab: {fileID: 0}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -24119,6 +24318,16 @@ MonoBehaviour:
   outPutCount: 0
   runMachine: 0
   textMesh: []
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 0
   whichList: 15
   currentList: []
@@ -25349,7 +25558,8 @@ MonoBehaviour:
   prefab: {fileID: 0}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -25361,6 +25571,16 @@ MonoBehaviour:
   runMachine: 0
   textMesh:
   - {fileID: 1317533181}
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 1
   whichList: 18
   currentList: []
@@ -26853,7 +27073,8 @@ MonoBehaviour:
   prefab: {fileID: 0}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -26864,6 +27085,16 @@ MonoBehaviour:
   outPutCount: 0
   runMachine: 0
   textMesh: []
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 0
   whichList: 10
   currentList: []
@@ -30759,7 +30990,8 @@ MonoBehaviour:
   prefab: {fileID: 5446526415714955722, guid: 490be3b33b5dfc743afd89cdb376609f, type: 3}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -30772,6 +31004,16 @@ MonoBehaviour:
   textMesh:
   - {fileID: 851304799}
   - {fileID: 146809408}
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 0
   whichList: 8
   currentList: []
@@ -30971,6 +31213,46 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6919191456783131929, guid: 436c1d4ae224d1b418f01035233c33e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898186348678051086, guid: 436c1d4ae224d1b418f01035233c33e9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898186348678051086, guid: 436c1d4ae224d1b418f01035233c33e9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898186348678051086, guid: 436c1d4ae224d1b418f01035233c33e9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 26.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898186348678051086, guid: 436c1d4ae224d1b418f01035233c33e9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0850457
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898186348678051086, guid: 436c1d4ae224d1b418f01035233c33e9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.99637705
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898186348678051086, guid: 436c1d4ae224d1b418f01035233c33e9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.00000015044878
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898186348678051086, guid: 436c1d4ae224d1b418f01035233c33e9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000000012841547
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898186348678051086, guid: 436c1d4ae224d1b418f01035233c33e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -170.243
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898186348678051086, guid: 436c1d4ae224d1b418f01035233c33e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898186348678051086, guid: 436c1d4ae224d1b418f01035233c33e9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
@@ -32700,7 +32982,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970956885}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.462, y: 0.164, z: -0.726}
+  m_LocalPosition: {x: -3.01, y: 0.164, z: -1.036}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 179206202}
@@ -33921,7 +34203,8 @@ MonoBehaviour:
   prefab: {fileID: 0}
   gridX: 0.3
   gridY: 0.3
-  spacing: 0.1
+  spacingx: 0.1
+  spacingy: 0.1
   list: []
   humanCollider: {fileID: 1285986723}
   start: 0
@@ -33933,6 +34216,16 @@ MonoBehaviour:
   runMachine: 0
   textMesh:
   - {fileID: 1488583998}
+  xComponent: 0
+  zComponent: 0
+  yComponent: 0
+  enComponent: 0
+  boyComponent: 0
+  xOutPut: 0
+  zOutPut: 0
+  yOutPut: 0
+  enOutPut: 0
+  boyOutPut: 0
   productLine: 1
   whichList: 21
   currentList: []
