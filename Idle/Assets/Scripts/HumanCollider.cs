@@ -126,20 +126,20 @@ public class HumanCollider : MonoBehaviour
         if (other.tag == "RawMaterial")
         {
             run = false;
-            StartCoroutine(FixedHeight());
+           
 
         }
 
         if (other.tag == "Put")
         {
             run = false;
-            StartCoroutine(FixedHeight());
+           
         }
 
         if (other.tag == "OutPut")
         {
             run = false;
-            StartCoroutine(FixedHeight());
+           
 
         }
 
@@ -148,20 +148,20 @@ public class HumanCollider : MonoBehaviour
 
 
             run = false;
-            StartCoroutine(FixedHeight());
+           
 
 
         }
         if (other.tag == "Pay")
         {
             run = false;
-            StartCoroutine(FixedHeight());
+           
 
         }
         if (other.tag == "Component")
         {
             run = false;
-            StartCoroutine(FixedHeight());
+           
 
 
         }
@@ -196,14 +196,14 @@ public class HumanCollider : MonoBehaviour
                 bagYAxis -= 0.25f;
                
             }
-            else
-            {
-                StartCoroutine(FixedHeight());
-            }
+            //else
+            //{
+            //    StartCoroutine(FixedHeight());
+            //}
            
             yield return new WaitForSeconds(0.1f);
 
-            
+            StartCoroutine(FixedHeight());
 
 
         }
