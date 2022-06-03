@@ -231,9 +231,9 @@ public class Spawn : MonoBehaviour
         outPutCount = 0;
     }
    
-    public void Azalma(bool ýsOut)
+    public void Azalma(bool isOut)
     {
-        if (ýsOut)
+        if (isOut)
         {
             x -= xOutPut;
             if (x == 0)
