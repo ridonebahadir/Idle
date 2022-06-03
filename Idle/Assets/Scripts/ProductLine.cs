@@ -8,6 +8,7 @@ public class ProductLine : MonoBehaviour
 {
     public int id;
     public Transform[] component;
+    public Spawn[] spawn;
     public GameObject car;
     public AllLine allLine;
    
@@ -26,9 +27,14 @@ public class ProductLine : MonoBehaviour
         pos = transform.position;
         for (int i = 0; i < component.Length; i++)
         {
-            component[i] = transform.parent.GetComponent<AllLine>().component[i];
+            component[i] = allLine.component[i];
+            //spawn[i] = allLine.spawn[i];
         }
-       
+        for (int i = 0; i < spawn.Length; i++)
+        {
+            spawn[i] = allLine.spawn[i];
+        }
+
     }
     private void Update()
     {
@@ -85,20 +91,26 @@ public class ProductLine : MonoBehaviour
         {
             if (turn<6)
             {
+               
                 transform.DOLocalMove(new Vector3(component[turn].transform.position.x, transform.localPosition.y, transform.localPosition.z), 2f)
                .OnComplete(() => {
-
+                  
                    if (turn == 0)
                    {
                        GameObject obj = Instantiate(car, pos, Quaternion.Euler(0, -90, 0), transform.parent);
                        obj.SetActive(false);
                        obj.name = id.ToString();
                    }
+                   //spawn[turn].Azalma(false);
                    transform.GetChild(turn).gameObject.SetActive(true);
                    transform.parent.GetChild(id + 1).gameObject.SetActive(true);
-                    //transform.parent.GetChild(id + 1).GetComponent<ProductLine>().move = true;
-                    Destroy(component[turn].transform.GetChild(0).gameObject);
-                    turn++;
+                   //transform.parent.GetChild(id + 1).GetComponent<ProductLine>().move = true;
+                   
+
+
+                   Destroy(component[turn].transform.GetChild(component[turn].childCount-1).gameObject);
+                  
+                   turn++;
                    oneTime = false;
                    run = false;
 

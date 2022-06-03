@@ -12,4 +12,8 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    public void Sell(GameObject abj)
+    {
+        Debug.Log(abj.name);
+    }
 }

@@ -51,26 +51,26 @@ public class Spawn : MonoBehaviour
     void Start()
     {
         WhichList();
-        if (start)
-        {
-            for (int y = 0; y < gridY; y++)
-            {
-                for (int x = 0; x < gridX; x++)
-                {
-                    GameObject obj = Instantiate(prefab);
-                    obj.transform.parent = outPoint;
-                    Vector3 pos = new Vector3(x * spacingx, 0, y * spacingy);
-                    obj.transform.localPosition = pos;
-                    list.Add(obj);
+        //if (start)
+        //{
+        //    for (int y = 0; y < gridY; y++)
+        //    {
+        //        for (int x = 0; x < gridX; x++)
+        //        {
+        //            GameObject obj = Instantiate(prefab);
+        //            obj.transform.parent = outPoint;
+        //            Vector3 pos = new Vector3(x * spacingx, 0, y * spacingy);
+        //            obj.transform.localPosition = pos;
+        //            list.Add(obj);
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
         
     }
-    int x;
-    int y;
-    int z;
+     int x;
+     int y;
+     int z;
     bool oneTime = true;
     public bool productLine;
     private void Update()
@@ -112,6 +112,7 @@ public class Spawn : MonoBehaviour
             list[a].transform.DOLocalJump(new Vector3(0, bagYaxis, 0), 3, 0, 0.4f, false).SetEase(Ease.OutQuint);
             list.RemoveAt(a);
             humanCollider.bagYAxis += 0.25f;
+            Azalma(true);
             Vibration.Vibrate(10);
         }
         else
@@ -230,7 +231,39 @@ public class Spawn : MonoBehaviour
         outPutCount = 0;
     }
    
+    public void Azalma(bool ýsOut)
+    {
+        if (ýsOut)
+        {
+            x -= xOutPut;
+            if (x == 0)
+            {
+                x = xOutPut * enOutPut;
+                z -= zOutPut;
+                if (z ==0)
+                {
+                    y -= yOutPut;
+                    z = zOutPut * boyOutPut;
+                }
 
+            }
+        }
+        else
+        {
+            x -= xComponent;
+            if (x == xComponent * enComponent)
+            {
+                x = xComponent;
+                z -= zComponent;
+                if (z == zComponent * boyComponent)
+                {
+                    y -= yComponent;
+                    z = zComponent;
+                }
+
+            }
+        }
+    }
     public enum ListSelect {
         metal,polimer,cam,kablo,
         sase,wheel,koltuk,engine, body, pencere,

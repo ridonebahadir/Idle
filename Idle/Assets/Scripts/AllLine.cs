@@ -8,6 +8,7 @@ public class AllLine : MonoBehaviour
 {
     public Transform customers;
     public Transform[] component;
+    public Spawn[] spawn;
     public int a = 0;
     public int currentCarNumber;
     public float showRoomZAxis = -43;
