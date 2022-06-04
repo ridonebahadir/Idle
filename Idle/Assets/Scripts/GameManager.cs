@@ -8,7 +8,11 @@ public class GameManager : MonoBehaviour
 {
     public int money;
     public TextMeshProUGUI moneyText;
-   public void Restart()
+    private void Start()
+    {
+        moneyText.text = money.ToString();
+    }
+    public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

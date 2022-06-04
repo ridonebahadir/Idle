@@ -12,12 +12,12 @@ public class SellRaw : MonoBehaviour
     public Transform outPoint;
     public Transform kamyon;
     public GameManager gameManager;
+    public BoxCollider paletCollider;
    
-
  
     private void OnMouseDown()
     {
-
+        paletCollider.enabled = false;
         run = true;
         StartCoroutine(SpawnRaw());
        
@@ -59,6 +59,8 @@ public class SellRaw : MonoBehaviour
             }
             else
             {
+                yield return new WaitForSeconds(4f);
+                paletCollider.enabled = true;
                 adet = 0;
                 run = false;
             }
