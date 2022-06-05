@@ -6,7 +6,7 @@ using System;
 
 public class HumanCollider : MonoBehaviour
 {
-   
+    public int capasity;
     public AllLine allLine;
     private Spawn spawn;
     public GameManager gameManager;
@@ -52,10 +52,12 @@ public class HumanCollider : MonoBehaviour
        
         if (other.tag== "RawMaterial")
         {
+           
+                spawn = other.transform.GetComponent<Spawn>();
+                run = true;
+                StartCoroutine(ComeObj(true));
             
-            spawn = other.transform.GetComponent<Spawn>();
-            run = true;
-            StartCoroutine(ComeObj(true));
+           
           
         }
        
@@ -90,7 +92,7 @@ public class HumanCollider : MonoBehaviour
             {
                 run = true;
                 StartCoroutine(Sell(other.transform.parent.GetChild(1).transform, bagListMetal,1,true));
-                StartCoroutine(Sell(other.transform.parent.GetChild(1).transform, bagListPolimer,1,true));
+                StartCoroutine(Sell(other.transform.parent.GetChild(1).transform, bagListPolimer,10,true));
                 StartCoroutine(Sell(other.transform.parent.GetChild(1).transform, bagListCam,1,true));
                 StartCoroutine(Sell(other.transform.parent.GetChild(1).transform, bagListKablo,1,true));
 
@@ -119,6 +121,11 @@ public class HumanCollider : MonoBehaviour
             allLine.transform.GetChild(allLine.currentCarNumber).transform.GetComponent<ProductLine>().SellCar();
 
         }
+        //if (other.tag=="Raf")
+        //{
+        //    spawn = other.transform.GetComponent<Spawn>();
+        //    spawn.CustomerRaf();
+        //}
     }
     private void OnTriggerExit(Collider other)
     {
@@ -172,18 +179,22 @@ public class HumanCollider : MonoBehaviour
    
     IEnumerator ComeObj(bool add)
     {
-        
         while (run)
         {
-            
-            spawn.ComeObj(bag, bagYAxis,add);
-           
+            if (bag.childCount < capasity)
+            {
+                spawn.ComeObj(bag, bagYAxis, add);
+
+            }
+            else
+            {
+                run = false;
+            }
+
+
             yield return new WaitForSeconds(0.15f);
 
         }
-           
-        
-       
     }
 
     IEnumerator GoObj(List<GameObject> list,int id,bool grid)
@@ -196,14 +207,18 @@ public class HumanCollider : MonoBehaviour
                 bagYAxis -= 0.25f;
                
             }
+            else
+            {
+                run = false;
+            }
             //else
             //{
             //    StartCoroutine(FixedHeight());
             //}
-           
+
             yield return new WaitForSeconds(0.1f);
 
-            StartCoroutine(FixedHeight());
+            //StartCoroutine(FixedHeight());
 
 
         }

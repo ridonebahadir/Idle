@@ -18,8 +18,8 @@ public class Spawn : MonoBehaviour
     //public GameObject warning;
     [Header("SHAKE")]
     public Transform machine;
-    private float shakePower = 0.3f;
-    private float shakeTimer = 0.5f;
+    private float shakePower = 0.8f;
+    private float shakeTimer = 1f;
    
     
 
@@ -73,6 +73,7 @@ public class Spawn : MonoBehaviour
      int z;
     bool oneTime = true;
     public bool productLine;
+   
     private void Update()
     {
         if (productLine)
@@ -88,6 +89,7 @@ public class Spawn : MonoBehaviour
            productCount[0] = breakPoint.childCount;
             textMesh[0].text = productCount[0].ToString();
         }
+       
     }
 
     public void ComeObj(Transform bag,float bagYaxis,bool add)
@@ -112,7 +114,7 @@ public class Spawn : MonoBehaviour
             list[a].transform.DOLocalJump(new Vector3(0, bagYaxis, 0), 3, 0, 0.4f, false).SetEase(Ease.OutQuint);
             list.RemoveAt(a);
             humanCollider.bagYAxis += 0.25f;
-            Azalma(true);
+            //Azalma(true);
             Vibration.Vibrate(10);
         }
         else
@@ -146,6 +148,7 @@ public class Spawn : MonoBehaviour
                     y+=yComponent;
                     z = 0;
                 }
+                
 
             }
         }
@@ -173,7 +176,7 @@ public class Spawn : MonoBehaviour
 
             if (((productCount[0] -= a) >= 0) && ((productCount[1] -= b) >= 0))
             {
-                machine.DOShakePosition(shakeTimer, shakePower, fadeOut: true);
+                machine.DOShakeRotation(shakeTimer, shakePower, fadeOut: true);
                 textMesh[0].text = productCount[0].ToString();
                 textMesh[1].text = productCount[1].ToString();
                 //for (int i = 0; i < productCount.Length; i++)
@@ -268,13 +271,14 @@ public class Spawn : MonoBehaviour
         metal,polimer,cam,kablo,
         sase,wheel,koltuk,engine, body, pencere,
         saseOut, wheelOut, koltukOut, engineOut, bodyOut, pencereOut,
-        saseComponent, wheelComponenet,koltukComponent, engineComponent, bodyComponent, pencereComponent};
+        saseComponent, wheelComponenet,koltukComponent, engineComponent, bodyComponent, pencereComponent,
+        raf};
     public ListSelect whichList;
     public List<GameObject> currentList;
     public List<GameObject> currentList2;
    
     
-   
+  
 
     public void WhichList()
     {
@@ -363,59 +367,12 @@ public class Spawn : MonoBehaviour
                 break;
             default:
                 break;
+
+            //RAF
+            case ListSelect.raf:
+                currentList = humanCollider.bagListWheel;
+                break;
         }
-        //switch (whichList)
-        //{
 
-        //    //RAW MATERIAL
-        //    case ListSelect.metal:
-        //        currentList = humanCollider.bagListMetal;
-        //        break;
-        //    case ListSelect.polimer:
-        //        currentList = humanCollider.bagListPolimer;
-        //        break;
-        //    case ListSelect.cam:
-        //        currentList = humanCollider.bagListCam;
-        //        break;
-        //    case ListSelect.kablo:
-        //        currentList = humanCollider.bagListKablo;
-        //        break;
-
-
-        //    //MACHINE
-        //    case ListSelect.sase:
-        //        currentList = humanCollider.bagListMetal;
-        //        currentList2 = humanCollider.bagListPolimer;
-
-        //        break;
-        //    case ListSelect.wheel:
-        //        currentList = humanCollider.bagListPolimer;
-        //        currentList2 = humanCollider.bagListCam;
-
-        //        break;
-
-
-        //    //OUT
-        //    case ListSelect.crossOut:
-        //        currentList = humanCollider.bagListCross;
-
-        //        break;
-        //    case ListSelect.capsuleOut:
-        //        currentList = humanCollider.bagListCapsule;
-
-        //        break;
-        //    default:
-
-        //    //COMPONENT
-        //    case ListSelect.saseComponent:
-        //        currentList = humanCollider.bagListCross;
-
-        //        break;
-        //    case ListSelect.wheelComponenet:
-        //        currentList = humanCollider.bagListCapsule;
-
-        //        break;
-
-        //}
     }
 }
