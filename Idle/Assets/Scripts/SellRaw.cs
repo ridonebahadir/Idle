@@ -22,6 +22,15 @@ public class SellRaw : MonoBehaviour
 
     [Header("UI")]
     public Upgrade[] upgrades;
+    
+    bool isTimer;
+    private void Update()
+    {
+       
+        adetText.text = outPoint.childCount.ToString();
+
+
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag=="Human")
@@ -29,10 +38,11 @@ public class SellRaw : MonoBehaviour
             upGrade.SetActive(true);
             upgrades[0].Control();
             upgrades[1].Control();
-            run = true;
-            co = SpawnRaw(); // create an IEnumerator object
-            StartCoroutine(co); // start the coroutine
-
+           
+            isTimer = true;
+            co = Timer();
+            // start the coroutine
+            StartCoroutine(co);
            
         }
        
@@ -42,84 +52,86 @@ public class SellRaw : MonoBehaviour
         if (other.tag == "Human")
         {
             upGrade.SetActive(false);
-            //StopCoroutine(co);
+            isTimer = false;
+           
+            StopCoroutine(co);
             //run = false;
         }
 
     }
-    //private void OnMouseDown()
-    //{
-    //    paletCollider.enabled = false;
-    //    run = true;
-    //    StartCoroutine(SpawnRaw());
-
-
-
-    //}
+  
     float x;
     float y;
     float z;
     bool run;
     IEnumerator SpawnRaw()
     {
-        yield return new WaitForSeconds(1f);
+       
         while (run)
         {
-          
-            if (adet<capasity)
-            {
-                upgrades[0].Control();
-                upgrades[1].Control();
-              
-                GameObject obj = Instantiate(raw, kamyon);
-                obj.transform.parent = outPoint;
-
-                gameManager.money -= value;
-                gameManager.moneyText.text = gameManager.money.ToString();
-                
-
-                adet++;
-                //adetText.text = outPoint.childCount.ToString();
-
-
-                obj.transform.DOLocalJump(new Vector3(x, y, z), 3, 0, animTime, false).OnComplete(() => { spawn.list.Add(obj);}).SetEase(Ease.InQuint);
-                x += 0.7f;
-                if (x == 2.8f)
+           
+                if (adet < capasity)
                 {
-                    x = 0;
-                    z += 0.5f;
-                    if (z == 2)
+                    upgrades[0].Control();
+                    upgrades[1].Control();
+
+                    GameObject obj = Instantiate(raw, kamyon);
+                    obj.transform.parent = outPoint;
+
+                    gameManager.money -= value;
+                    gameManager.moneyText.text = gameManager.money.ToString();
+
+
+                    adet++;
+                    //adetText.text = outPoint.childCount.ToString();
+
+
+                    obj.transform.DOLocalJump(new Vector3(x, y, z), 3, 0, animTime, false).OnComplete(() => { spawn.list.Add(obj); }).SetEase(Ease.InQuint);
+                    x += 0.7f;
+                    if (x == 2.8f)
                     {
-                        y += 0.5f;
-                        z = 0;
+                        x = 0;
+                        z += 0.5f;
+                        if (z == 2)
+                        {
+                            y += 0.5f;
+                            z = 0;
+                        }
+
                     }
-
                 }
+
+
+                else
+                {
+
+                    //yield return new WaitForSeconds(4f);
+
+                    adet = 0;
+                    run = false;
+                }
+
+                yield return new WaitForSeconds(0.2f);
             }
-
-
-            else
-            {
-               
-                //yield return new WaitForSeconds(4f);
-               
-                adet = 0;
-                run = false;
-            }
-
-            yield return new WaitForSeconds(0.2f);
-        }
+           
+        
 
 
           
     }
-    private void Update()
+    
+    IEnumerator Timer()
     {
-       
-            adetText.text = outPoint.childCount.ToString();
-      
-       
+        while (isTimer) 
+        {
+            yield return new WaitForSeconds(1f);
+            run = true;
+           
+            StartCoroutine(SpawnRaw());
+        }
+        
     }
+  
     
 }
 
