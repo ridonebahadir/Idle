@@ -255,6 +255,7 @@ public class HumanCollider : MonoBehaviour
                    bagYAxis -= 0.25f;
                    bagList[count].transform.parent = SellArea;
                    bagList.RemoveAt(count);
+
                    count--;
                    payMoney += money;
                  
@@ -314,6 +315,8 @@ public class HumanCollider : MonoBehaviour
                     obj.gameObject.SetActive(false);
                     gameManager.money++;
                     gameManager.moneyText.text = gameManager.money.ToString();
+                    Destroy(obj.gameObject);
+
                 });
             yield return new WaitForSeconds(0.1f);
         }

@@ -15,7 +15,7 @@ public class SellRaw : MonoBehaviour
     public Transform outPoint;
     public Transform kamyon;
     public GameManager gameManager;
-    public BoxCollider paletCollider;
+  
     public TextMeshPro adetText;
     public GameObject upGrade;
     IEnumerator co;
@@ -65,24 +65,24 @@ public class SellRaw : MonoBehaviour
         yield return new WaitForSeconds(1f);
         while (run)
         {
-            paletCollider.enabled = false;
+          
             if (adet<capasity)
             {
                 upgrades[0].Control();
                 upgrades[1].Control();
-                paletCollider.enabled = false;
+              
                 GameObject obj = Instantiate(raw, kamyon);
                 obj.transform.parent = outPoint;
 
                 gameManager.money -= value;
                 gameManager.moneyText.text = gameManager.money.ToString();
-                spawn.list.Add(obj);
+                
 
                 adet++;
                 //adetText.text = outPoint.childCount.ToString();
 
 
-                obj.transform.DOLocalJump(new Vector3(x, y, z), 3, 0, animTime, false).OnComplete(() => paletCollider.enabled = true).SetEase(Ease.InQuint);
+                obj.transform.DOLocalJump(new Vector3(x, y, z), 3, 0, animTime, false).OnComplete(() => { spawn.list.Add(obj);}).SetEase(Ease.InQuint);
                 x += 0.7f;
                 if (x == 2.8f)
                 {
@@ -102,7 +102,7 @@ public class SellRaw : MonoBehaviour
             {
                
                 //yield return new WaitForSeconds(4f);
-                paletCollider.enabled = true;
+               
                 adet = 0;
                 run = false;
             }
