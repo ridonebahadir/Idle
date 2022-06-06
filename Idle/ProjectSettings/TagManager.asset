@@ -23,6 +23,7 @@ TagManager:
   - Component
   - Kasa
   - Human
+  - Door
   layers:
   - Default
   - TransparentFX
