@@ -101,6 +101,7 @@ public class Spawn : MonoBehaviour
             if (add)
             {
                 currentList.Add(list[a]);
+                
             }
             else
             {
