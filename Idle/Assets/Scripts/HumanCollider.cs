@@ -125,6 +125,7 @@ public class HumanCollider : MonoBehaviour
         {
             other.transform.GetChild(0).transform.DOScaleY(0,1f).SetEase(Ease.InOutExpo); ;
         }
+     
     }
     private void OnTriggerExit(Collider other)
     {
