@@ -235,39 +235,39 @@ public class Spawn : MonoBehaviour
         outPutCount = 0;
     }
    
-    public void Azalma(bool isOut)
-    {
-        if (isOut)
-        {
-            x -= xOutPut;
-            if (x == 0)
-            {
-                x = xOutPut * enOutPut;
-                z -= zOutPut;
-                if (z ==0)
-                {
-                    y -= yOutPut;
-                    z = zOutPut * boyOutPut;
-                }
+    //public void Azalma(bool isOut)
+    //{
+    //    if (isOut)
+    //    {
+    //        x -= xOutPut;
+    //        if (x == 0)
+    //        {
+    //            x = xOutPut * enOutPut;
+    //            z -= zOutPut;
+    //            if (z ==0)
+    //            {
+    //                y -= yOutPut;
+    //                z = zOutPut * boyOutPut;
+    //            }
 
-            }
-        }
-        else
-        {
-            x -= xComponent;
-            if (x == xComponent * enComponent)
-            {
-                x = xComponent;
-                z -= zComponent;
-                if (z == zComponent * boyComponent)
-                {
-                    y -= yComponent;
-                    z = zComponent;
-                }
+    //        }
+    //    }
+    //    else
+    //    {
+    //        x -= xComponent;
+    //        if (x == xComponent * enComponent)
+    //        {
+    //            x = xComponent;
+    //            z -= zComponent;
+    //            if (z == zComponent * boyComponent)
+    //            {
+    //                y -= yComponent;
+    //                z = zComponent;
+    //            }
 
-            }
-        }
-    }
+    //        }
+    //    }
+    //}
     public enum ListSelect {
         metal,polimer,cam,kablo,
         sase,wheel,koltuk,engine, body, pencere,

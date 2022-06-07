@@ -51,6 +51,7 @@ public class SellRaw : MonoBehaviour
     {
         if (other.tag == "Human")
         {
+            Azalma();
             upGrade.SetActive(false);
             isTimer = false;
            
@@ -131,7 +132,29 @@ public class SellRaw : MonoBehaviour
         }
         
     }
-  
-    
+
+    public void Azalma()
+    {
+        x = 0;
+        y = 0;
+        z = 0;
+        for (int i = 0; i < outPoint.childCount; i++)
+        {
+            Debug.Log("asddsafsaf");
+            x += 0.7f;
+            if (x == 2.8f)
+            {
+                x = 0;
+                z += 0.5f;
+                if (z == 2)
+                {
+                    y += 0.5f;
+                    z = 0;
+                }
+
+            }
+        }
+
+    }
 }
 

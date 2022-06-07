@@ -6,6 +6,7 @@ using System;
 
 public class HumanCollider : MonoBehaviour
 {
+    public SellRaw sellRaw;
     public int capasity;
     public AllLine allLine;
     private Spawn spawn;
@@ -133,7 +134,8 @@ public class HumanCollider : MonoBehaviour
         if (other.tag == "RawMaterial")
         {
             run = false;
-           
+            sellRaw = other.gameObject.transform.parent.GetChild(4).GetComponent<SellRaw>();
+            sellRaw.Azalma();
 
         }
 
