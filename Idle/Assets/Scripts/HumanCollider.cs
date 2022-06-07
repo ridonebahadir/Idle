@@ -121,11 +121,11 @@ public class HumanCollider : MonoBehaviour
             allLine.transform.GetChild(allLine.currentCarNumber).transform.GetComponent<ProductLine>().SellCar();
 
         }
-        //if (other.tag=="Raf")
-        //{
-        //    spawn = other.transform.GetComponent<Spawn>();
-        //    spawn.CustomerRaf();
-        //}
+        if (other.tag=="Door")
+        {
+            other.transform.GetChild(0).transform.DOScaleY(0,1f).SetEase(Ease.InOutExpo); ;
+        }
+     
     }
     private void OnTriggerExit(Collider other)
     {
@@ -172,7 +172,11 @@ public class HumanCollider : MonoBehaviour
 
 
         }
-       
+        if (other.tag == "Door")
+        {
+            other.transform.GetChild(0).transform.DOScaleY(1, 1f).SetEase(Ease.InExpo);
+        }
+
     }
   
     public bool run;
@@ -251,6 +255,7 @@ public class HumanCollider : MonoBehaviour
                    bagYAxis -= 0.25f;
                    bagList[count].transform.parent = SellArea;
                    bagList.RemoveAt(count);
+
                    count--;
                    payMoney += money;
                  
@@ -310,6 +315,8 @@ public class HumanCollider : MonoBehaviour
                     obj.gameObject.SetActive(false);
                     gameManager.money++;
                     gameManager.moneyText.text = gameManager.money.ToString();
+                    Destroy(obj.gameObject);
+
                 });
             yield return new WaitForSeconds(0.1f);
         }
