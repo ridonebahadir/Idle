@@ -152,6 +152,7 @@ public class HumanCollider : MonoBehaviour
         if (other.tag == "OutPut")
         {
             run = false;
+            spawn.Azalma(true);
            
 
         }
@@ -174,7 +175,7 @@ public class HumanCollider : MonoBehaviour
         if (other.tag == "Component")
         {
             run = false;
-           
+            spawn.Azalma(false);
 
 
         }
@@ -316,7 +317,7 @@ public class HumanCollider : MonoBehaviour
         {
             GameObject obj = moneyList[i];
             obj.transform.parent = bag.parent;
-            obj.transform.DOLocalMove(new Vector3(0,0,-0.5f), 0.5f, false)
+            obj.transform.DOLocalMove(Vector3.zero, 0.5f, false)
                 .OnComplete(()=> { 
                     obj.gameObject.SetActive(false);
                     gameManager.money+=2;
@@ -324,7 +325,7 @@ public class HumanCollider : MonoBehaviour
                     Destroy(obj.gameObject);
 
                 });
-            //yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.1f);
         }
 
         yield return new WaitForSeconds(0.1f);

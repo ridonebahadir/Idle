@@ -67,18 +67,21 @@ public class Cost : MonoBehaviour
 
     IEnumerator OpenTurn()
     {
+        close.SetActive(false);
         //yield return new WaitForSeconds(0.5f);
         for (int i = 0; i < transforms.Length; i++)
         {
-            if (i == transforms.Length - 1)
-            {
-                close.SetActive(false);
-            }
+            
+
            
+
             transforms[i].gameObject.SetActive(true);
             transforms[i].transform.DOPunchScale(new Vector3(.2f, 0.2f, .2f), 0.1f);   //KUFU_ANIM
-
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.5f);
+            if (i == transforms.Length - 1)
+            {
+                transform.gameObject.SetActive(false);
+            }
         }
     }
     bool isTimer;

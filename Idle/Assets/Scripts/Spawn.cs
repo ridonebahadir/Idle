@@ -234,40 +234,53 @@ public class Spawn : MonoBehaviour
         }
         outPutCount = 0;
     }
-   
-    //public void Azalma(bool isOut)
-    //{
-    //    if (isOut)
-    //    {
-    //        x -= xOutPut;
-    //        if (x == 0)
-    //        {
-    //            x = xOutPut * enOutPut;
-    //            z -= zOutPut;
-    //            if (z ==0)
-    //            {
-    //                y -= yOutPut;
-    //                z = zOutPut * boyOutPut;
-    //            }
 
-    //        }
-    //    }
-    //    else
-    //    {
-    //        x -= xComponent;
-    //        if (x == xComponent * enComponent)
-    //        {
-    //            x = xComponent;
-    //            z -= zComponent;
-    //            if (z == zComponent * boyComponent)
-    //            {
-    //                y -= yComponent;
-    //                z = zComponent;
-    //            }
+  
+    public void Azalma(bool isOut)
+    {
+        x = 0;
+        y = 0;
+        z = 0;
+        if (isOut)
+        {
+            for (int i = 0; i < outPoint.childCount; i++)
+            {
+                x += xOutPut;
+                if (x == xOutPut * enOutPut)
+                {
+                    x = 0;
+                    z += zOutPut;
+                    if (z == zOutPut * boyOutPut)
+                    {
+                        y += yOutPut;
+                        z = 0;
+                    }
 
-    //        }
-    //    }
-    //}
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < outPoint.childCount; i++)
+            {
+                x += xComponent;
+                if (x == xComponent * enComponent)
+                {
+                    x = 0;
+                    z += zComponent;
+                    if (z == zComponent * boyComponent)
+                    {
+                        y += yComponent;
+                        z = 0;
+                    }
+
+
+                }
+            }
+        }
+       
+
+    }
     public enum ListSelect {
         metal,polimer,cam,kablo,
         sase,wheel,koltuk,engine, body, pencere,
