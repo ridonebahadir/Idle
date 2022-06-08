@@ -3,20 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.UI;
 
 public class Cost : MonoBehaviour
 {
     public GameManager gameManager;
-    public int costValue;
+    public float costValue;
     public GameObject open;
     public Transform[] transforms;
     public GameObject close;
     public GameObject money;
     public TextMeshPro costText;
+    public Image image;
+    private float imageAmount;
     IEnumerator co;
     bool run;
     private void Start()
     {
+        imageAmount =1 / costValue;
         costText.text = costValue.ToString();
     }
     private void OnTriggerEnter(Collider other)
@@ -25,17 +29,16 @@ public class Cost : MonoBehaviour
         {
             co = Timer(other.transform);
             run = true;
-            if (gameManager.money>costValue)
-            {
-               
-                isTimer = true;
-                
-               
-                StartCoroutine(co);
-                
+           
 
-            }
+                isTimer = true;
+            pay = true;
+
+                StartCoroutine(co);
+
+
             
+
         }
     }
     private void OnTriggerExit(Collider other)
@@ -45,6 +48,7 @@ public class Cost : MonoBehaviour
             isTimer = false;
             StopCoroutine(co);
             run = false;
+            pay = false;
         }
     }
 
@@ -52,15 +56,13 @@ public class Cost : MonoBehaviour
     {
         
         yield return new WaitForSeconds(2f);
-        if (run)
-        {
+       
             //open.SetActive(true);
             StartCoroutine(OpenTurn());
            
-            gameManager.money -= costValue;
-            gameManager.moneyText.text = gameManager.money.ToString();
            
-        }
+           
+        
     }
 
     IEnumerator OpenTurn()
@@ -92,21 +94,40 @@ public class Cost : MonoBehaviour
         }
 
     }
+    bool pay = true;
     IEnumerator MoneyGo(Transform human)
     {
-        for (int i = 0; i < costValue; i++)
+        while (pay)
         {
-            GameObject obj= Instantiate(money,human);
+            GameObject obj = Instantiate(money, human);
             obj.transform.parent = transform;
             obj.transform.DOLocalJump(new Vector3(0, 0, 0), 3, 0, 1.5f, false).OnComplete(() => Destroy(obj)).SetEase(Ease.OutQuint);
+            Vibration.Vibrate(40);
+            image.fillAmount += imageAmount;
+            gameManager.money--;
+            costValue--;
+            costText.text = costValue.ToString();
+            gameManager.moneyText.text = gameManager.money.ToString();
             yield return new WaitForSeconds(0.1f);
-            if (i== costValue-1)
+            if (costValue <= 0)
             {
                 isTimer = false;
                 StopCoroutine(co);
-                StartCoroutine(OpenMachine());
-            }
+                
 
+                    isTimer = true;
+               
+
+                    StartCoroutine(OpenMachine());
+                pay = false;
+
+
+
+            }
+          
         }
+           
+
+        
     }
 }
