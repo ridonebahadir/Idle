@@ -72,11 +72,11 @@ public class Cost : MonoBehaviour
             {
                 close.SetActive(false);
             }
-            yield return new WaitForSeconds(0.3f);
+           
             transforms[i].gameObject.SetActive(true);
             transforms[i].transform.DOPunchScale(new Vector3(.2f, 0.2f, .2f), 0.1f);   //KUFU_ANIM
-           
-           
+
+            yield return new WaitForSeconds(0.3f);
         }
     }
     bool isTimer;
