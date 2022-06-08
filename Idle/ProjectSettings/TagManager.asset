@@ -25,6 +25,7 @@ TagManager:
   - Human
   - Door
   - Order
+  - Generator
   layers:
   - Default
   - TransparentFX

@@ -93,7 +93,7 @@ public class HumanCollider : MonoBehaviour
             {
                 run = true;
                 StartCoroutine(Sell(other.transform.parent.GetChild(1).transform, bagListMetal,1,true));
-                StartCoroutine(Sell(other.transform.parent.GetChild(1).transform, bagListPolimer,10,true));
+                StartCoroutine(Sell(other.transform.parent.GetChild(1).transform, bagListPolimer,1,true));
                 StartCoroutine(Sell(other.transform.parent.GetChild(1).transform, bagListCam,1,true));
                 StartCoroutine(Sell(other.transform.parent.GetChild(1).transform, bagListKablo,1,true));
 
@@ -108,7 +108,11 @@ public class HumanCollider : MonoBehaviour
         }
         if (other.tag=="Pay")
         {
-            StartCoroutine(ComeMoney());
+            if (moneyList.Count>0)
+            {
+                StartCoroutine(ComeMoney());
+            }
+            
         }
         if (other.tag=="Component")
         {
@@ -251,11 +255,11 @@ public class HumanCollider : MonoBehaviour
         {
             while (runSell)
             {
-
-                bagList[count].transform.DOJump(SellArea.transform.position, 3, 0, 0.1f, false)
+                bagList[count].transform.parent = SellArea;
+                bagList[count].transform.DOLocalJump(Vector3.zero, 3, 0, 0.5f, false)
                .OnComplete(() => {
                    bagYAxis -= 0.25f;
-                   bagList[count].transform.parent = SellArea;
+                   
                    bagList.RemoveAt(count);
 
                    count--;
@@ -275,12 +279,12 @@ public class HumanCollider : MonoBehaviour
     int z;
     IEnumerator PayMoney(Transform sellArea)
     {
-        for (int i = 1; i < payMoney; i++)
+        for (int i = 0; i < payMoney; i++)
         {
             GameObject obj = Instantiate(money, sellArea);
             obj.transform.parent = payArea;
             moneyList.Add(obj);
-            obj.transform.DOLocalJump(new Vector3(x*0.5f, y*0.25f, z*0.5f), 3, 0, 0.3f, false);
+            obj.transform.DOLocalJump(new Vector3(x*0.5f, y*0.25f, z*0.5f), 3, 0, 0.5f, false);
             x++;
             if (x == 4)
             {
@@ -311,16 +315,16 @@ public class HumanCollider : MonoBehaviour
         for (int i = moneyList.Count-1; i > -1; i--)
         {
             GameObject obj = moneyList[i];
-            obj.transform.parent = bag;
-            obj.transform.DOLocalJump(new Vector3(0,0,-0.5f), 3, 0, 0.3f, false)
+            obj.transform.parent = bag.parent;
+            obj.transform.DOLocalMove(new Vector3(0,0,-0.5f), 0.5f, false)
                 .OnComplete(()=> { 
                     obj.gameObject.SetActive(false);
-                    gameManager.money++;
+                    gameManager.money+=2;
                     gameManager.moneyText.text = gameManager.money.ToString();
                     Destroy(obj.gameObject);
 
                 });
-            yield return new WaitForSeconds(0.1f);
+            //yield return new WaitForSeconds(0.1f);
         }
 
         yield return new WaitForSeconds(0.1f);
