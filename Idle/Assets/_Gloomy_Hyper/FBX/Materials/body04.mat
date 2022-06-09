@@ -113,15 +113,15 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _Color: {r: 1, g: 0.95441294, b: 0, a: 1}
-    - _DamageColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0, g: 0.6006255, b: 1, a: 1}
+    - _DamageColor: {r: 0, g: 0.2924528, b: 0.28181887, a: 1}
     - _DissolveColor: {r: 0, g: 1, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _HColor: {r: 1, g: 0, b: 0.2667613, a: 1}
+    - _HColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _RimColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SColor: {r: 0.6981132, g: 0, b: 0.40490562, a: 1}
+    - _SColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
