@@ -6,6 +6,7 @@ public class Customers : MonoBehaviour
 {
     public GameObject money;
     public Transform moneyParent;
+    public List<GameObject> listMoney;
    
     int count = 10;
     void Start()
@@ -13,6 +14,7 @@ public class Customers : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
            GameObject obj= Instantiate(money, moneyParent);
+            listMoney.Add(obj);
             obj.SetActive(false);
         }
        

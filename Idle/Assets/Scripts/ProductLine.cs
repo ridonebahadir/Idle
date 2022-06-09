@@ -146,12 +146,12 @@ public class ProductLine : MonoBehaviour
             allLine.oneTime = false;
             allLine.go = true;
            
-            transform.DOLocalMove(new Vector3(transform.localPosition.x, 0, transform.localPosition.z), 2f).OnComplete(()=>GoSellCar());
+            transform.DOLocalMove(new Vector3(transform.localPosition.x, 0, transform.localPosition.z), 4f).OnComplete(()=>GoSellCar());
             allLine.currentCarNumber++;
             transform.GetChild(6).gameObject.SetActive(false);
             if (transform.parent.GetChild(id + 1).GetComponent<ProductLine>().turn==6)
             {
-                transform.parent.GetChild(id + 1).transform.DOLocalMove(new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z), 2f);
+                transform.parent.GetChild(id + 1).transform.DOLocalMove(new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z), 4f);
 
             }
             allLine.showRoomZAxis -= 4;
@@ -163,6 +163,6 @@ public class ProductLine : MonoBehaviour
     }
     void GoSellCar()
     {
-        transform.DOLocalMove(new Vector3(transform.localPosition.x-30, 0, transform.localPosition.z), 2f);
+        transform.DOLocalMove(new Vector3(transform.localPosition.x-30, 0, transform.localPosition.z), 6f);
     }
 }
