@@ -19,6 +19,9 @@ public class Cost : MonoBehaviour
     public Transform mainCamera;
     private BoxCollider boxCollider;
     IEnumerator co;
+    [Header("For BANT")]
+    public bool isBant;
+    public GameObject productLine;
     bool run;
     private void Start()
     {
@@ -95,6 +98,10 @@ public class Cost : MonoBehaviour
             }).SetEase(Ease.InExpo);   //KUFU_ANIM
             yield return new WaitForSeconds(0.1f);
            
+        }
+        if (isBant)
+        {
+            productLine.SetActive(true);
         }
     }
     bool isTimer;
