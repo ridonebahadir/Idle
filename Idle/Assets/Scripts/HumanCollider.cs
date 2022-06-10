@@ -138,7 +138,7 @@ public class HumanCollider : MonoBehaviour
         if (other.tag == "RawMaterial")
         {
             run = false;
-            sellRaw = other.gameObject.transform.parent.GetChild(4).GetComponent<SellRaw>();
+            sellRaw = other.gameObject.transform.parent.parent.GetChild(1).GetChild(0).GetComponent<SellRaw>();
             sellRaw.Azalma();
 
         }
@@ -251,7 +251,8 @@ public class HumanCollider : MonoBehaviour
     IEnumerator Sell(Transform SellArea,List<GameObject> bagList,int money,bool runSell)
     {
         int count = bagList.Count - 1;
-
+      
+        Debug.Log("COunt = " + count);
         if (count > 0)
         {
             while (runSell)
@@ -259,7 +260,7 @@ public class HumanCollider : MonoBehaviour
                 bagList[count].transform.parent = SellArea;
                 bagList[count].transform.DOLocalJump(Vector3.zero, 3, 0, 0.5f, false)
                .OnComplete(() => {
-                   bagYAxis -= 0.25f;
+                  
                    
                    bagList.RemoveAt(count);
 
@@ -272,6 +273,7 @@ public class HumanCollider : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
             }
             yield return new WaitForSeconds(2f);
+            bagYAxis = 0f;
             StartCoroutine(PayMoney(SellArea));
         }
     }
@@ -313,6 +315,7 @@ public class HumanCollider : MonoBehaviour
 
     IEnumerator ComeMoney()
     {
+        float a = 1 / moneyList.Count;
         for (int i = moneyList.Count-1; i > -1; i--)
         {
             GameObject obj = moneyList[i];
@@ -323,12 +326,15 @@ public class HumanCollider : MonoBehaviour
                     gameManager.money+=2;
                     gameManager.moneyText.text = gameManager.money.ToString();
                     Destroy(obj.gameObject);
+                   
 
                 });
-            yield return new WaitForSeconds(0.1f);
+           
+            yield return new WaitForSeconds(a);
         }
 
         yield return new WaitForSeconds(0.1f);
+        moneyList.Clear();
         x = 0;y = 0;z = 0;
 
     }

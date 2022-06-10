@@ -9,19 +9,26 @@ public class Cost : MonoBehaviour
 {
     public GameManager gameManager;
     public float costValue;
-    public GameObject open;
+   
     public Transform[] transforms;
     public GameObject close;
     public GameObject money;
     public TextMeshPro costText;
     public Image image;
     private float imageAmount;
+    public Transform mainCamera;
+    private BoxCollider boxCollider;
     IEnumerator co;
     bool run;
     private void Start()
     {
+        for (int i = 0; i < transforms.Length; i++)
+        {
+            transforms[i].localPosition = new Vector3(transforms[i].localPosition.x, transforms[i].localPosition.y+20, transforms[i].localPosition.z);
+        }
         imageAmount =1 / costValue;
         costText.text = costValue.ToString();
+        boxCollider = GetComponent<BoxCollider>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -52,10 +59,10 @@ public class Cost : MonoBehaviour
         }
     }
 
-    IEnumerator OpenMachine()
+    void OpenMachine()
     {
         
-        yield return new WaitForSeconds(2f);
+        //yield return new WaitForSeconds(2f);
        
             //open.SetActive(true);
             StartCoroutine(OpenTurn());
@@ -68,6 +75,7 @@ public class Cost : MonoBehaviour
     IEnumerator OpenTurn()
     {
         close.SetActive(false);
+        boxCollider.enabled = false;
         //yield return new WaitForSeconds(0.5f);
         for (int i = 0; i < transforms.Length; i++)
         {
@@ -76,12 +84,17 @@ public class Cost : MonoBehaviour
            
 
             transforms[i].gameObject.SetActive(true);
-            transforms[i].transform.DOPunchScale(new Vector3(.2f, 0.2f, .2f), 0.1f);   //KUFU_ANIM
-            yield return new WaitForSeconds(0.5f);
-            if (i == transforms.Length - 1)
-            {
-                transform.gameObject.SetActive(false);
-            }
+            transforms[i].transform.DOLocalMoveY(0, 0.5f).OnComplete(()=> {
+                mainCamera.DOShakeRotation(0.1f,0.3f);
+                //if (i == transforms.Length - 1)
+                //{
+                //    transform.gameObject.SetActive(false);
+                //}
+
+
+            }).SetEase(Ease.InExpo);   //KUFU_ANIM
+            yield return new WaitForSeconds(0.1f);
+           
         }
     }
     bool isTimer;
@@ -119,9 +132,9 @@ public class Cost : MonoBehaviour
                 
 
                     isTimer = true;
-               
 
-                    StartCoroutine(OpenMachine());
+                 OpenMachine();
+                    //StartCoroutine(OpenMachine());
                 pay = false;
 
 
