@@ -37,7 +37,7 @@ public class SellRaw : MonoBehaviour
     {
         if (other.tag=="Human")
         {
-            //upGrade.SetActive(true);
+            upGrade.SetActive(true);
             upgrades[0].Control();
             upgrades[1].Control();
            
