@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
 
@@ -21,7 +22,8 @@ public class SellRaw : MonoBehaviour
     public TextMeshPro adetText;
     public GameObject upGrade;
     IEnumerator co;
-
+    public Image waitImage;
+ 
     [Header("UI")]
     public Upgrade[] upgrades;
     
@@ -58,6 +60,8 @@ public class SellRaw : MonoBehaviour
             isTimer = false;
            
             StopCoroutine(co);
+
+            waitImage.DOFillAmount(0, 1);
             //run = false;
         }
 
@@ -73,8 +77,13 @@ public class SellRaw : MonoBehaviour
         {
             kamyonObj.gameObject.SetActive(true);
             kamyonObj.transform.DOLocalMove(Vector3.zero, 1f).SetEase(Ease.OutQuint);
+           
         }
-        
+        else
+        {
+            waitImage.fillAmount = 1;
+            waitImage.color = Color.red;
+        }
         yield return new WaitForSeconds(1f);
         while (run)
         {
@@ -111,7 +120,7 @@ public class SellRaw : MonoBehaviour
 
             else
             {
-               
+                waitImage.color = Color.red;
                 yield return new WaitForSeconds(0.5f);
               
               
@@ -130,11 +139,13 @@ public class SellRaw : MonoBehaviour
 
           
     }
-    
+
     IEnumerator Timer()
     {
         while (isTimer) 
         {
+            waitImage.color = Color.green;
+            waitImage.DOFillAmount(1, 1);
             yield return new WaitForSeconds(1f);
             run = true;
            
