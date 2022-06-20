@@ -130,6 +130,10 @@ public class HumanCollider : MonoBehaviour
         {
             other.transform.GetChild(0).transform.DOScaleY(0,1f).SetEase(Ease.InOutExpo); ;
         }
+        if (other.tag=="BankTake")
+        {
+            StartCoroutine(BankTakeMoney(other.transform));
+        }
      
     }
     private void OnTriggerExit(Collider other)
@@ -337,5 +341,22 @@ public class HumanCollider : MonoBehaviour
         moneyList.Clear();
         x = 0;y = 0;z = 0;
 
+    }
+    IEnumerator BankTakeMoney(Transform other)
+    {
+        other.GetComponent<BoxCollider>().enabled = false;
+        int a = other.childCount;
+        int turn = 0;
+        for (int i = 0; i < a; i++)
+        {
+            GameObject obj = other.GetChild(turn).gameObject;
+            obj.transform.parent = transform;
+            obj.transform.DOLocalMove(Vector3.zero, 0.5f, false).OnComplete(()=>Destroy(obj.gameObject));
+           
+          
+        }
+        yield return new WaitForSeconds(0.1f);
+        gameManager.money = 20000;
+        gameManager.moneyText.text = gameManager.money.ToString();
     }
 }

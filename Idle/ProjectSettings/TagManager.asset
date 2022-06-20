@@ -26,6 +26,7 @@ TagManager:
   - Door
   - Order
   - Generator
+  - BankTake
   layers:
   - Default
   - TransparentFX
