@@ -6,6 +6,7 @@ using TMPro;
 
 public class Spawn : MonoBehaviour
 {
+    
     public bool productLine;
     public GameObject prefab;
     public float gridX = 0.3f;
@@ -57,6 +58,7 @@ public class Spawn : MonoBehaviour
     public TextMeshPro borderCountText;
     public Transform logo;
     int price;
+    public CameraFollow cameraFollow;
     //[Header("PRODUCT L?NE")]
     //public bool runLine;
 
@@ -222,8 +224,14 @@ public class Spawn : MonoBehaviour
         }
 
     }
+    public static bool first = true;
     IEnumerator KargoAracMove()
     {
+        if (first)
+        {
+            cameraFollow.Move();
+            first = false;
+        }
         logo.transform.parent.gameObject.SetActive(false);
         boxColliderSell.enabled = false;
         yield return new WaitForSeconds(1f);
@@ -408,7 +416,7 @@ public class Spawn : MonoBehaviour
             //MAKINA
             case ListSelect.sase:
                 currentList = humanCollider.bagListMetal;
-                currentList2 = humanCollider.bagListPolimer;
+                currentList2 = humanCollider.bagListKablo;
                 break;
             case ListSelect.wheel:
                 currentList = humanCollider.bagListMetal;
@@ -416,7 +424,7 @@ public class Spawn : MonoBehaviour
                 break;
             case ListSelect.koltuk:
                 currentList = humanCollider.bagListPolimer;
-                currentList2 = humanCollider.bagListKablo;
+                currentList2 = humanCollider.bagListMetal;
                 break;
             case ListSelect.engine:
                 currentList = humanCollider.bagListMetal;
@@ -481,13 +489,13 @@ public class Spawn : MonoBehaviour
 
             //KARGO
             case ListSelect.kargoWheel:
-                currentList = humanCollider.bagListMetal;
+                currentList = humanCollider.bagListWheel;
                 logo.GetChild(0).gameObject.SetActive(true);
                 logo.GetChild(1).gameObject.SetActive(false);
                 price = 4;
                 break;
             case ListSelect.kargoKoltuk:
-                currentList = humanCollider.bagListPolimer;
+                currentList = humanCollider.bagListKoltuk;
                 logo.GetChild(0).gameObject.SetActive(false);
                 logo.GetChild(1).gameObject.SetActive(true);
                 price = 3;

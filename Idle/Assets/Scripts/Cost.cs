@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Cost : MonoBehaviour
 {
+    public CameraFollow cameraFollow;
     public GameManager gameManager;
     public float costValue;
    
@@ -64,7 +65,7 @@ public class Cost : MonoBehaviour
 
     void OpenMachine()
     {
-        
+        Debug.Log("sfsgdsgdf");
         //yield return new WaitForSeconds(2f);
        
             //open.SetActive(true);
@@ -103,6 +104,8 @@ public class Cost : MonoBehaviour
         {
             productLine.SetActive(true);
         }
+        yield return new WaitForSeconds(2f);
+        cameraFollow.Move();
     }
     bool isTimer;
     IEnumerator Timer(Transform human)
@@ -131,12 +134,12 @@ public class Cost : MonoBehaviour
             costValue--;
             costText.text = costValue.ToString();
             gameManager.moneyText.text = gameManager.money.ToString();
-            yield return new WaitForSeconds(0.1f);
+            
             if (costValue <= 0)
             {
                 isTimer = false;
                 StopCoroutine(co);
-                
+                Debug.Log("PAY");
 
                     isTimer = true;
 
@@ -147,7 +150,7 @@ public class Cost : MonoBehaviour
 
 
             }
-          
+            yield return new WaitForSeconds(0.1f);
         }
            
 

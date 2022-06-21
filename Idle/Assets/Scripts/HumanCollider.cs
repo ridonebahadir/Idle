@@ -6,6 +6,7 @@ using System;
 
 public class HumanCollider : MonoBehaviour
 {
+    public CameraFollow cameraFollow;
     public SellRaw sellRaw;
     public int capasity;
     public AllLine allLine;
@@ -390,5 +391,7 @@ public class HumanCollider : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         gameManager.money = 20000;
         gameManager.moneyText.text = gameManager.money.ToString();
+        yield return new WaitForSeconds(1f);
+        cameraFollow.Move();
     }
 }
