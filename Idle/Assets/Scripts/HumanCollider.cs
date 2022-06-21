@@ -6,6 +6,7 @@ using System;
 
 public class HumanCollider : MonoBehaviour
 {
+    public CameraFollow cameraFollow;
     public SellRaw sellRaw;
     public int capasity;
     public AllLine allLine;
@@ -91,16 +92,16 @@ public class HumanCollider : MonoBehaviour
         {
             if (bag.childCount>0)
             {
-                run = true;
-                StartCoroutine(Sell(other.transform.parent.GetChild(1).transform, bagListMetal,1,true));
-                StartCoroutine(Sell(other.transform.parent.GetChild(1).transform, bagListPolimer,1,true));
-                StartCoroutine(Sell(other.transform.parent.GetChild(1).transform, bagListCam,1,true));
-                StartCoroutine(Sell(other.transform.parent.GetChild(1).transform, bagListKablo,1,true));
-
-                StartCoroutine(Sell(other.transform.parent.GetChild(1).transform, bagListSase,4,true));
-                StartCoroutine(Sell(other.transform.parent.GetChild(1).transform, bagListWheel,5,true));
                
-                
+                run = true;
+                spawn = other.transform.GetComponent<Spawn>();
+                if (spawn.currentList.Count > 0)
+                {
+                    StartCoroutine(GoObjKargo(spawn.currentList, 0, false));
+                }
+               
+
+
             }
            
 
@@ -241,7 +242,38 @@ public class HumanCollider : MonoBehaviour
         
 
     }
+    IEnumerator GoObjKargo(List<GameObject> list, int id, bool grid)
+    {
+        while (run)
+        {
+            if (list.Count > 0)
+            {
+               
+                    spawn.GoObjKargo(list, id, grid);
+                   
+                
+              
 
+            }
+            else
+            {
+                run = false;
+            }
+            //else
+            //{
+            //    StartCoroutine(FixedHeight());
+            //}
+
+            yield return new WaitForSeconds(0.1f);
+
+            //StartCoroutine(FixedHeight());
+
+
+        }
+
+
+
+    }
     IEnumerator FixedHeight()
     {
         for (int i = 0; i < bag.transform.childCount; i++)
@@ -278,17 +310,18 @@ public class HumanCollider : MonoBehaviour
             }
             yield return new WaitForSeconds(2f);
             bagYAxis = 0f;
-            StartCoroutine(PayMoney(SellArea));
+            //StartCoroutine(PayMoney(SellArea));
         }
     }
     int x;
     int y;
     int z;
-    IEnumerator PayMoney(Transform sellArea)
+    public IEnumerator PayMoney(int countMoney,Transform sellArea)
     {
-        for (int i = 0; i < payMoney; i++)
+        Debug.Log("countMoney ="+countMoney);
+        for (int i = 0; i < countMoney; i++)
         {
-            GameObject obj = Instantiate(money, sellArea);
+            GameObject obj = Instantiate(money,sellArea);
             obj.transform.parent = payArea;
             moneyList.Add(obj);
             obj.transform.DOLocalJump(new Vector3(x*0.5f, y*0.25f, z*0.5f), 3, 0, 0.5f, false);
@@ -358,5 +391,7 @@ public class HumanCollider : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         gameManager.money = 20000;
         gameManager.moneyText.text = gameManager.money.ToString();
+        yield return new WaitForSeconds(1f);
+        cameraFollow.Move();
     }
 }

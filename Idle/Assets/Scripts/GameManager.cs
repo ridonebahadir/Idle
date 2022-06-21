@@ -6,6 +6,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public CameraFollow cameraFollow;
     public int money;
     public TextMeshProUGUI moneyText;
     [Header("Lock")]
@@ -14,14 +15,18 @@ public class GameManager : MonoBehaviour
     public Transform bant;
     public Transform productLine;
     public bool locked = true;
-
+     
 
     private void Start()
     {
+       
         moneyText.text = money.ToString();
         if (!locked)
         {
-          
+            foreach (var item in cameraFollow.transforms)
+            {
+                item.gameObject.SetActive(true);
+            }
             foreach (Transform item in bant)
             {
                 item.gameObject.SetActive(true);

@@ -76,7 +76,7 @@ public class SellRaw : MonoBehaviour
         if (outPoint.childCount<capasity)
         {
             kamyonObj.gameObject.SetActive(true);
-            kamyonObj.transform.DOLocalMove(Vector3.zero, 1f).SetEase(Ease.OutQuint);
+            kamyonObj.transform.DOLocalMove(Vector3.zero, 1f).SetEase(Ease.OutExpo);
            
         }
         else
@@ -124,7 +124,7 @@ public class SellRaw : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
               
               
-                kamyonObj.transform.DOLocalMove(new Vector3(20,0,0), 1f).OnComplete(()=>kamyonObj.gameObject.SetActive(false)).SetEase(Ease.InQuint);
+                kamyonObj.transform.DOLocalMove(new Vector3(20,0,0), 1f).OnComplete(()=>kamyonObj.gameObject.SetActive(false)).SetEase(Ease.InExpo);
                 adet = 0;
                 run = false;
 
