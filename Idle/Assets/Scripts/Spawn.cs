@@ -6,7 +6,7 @@ using TMPro;
 
 public class Spawn : MonoBehaviour
 {
-    
+    public bool productLine;
     public GameObject prefab;
     public float gridX = 0.3f;
     public float gridY = 0.3f;
@@ -44,12 +44,34 @@ public class Spawn : MonoBehaviour
     public int yOutPut;
     public int enOutPut;
     public int boyOutPut;
+
+    [Header("KARGO ARAC")]
+    public Transform kargoarac;
+    public int borderCount;
+    int borderStartCount;
+    Vector3 startPosKargoarac;
+    Vector3 startRotateBackDoor;
+    Vector3 startRotateBackDoor2;
+    BoxCollider boxColliderSell;
+    public Transform backDoor;
+    public TextMeshPro borderCountText;
+    public Transform logo;
+    int price;
     //[Header("PRODUCT L?NE")]
     //public bool runLine;
 
 
     void Start()
     {
+        if (kargoarac!=null)
+        {
+            borderStartCount = borderCount;
+            borderCountText.text = borderCount.ToString();
+            boxColliderSell = GetComponent<BoxCollider>();
+            startPosKargoarac = kargoarac.transform.localPosition;
+            startRotateBackDoor = backDoor.GetChild(0).transform.localRotation.eulerAngles; 
+            startRotateBackDoor2 = backDoor.GetChild(1).transform.localRotation.eulerAngles; 
+        }
         WhichList();
         //if (start)
         //{
@@ -72,7 +94,7 @@ public class Spawn : MonoBehaviour
      int y;
      int z;
     bool oneTime = true;
-    public bool productLine;
+  
    
     private void Update()
     {
@@ -126,9 +148,10 @@ public class Spawn : MonoBehaviour
       
 
     }
-
+   
     public void GoObj(List<GameObject> bagList, int id, bool grid)
     {
+        
         int a = bagList.Count - 1;
         GameObject obj = bagList[a];
         obj.transform.parent = breakPoint;
@@ -161,13 +184,79 @@ public class Spawn : MonoBehaviour
         }
 
         bagList.RemoveAt(a);
-
+        
         productCount[id]++;
         textMesh[id].text = productCount[id].ToString();
         Vibration.Vibrate(40);
        
     }
-    
+    public void GoObjKargo(List<GameObject> bagList, int id, bool grid)
+    {
+        if (borderCount>0)
+        {
+            int a = bagList.Count - 1;
+            GameObject obj = bagList[a];
+            obj.transform.parent = breakPoint;
+            obj.transform.DOLocalRotate(new Vector3(0, 0, 0), 1f);
+
+
+
+
+
+            obj.transform.DOLocalJump(new Vector3(0, 0, 0), 3, 1, 0.3f, false)
+           .OnComplete(() => { if (!grid) obj.transform.gameObject.SetActive(false); }).SetEase(Ease.InQuint);
+
+           
+            bagList.RemoveAt(a);
+            borderCount--;
+            borderCountText.text = borderCount.ToString();
+            humanCollider.bagYAxis -= 0.25f;
+
+            Vibration.Vibrate(40);
+
+        }
+        else
+        {
+            humanCollider.run = false;
+            StartCoroutine(KargoAracMove());
+        }
+
+    }
+    IEnumerator KargoAracMove()
+    {
+        logo.transform.parent.gameObject.SetActive(false);
+        boxColliderSell.enabled = false;
+        yield return new WaitForSeconds(1f);
+        foreach (Transform item in backDoor)
+        {
+            item.DOLocalRotate(Vector3.zero, 0.5f);
+        }
+       
+        yield return new WaitForSeconds(1f);
+        kargoarac.DOLocalMoveZ(startPosKargoarac.z + 20, 1f).OnComplete(()=> 
+        {
+            kargoarac.DOLocalMoveZ(startPosKargoarac.z, 5f).OnComplete(()=> 
+            {
+                
+                backDoor.GetChild(0).DOLocalRotate(startRotateBackDoor, 0.5f);
+                backDoor.GetChild(1).DOLocalRotate(startRotateBackDoor2, 0.5f);
+                StartCoroutine(humanCollider.PayMoney(borderStartCount*price,transform));
+                int a = System.Enum.GetValues(typeof(ListSelect)).Length;
+                whichList = (ListSelect)Random.Range(a-2, a);
+                
+                WhichList();
+                boxColliderSell.enabled = true;
+                borderCount = Random.Range(1, 5);
+                borderStartCount = borderCount;
+                borderCountText.text = borderCount.ToString();
+                logo.transform.parent.gameObject.SetActive(true);
+               
+;            }).SetEase(Ease.OutExpo);
+        }).SetEase(Ease.InExpo);
+        
+       
+    }
+
     public IEnumerator OutPut(int a,int b)
     {
         yield return new WaitForSeconds(3f);
@@ -286,7 +375,10 @@ public class Spawn : MonoBehaviour
         sase,wheel,koltuk,engine, body, pencere,
         saseOut, wheelOut, koltukOut, engineOut, bodyOut, pencereOut,
         saseComponent, wheelComponenet,koltukComponent, engineComponent, bodyComponent, pencereComponent,
-        raf};
+        raf,
+        kargoWheel,kargoKoltuk};
+
+    [Header("SELECT")]
     public ListSelect whichList;
     public List<GameObject> currentList;
     public List<GameObject> currentList2;
@@ -386,6 +478,21 @@ public class Spawn : MonoBehaviour
             case ListSelect.raf:
                 currentList = humanCollider.bagListWheel;
                 break;
+
+            //KARGO
+            case ListSelect.kargoWheel:
+                currentList = humanCollider.bagListMetal;
+                logo.GetChild(0).gameObject.SetActive(true);
+                logo.GetChild(1).gameObject.SetActive(false);
+                price = 4;
+                break;
+            case ListSelect.kargoKoltuk:
+                currentList = humanCollider.bagListPolimer;
+                logo.GetChild(0).gameObject.SetActive(false);
+                logo.GetChild(1).gameObject.SetActive(true);
+                price = 3;
+                break;
+
         }
 
     }
