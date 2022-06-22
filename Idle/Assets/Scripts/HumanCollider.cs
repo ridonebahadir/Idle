@@ -381,9 +381,10 @@ public class HumanCollider : MonoBehaviour
         {
             GameObject obj = other.GetChild(turn).gameObject;
             obj.transform.parent = transform;
-            obj.transform.DOLocalMove(Vector3.zero, 0.5f, false).OnComplete(()=>Destroy(obj.gameObject));
-           
-          
+            obj.transform.DOScale(new Vector3(0.3f,0.3f,0.3f), 0.4f).SetEase(Ease.InOutSine);
+            obj.transform.DOLocalMove(Vector3.zero, 0.4f, false).OnComplete(()=>Destroy(obj.gameObject)).SetEase(Ease.InOutSine);
+            yield return new WaitForSeconds(0.01f);
+
         }
         yield return new WaitForSeconds(0.1f);
         gameManager.money = 20000;
