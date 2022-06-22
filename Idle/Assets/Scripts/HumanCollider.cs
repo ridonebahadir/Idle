@@ -62,7 +62,6 @@ public class HumanCollider : MonoBehaviour
            
           
         }
-       
         if (other.tag=="Put")
         {
             run = true;
@@ -71,15 +70,14 @@ public class HumanCollider : MonoBehaviour
             {
                 StartCoroutine(GoObj(spawn.currentList, 0, false));
             }
-            if (spawn.currentList2.Count > 0)
-            {
-                StartCoroutine(GoObj(spawn.currentList2, 1, false));
-            }
+            //if (spawn.currentList2.Count > 0)
+            //{
+            //    StartCoroutine(GoObj(spawn.currentList2, 1, false));
+            //}
            
             spawn.runMachine = true;
             StartCoroutine(spawn.OutPut(2,1));
         }
-       
         if (other.tag=="OutPut")
         {
             spawn = other.transform.parent.GetChild(1).GetComponent<Spawn>();
@@ -87,7 +85,6 @@ public class HumanCollider : MonoBehaviour
             
             StartCoroutine(ComeObj(false));
         }
-       
         if (other.tag=="Sell")
         {
             if (bag.childCount>0)
