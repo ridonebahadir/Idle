@@ -104,14 +104,14 @@ public class SellRaw : MonoBehaviour
 
 
                 obj.transform.DOLocalJump(new Vector3(x, y, z), 3, 0, animTime, false).OnComplete(() => { spawn.list.Add(obj); }).SetEase(Ease.InQuint);
-                x += 0.7f;
-                if (x == 2.8f)
+                x += 1.4f;
+                if (x >= 2.8f)
                 {
                     x = 0;
-                    z += 0.5f;
-                    if (z == 2)
+                    z += 1f;
+                    if (z >= 3f)
                     {
-                        y += 0.5f;
+                        y += 1f;
                         z = 0;
                     }
 
@@ -162,15 +162,15 @@ public class SellRaw : MonoBehaviour
         z = 0;
         for (int i = 0; i < outPoint.childCount; i++)
         {
-           
-            x += 0.7f;
-            if (x == 2.8f)
+
+            x += 1.4f;
+            if (x >= 2.8f)
             {
                 x = 0;
-                z += 0.5f;
-                if (z == 2)
+                z += 1f;
+                if (z >= 3f)
                 {
-                    y += 0.5f;
+                    y += 1f;
                     z = 0;
                 }
 
