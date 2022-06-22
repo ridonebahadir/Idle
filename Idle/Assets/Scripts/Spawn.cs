@@ -138,7 +138,7 @@ public class Spawn : MonoBehaviour
             list[a].transform.DOLocalRotate(new Vector3(0, 0, 0), 1f);
             list[a].transform.DOLocalJump(new Vector3(0, bagYaxis, 0), 3, 0, 0.4f, false).SetEase(Ease.OutQuint);
             list.RemoveAt(a);
-            humanCollider.bagYAxis += 0.25f;
+            humanCollider.bagYAxis += 0.40f;
             //Azalma(true);
             Vibration.Vibrate(10);
         }
@@ -212,7 +212,7 @@ public class Spawn : MonoBehaviour
             bagList.RemoveAt(a);
             borderCount--;
             borderCountText.text = borderCount.ToString();
-            humanCollider.bagYAxis -= 0.25f;
+            humanCollider.bagYAxis -= 0.40f;
 
             Vibration.Vibrate(40);
 
@@ -272,15 +272,12 @@ public class Spawn : MonoBehaviour
         while (runMachine)
         {
 
-            if (((productCount[0] -= a) >= 0) && ((productCount[1] -= b) >= 0))
+            if (((productCount[0] -= a) >= 0)/* && ((productCount[1] -= b) >= 0)*/)
             {
                 machine.DOShakeRotation(shakeTimer, shakePower, fadeOut: true);
                 textMesh[0].text = productCount[0].ToString();
-                textMesh[1].text = productCount[1].ToString();
-                //for (int i = 0; i < productCount.Length; i++)
-                //{
-                //    textMesh[i].text = productCount[i].ToString();
-                //}
+                //textMesh[1].text = productCount[1].ToString();
+              
 
                 outPutCount++;
             }
@@ -291,12 +288,12 @@ public class Spawn : MonoBehaviour
                 runMachine = false;
                 productCount[0] = 0;
             }
-            if (productCount[1] <= 0)
-            {
+            //if (productCount[1] <= 0)
+            //{
                 
-                runMachine = false;
-                productCount[1] = 0;
-            }
+            //    runMachine = false;
+            //    productCount[1] = 0;
+            //}
             yield return new WaitForSeconds(0.1f);
         }
         yield return new WaitForSeconds(1f);
@@ -416,27 +413,27 @@ public class Spawn : MonoBehaviour
             //MAKINA
             case ListSelect.sase:
                 currentList = humanCollider.bagListMetal;
-                currentList2 = humanCollider.bagListKablo;
+                //currentList2 = humanCollider.bagListKablo;
                 break;
             case ListSelect.wheel:
                 currentList = humanCollider.bagListMetal;
-                currentList2 = humanCollider.bagListPolimer;
+                //currentList2 = humanCollider.bagListPolimer;
                 break;
             case ListSelect.koltuk:
                 currentList = humanCollider.bagListPolimer;
-                currentList2 = humanCollider.bagListMetal;
+                //currentList2 = humanCollider.bagListMetal;
                 break;
             case ListSelect.engine:
                 currentList = humanCollider.bagListMetal;
-                currentList2 = humanCollider.bagListKablo;
+                //currentList2 = humanCollider.bagListKablo;
                 break;
             case ListSelect.body:
                 currentList = humanCollider.bagListMetal;
-                currentList2 = humanCollider.bagListKablo;
+                //currentList2 = humanCollider.bagListKablo;
                 break;
             case ListSelect.pencere:
                 currentList2 = humanCollider.bagListCam;
-                currentList = humanCollider.bagListPolimer;
+                //currentList = humanCollider.bagListPolimer;
                 break;
 
             //OUT

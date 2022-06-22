@@ -121,21 +121,40 @@ public class Cost : MonoBehaviour
 
     }
     bool pay = true;
+    float katsayi;
+   
     IEnumerator MoneyGo(Transform human)
     {
+       
+        katsayi = costValue / 30;
+        
         while (pay)
         {
+           
             GameObject obj = Instantiate(money, human);
             obj.transform.parent = transform;
             obj.transform.DOLocalJump(new Vector3(0, 0, 0), 3, 0, 1.5f, false).OnComplete(() => Destroy(obj)).SetEase(Ease.OutQuint);
             Vibration.Vibrate(40);
             image.fillAmount += imageAmount;
-            gameManager.money--;
-            costValue--;
+            costValue -= katsayi;
+            gameManager.money-=(int)katsayi;
+            
             costText.text = costValue.ToString();
             gameManager.moneyText.text = gameManager.money.ToString();
-            
-            if (costValue <= 0)
+            if (gameManager.money <= 0)
+            {
+                costValue -= gameManager.money;
+                costText.text = costValue.ToString();
+
+               
+                gameManager.moneyText.text = gameManager.money.ToString();
+                
+                isTimer = false;
+                StopCoroutine(co);
+                run = false;
+                pay = false;
+            }
+            if (costValue <= katsayi)
             {
                 isTimer = false;
                 StopCoroutine(co);

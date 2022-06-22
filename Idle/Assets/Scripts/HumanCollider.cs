@@ -62,7 +62,6 @@ public class HumanCollider : MonoBehaviour
            
           
         }
-       
         if (other.tag=="Put")
         {
             run = true;
@@ -71,15 +70,14 @@ public class HumanCollider : MonoBehaviour
             {
                 StartCoroutine(GoObj(spawn.currentList, 0, false));
             }
-            if (spawn.currentList2.Count > 0)
-            {
-                StartCoroutine(GoObj(spawn.currentList2, 1, false));
-            }
+            //if (spawn.currentList2.Count > 0)
+            //{
+            //    StartCoroutine(GoObj(spawn.currentList2, 1, false));
+            //}
            
             spawn.runMachine = true;
             StartCoroutine(spawn.OutPut(2,1));
         }
-       
         if (other.tag=="OutPut")
         {
             spawn = other.transform.parent.GetChild(1).GetComponent<Spawn>();
@@ -87,7 +85,6 @@ public class HumanCollider : MonoBehaviour
             
             StartCoroutine(ComeObj(false));
         }
-       
         if (other.tag=="Sell")
         {
             if (bag.childCount>0)
@@ -220,7 +217,7 @@ public class HumanCollider : MonoBehaviour
             if (list.Count>0)
             {
                 spawn.GoObj(list,id,grid);
-                bagYAxis -= 0.25f;
+                bagYAxis -= 0.40f;
                
             }
             else
@@ -384,14 +381,15 @@ public class HumanCollider : MonoBehaviour
         {
             GameObject obj = other.GetChild(turn).gameObject;
             obj.transform.parent = transform;
-            obj.transform.DOLocalMove(Vector3.zero, 0.5f, false).OnComplete(()=>Destroy(obj.gameObject));
-           
-          
+            obj.transform.DOScale(new Vector3(0.3f,0.3f,0.3f), 0.4f).SetEase(Ease.InOutSine);
+            obj.transform.DOLocalMove(Vector3.zero, 0.4f, false).OnComplete(()=>Destroy(obj.gameObject)).SetEase(Ease.InOutSine);
+            yield return new WaitForSeconds(0.01f);
+
         }
         yield return new WaitForSeconds(0.1f);
         gameManager.money = 20000;
         gameManager.moneyText.text = gameManager.money.ToString();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         cameraFollow.Move();
     }
 }
