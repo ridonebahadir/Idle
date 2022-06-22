@@ -391,7 +391,7 @@ public class HumanCollider : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         gameManager.money = 20000;
         gameManager.moneyText.text = gameManager.money.ToString();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         cameraFollow.Move();
     }
 }
