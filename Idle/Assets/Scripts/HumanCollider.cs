@@ -220,7 +220,7 @@ public class HumanCollider : MonoBehaviour
             if (list.Count>0)
             {
                 spawn.GoObj(list,id,grid);
-                bagYAxis -= 0.25f;
+                bagYAxis -= 0.40f;
                
             }
             else

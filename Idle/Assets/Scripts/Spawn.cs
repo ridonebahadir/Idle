@@ -138,7 +138,7 @@ public class Spawn : MonoBehaviour
             list[a].transform.DOLocalRotate(new Vector3(0, 0, 0), 1f);
             list[a].transform.DOLocalJump(new Vector3(0, bagYaxis, 0), 3, 0, 0.4f, false).SetEase(Ease.OutQuint);
             list.RemoveAt(a);
-            humanCollider.bagYAxis += 0.25f;
+            humanCollider.bagYAxis += 0.40f;
             //Azalma(true);
             Vibration.Vibrate(10);
         }
@@ -212,7 +212,7 @@ public class Spawn : MonoBehaviour
             bagList.RemoveAt(a);
             borderCount--;
             borderCountText.text = borderCount.ToString();
-            humanCollider.bagYAxis -= 0.25f;
+            humanCollider.bagYAxis -= 0.40f;
 
             Vibration.Vibrate(40);
 
