@@ -135,6 +135,7 @@ public class Spawn : MonoBehaviour
             }
            
             list[a].transform.parent = bag;
+
             list[a].transform.DOLocalRotate(new Vector3(0, 0, 0), 1f);
             list[a].transform.DOLocalJump(new Vector3(0, bagYaxis, 0), 3, 0, 0.4f, false).SetEase(Ease.OutQuint);
             list.RemoveAt(a);

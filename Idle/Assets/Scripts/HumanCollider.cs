@@ -134,11 +134,25 @@ public class HumanCollider : MonoBehaviour
         }
      
     }
+    int bagAdet;
     private void OnTriggerExit(Collider other)
     {
        
         if (other.tag == "RawMaterial")
         {
+            bag.GetChild(0).transform.GetComponent<HingeJoint>().connectedBody = transform.GetChild(0).GetComponent<Rigidbody>();
+            bag.GetChild(0).transform.GetComponent<Rigidbody>().isKinematic = false;
+
+
+            for (int bagAdet = 1; bagAdet < bag.childCount; bagAdet++)
+            {
+                bag.GetChild(bagAdet).transform.GetComponent<HingeJoint>().connectedBody = bag.GetChild(bagAdet - 1).GetComponent<Rigidbody>();
+                bag.GetChild(bagAdet).transform.GetComponent<Rigidbody>().isKinematic = false;
+                if (bagAdet == bag.childCount-1)
+                {
+                    bagAdet = bag.childCount - 1;
+                }
+            }
             run = false;
             sellRaw = other.gameObject.transform.parent.parent.GetChild(1).GetChild(0).GetComponent<SellRaw>();
             sellRaw.Azalma();
