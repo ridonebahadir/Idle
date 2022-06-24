@@ -227,6 +227,7 @@ public class Spawn : MonoBehaviour
     public static bool first = true;
     IEnumerator KargoAracMove()
     {
+        StartCoroutine(humanCollider.PayMoney(borderStartCount * price, transform));
         if (first)
         {
             cameraFollow.Move();
@@ -248,7 +249,7 @@ public class Spawn : MonoBehaviour
                 
                 backDoor.GetChild(0).DOLocalRotate(startRotateBackDoor, 0.5f);
                 backDoor.GetChild(1).DOLocalRotate(startRotateBackDoor2, 0.5f);
-                StartCoroutine(humanCollider.PayMoney(borderStartCount*price,transform));
+                
                 int a = System.Enum.GetValues(typeof(ListSelect)).Length;
                 whichList = (ListSelect)Random.Range(a-2, a);
                 
