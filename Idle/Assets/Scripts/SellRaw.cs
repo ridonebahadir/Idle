@@ -16,7 +16,6 @@ public class SellRaw : MonoBehaviour
     public Transform outPoint;
     public Transform kamyon;
     public Transform kamyonObj;
-    
     public GameManager gameManager;
   
     public TextMeshPro adetText;
@@ -77,7 +76,8 @@ public class SellRaw : MonoBehaviour
         {
             kamyonObj.gameObject.SetActive(true);
             kamyonObj.transform.DOLocalMove(Vector3.zero, 1f).SetEase(Ease.OutExpo);
-           
+
+
         }
         else
         {

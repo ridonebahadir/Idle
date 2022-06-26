@@ -10,11 +10,13 @@ public class CameraFollow : MonoBehaviour
     public float smoothTime = 0.25f;
     private Vector3 velocity = Vector3.zero;
     Vector3 offset;
+    Vector3 offsetUp;
     public Transform[] transforms;
     bool cameraFollow = true;
     public int turn;
     Vector3 targetPos;
     Vector3 backPos;
+    public Transform UpPoint;
     private void Awake()
     {
         turn = PlayerPrefs.GetInt("Turn", 0);
@@ -22,19 +24,22 @@ public class CameraFollow : MonoBehaviour
     private void Start()
     {
         offset =  transform.position- human.transform.position;
-
-        if (turn>0)
-        {
-            for (int i = 1; i <= turn; i++)
+        offsetUp =  UpPoint.position- human.transform.position;
+        
+            if (turn > 0)
             {
-                
-                transforms[i].gameObject.SetActive(true);
+                for (int i = 1; i <= turn; i++)
+                {
+
+                    transforms[i].gameObject.SetActive(true);
+                }
             }
-        }
-        else
-        {
-            transforms[turn].gameObject.SetActive(true);
-        }
+            else
+            {
+                transforms[turn].gameObject.SetActive(true);
+            }
+        
+      
       
     }
     void Update()
@@ -44,13 +49,14 @@ public class CameraFollow : MonoBehaviour
             targetPos = human.position + offset;
             transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothTime);
         }
+
       
     }
     public void Move()
     {
         turn++;
         PlayerPrefs.SetInt("Turn", turn);
-        if (turn<transforms.Length-1)
+        if (turn<transforms.Length)
         {
             
            
@@ -72,5 +78,26 @@ public class CameraFollow : MonoBehaviour
         //transform.DOMove(backPos, 2f).OnComplete(() => { cameraFollow = true; turn++; });;
 
 
+    }
+    bool go = true;
+    Vector3 currentPoint;
+    public void CameraGoUp()
+    {
+        if (go)
+        {
+            cameraFollow = false;
+            currentPoint = transform.position;
+            transform.DOMove(UpPoint.position, 2f);
+             transform.DORotate(new Vector3(90, 0, 0), 2f);
+            go = false;
+            return;
+        }
+        else
+        {
+            cameraFollow = true;
+            transform.DORotate(new Vector3(45, 0, 0), 2f);
+            go = true;
+        }
+       
     }
 }

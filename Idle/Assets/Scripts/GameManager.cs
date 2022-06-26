@@ -76,5 +76,11 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("HumanStartPosY", human.transform.position.y);
         PlayerPrefs.SetFloat("HumanStartPosZ", human.transform.position.z);
     }
+   
+   
+    public void GoCameraUp()
+    {
+        cameraFollow.CameraGoUp();
+    }
 
 }

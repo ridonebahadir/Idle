@@ -44,7 +44,7 @@ public class Cost : MonoBehaviour
         {
             transforms[i].localPosition = new Vector3(transforms[i].localPosition.x, transforms[i].localPosition.y + 20, transforms[i].localPosition.z);
         }
-        imageAmount = 1 / costValue;
+        imageAmount = 1 / costValue*katsayi;
         image.fillAmount = imageValue;
 
 
@@ -132,7 +132,11 @@ public class Cost : MonoBehaviour
         yield return new WaitForSeconds(2f);
         if (levelup)
         {
-            cameraFollow.Move();
+            if (cameraFollow.turn<cameraFollow.transforms.Length-1)
+            {
+                cameraFollow.Move();
+            }
+           
         }
         
     }
