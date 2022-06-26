@@ -6,6 +6,7 @@ using System;
 
 public class HumanCollider : MonoBehaviour
 {
+    public Vector3 startPos;
     public CameraFollow cameraFollow;
     public SellRaw sellRaw;
     public int capasity;
@@ -49,6 +50,16 @@ public class HumanCollider : MonoBehaviour
     public int payMoney;
     public GameObject money;
     public Transform payArea;
+    private void Awake()
+    {
+        startPos.x = PlayerPrefs.GetFloat("HumanStartPosX",transform.position.x);
+        startPos.y = PlayerPrefs.GetFloat("HumanStartPosY", transform.position.y);
+        startPos.z = PlayerPrefs.GetFloat("HumanStartPosZ", transform.position.z);
+    }
+    private void Start()
+    {
+        transform.position = startPos;
+    }
     private void OnTriggerEnter(Collider other)
     {
        
@@ -131,6 +142,8 @@ public class HumanCollider : MonoBehaviour
         if (other.tag=="BankTake")
         {
             StartCoroutine(BankTakeMoney(other.transform));
+           
+            
         }
      
     }
@@ -405,5 +418,6 @@ public class HumanCollider : MonoBehaviour
         gameManager.moneyText.text = gameManager.money.ToString();
         yield return new WaitForSeconds(0.5f);
         cameraFollow.Move();
+        PlayerPrefs.SetInt("Money", gameManager.money);
     }
 }

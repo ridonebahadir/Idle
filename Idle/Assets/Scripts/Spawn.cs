@@ -225,14 +225,15 @@ public class Spawn : MonoBehaviour
         }
 
     }
-    public static bool first = true;
+    public int first;
     IEnumerator KargoAracMove()
     {
+        first = PlayerPrefs.GetInt("First");
         StartCoroutine(humanCollider.PayMoney(borderStartCount * price, transform));
-        if (first)
+        if (first==0)
         {
             cameraFollow.Move();
-            first = false;
+            PlayerPrefs.SetInt("First", 1);
         }
         logo.transform.parent.gameObject.SetActive(false);
         boxColliderSell.enabled = false;

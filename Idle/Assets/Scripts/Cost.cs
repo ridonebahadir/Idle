@@ -10,6 +10,7 @@ public class Cost : MonoBehaviour
     public CameraFollow cameraFollow;
     public GameManager gameManager;
     public float costValue;
+
    
     public Transform[] transforms;
     public GameObject close;
@@ -24,15 +25,38 @@ public class Cost : MonoBehaviour
     public bool isBant;
     public GameObject productLine;
     bool run;
+    int closeOrOpen;
+    public int id;
+    float imageValue;
+    private void Awake()
+    {
+        katsayi = costValue / 30;
+        closeOrOpen = PlayerPrefs.GetInt("CloseOrOpen"+id);
+        costValue = PlayerPrefs.GetFloat("CostValue" + id,costValue);
+       
+        imageValue = PlayerPrefs.GetFloat("ImageValue" + id);
+    
+    }
     private void Start()
     {
+
         for (int i = 0; i < transforms.Length; i++)
         {
-            transforms[i].localPosition = new Vector3(transforms[i].localPosition.x, transforms[i].localPosition.y+20, transforms[i].localPosition.z);
+            transforms[i].localPosition = new Vector3(transforms[i].localPosition.x, transforms[i].localPosition.y + 20, transforms[i].localPosition.z);
         }
-        imageAmount =1 / costValue;
+        imageAmount = 1 / costValue;
+        image.fillAmount = imageValue;
+
+
+
+
         costText.text = costValue.ToString();
         boxCollider = GetComponent<BoxCollider>();
+        if (closeOrOpen == 1)
+        {
+            StartCoroutine(OpenTurn(false));
+        }
+
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -56,6 +80,10 @@ public class Cost : MonoBehaviour
     {
         if (other.tag == "Human")
         {
+            PlayerPrefs.SetFloat("CostValue" + id, costValue);
+          
+            PlayerPrefs.SetFloat("ImageValue" + id, image.fillAmount);
+           
             isTimer = false;
             StopCoroutine(co);
             run = false;
@@ -65,18 +93,15 @@ public class Cost : MonoBehaviour
 
     void OpenMachine()
     {
-        Debug.Log("sfsgdsgdf");
-        //yield return new WaitForSeconds(2f);
-       
-            //open.SetActive(true);
-            StartCoroutine(OpenTurn());
+        PlayerPrefs.SetInt("CloseOrOpen" + id,1);
+        StartCoroutine(OpenTurn(true));
            
            
            
         
     }
 
-    IEnumerator OpenTurn()
+    IEnumerator OpenTurn(bool levelup)
     {
         close.SetActive(false);
         boxCollider.enabled = false;
@@ -105,7 +130,11 @@ public class Cost : MonoBehaviour
             productLine.SetActive(true);
         }
         yield return new WaitForSeconds(2f);
-        cameraFollow.Move();
+        if (levelup)
+        {
+            cameraFollow.Move();
+        }
+        
     }
     bool isTimer;
     IEnumerator Timer(Transform human)
@@ -115,55 +144,57 @@ public class Cost : MonoBehaviour
             yield return new WaitForSeconds(2f);
             run = true;
 
-           
+            
             StartCoroutine(MoneyGo(human));
+            isTimer = false;
         }
 
     }
     bool pay = true;
-    float katsayi;
+    public float katsayi;
+    
    
     IEnumerator MoneyGo(Transform human)
     {
+
        
-        katsayi = costValue / 30;
         
         while (pay)
         {
-           
+            
             GameObject obj = Instantiate(money, human);
             obj.transform.parent = transform;
             obj.transform.DOLocalJump(new Vector3(0, 0, 0), 3, 0, 1.5f, false).OnComplete(() => Destroy(obj)).SetEase(Ease.OutQuint);
             Vibration.Vibrate(40);
             image.fillAmount += imageAmount;
             costValue -= katsayi;
-            gameManager.money-=(int)katsayi;
-            
-            costText.text = costValue.ToString();
-            gameManager.moneyText.text = gameManager.money.ToString();
-            if (gameManager.money <= 0)
-            {
-                costValue -= gameManager.money;
-                costText.text = costValue.ToString();
+            costText.text = costValue.ToString("f0");
 
-               
-                gameManager.moneyText.text = gameManager.money.ToString();
-                
-                isTimer = false;
-                StopCoroutine(co);
-                run = false;
-                pay = false;
-            }
-            if (costValue <= katsayi)
+            gameManager.money -= (int)katsayi;
+            gameManager.moneyText.text = gameManager.money.ToString();
+            //if (gameManager.money <= 0)
+            //{
+            //    costValue -= gameManager.money;
+            //    costText.text = costValue.ToString();
+
+
+            //    gameManager.moneyText.text = gameManager.money.ToString();
+
+            //    isTimer = false;
+            //    StopCoroutine(co);
+            //    run = false;
+            //    pay = false;
+            //}
+            if (costValue <= 0)
             {
                 isTimer = false;
                 StopCoroutine(co);
                 Debug.Log("PAY");
 
-                    isTimer = true;
+                isTimer = true;
 
-                 OpenMachine();
-                    //StartCoroutine(OpenMachine());
+                OpenMachine();
+                //StartCoroutine(OpenMachine());
                 pay = false;
 
 
