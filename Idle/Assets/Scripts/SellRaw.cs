@@ -16,6 +16,7 @@ public class SellRaw : MonoBehaviour
     public Transform outPoint;
     public Transform kamyon;
     public Transform kamyonObj;
+    public Animator kamyonAnim;
     public GameManager gameManager;
   
     public TextMeshPro adetText;
@@ -75,7 +76,7 @@ public class SellRaw : MonoBehaviour
         if (outPoint.childCount<capasity)
         {
             kamyonObj.gameObject.SetActive(true);
-            kamyonObj.transform.DOLocalMove(Vector3.zero, 1f).SetEase(Ease.OutExpo);
+            kamyonObj.transform.DOLocalMove(Vector3.zero, 1f).OnComplete(()=>kamyonAnim.enabled=false).SetEase(Ease.OutExpo);
 
 
         }
@@ -122,9 +123,9 @@ public class SellRaw : MonoBehaviour
             {
                 waitImage.color = Color.red;
                 yield return new WaitForSeconds(0.5f);
-              
-              
-                kamyonObj.transform.DOLocalMove(new Vector3(20,0,0), 1f).OnComplete(()=>kamyonObj.gameObject.SetActive(false)).SetEase(Ease.InExpo);
+
+                kamyonAnim.enabled = true;
+                kamyonObj.transform.DOLocalMove(new Vector3(20,0,0), 1f).OnComplete(()=> { kamyonObj.gameObject.SetActive(false); }).SetEase(Ease.InExpo);
                 adet = 0;
                 run = false;
 

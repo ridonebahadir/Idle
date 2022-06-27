@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8498777404036908795}
   - component: {fileID: 4543998856428444569}
   - component: {fileID: 16919318520729659}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dashboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7154891571653129470}
   - component: {fileID: 1781594736986708425}
   - component: {fileID: 3790432278973969388}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheel RL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 8940474664920242554}
   - component: {fileID: 3480880446418768215}
   - component: {fileID: 2066177616047941942}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Chair_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 5140723806722370909}
   - component: {fileID: 615312288389061923}
   - component: {fileID: 6408024364497727146}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Engine_Details
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 6751949321181741567}
   - component: {fileID: 377659056884909207}
   - component: {fileID: 5522987169073185353}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Chair_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 2370358931281236628}
   - component: {fileID: 6407421908947309965}
   - component: {fileID: 8828689005001320921}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CAR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 1581180130567644670}
   - component: {fileID: 8996091297379024934}
   - component: {fileID: 1119312006303422690}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 9101744557396117854}
   - component: {fileID: 8426387875631267144}
   - component: {fileID: 4066404422480558386}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cables
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 833014037921576295}
   - component: {fileID: 5540636172481634801}
   - component: {fileID: 6640861491237745869}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Engine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -804,7 +804,7 @@ GameObject:
   - component: {fileID: 3418790087415775987}
   - component: {fileID: 3478784719792791832}
   - component: {fileID: 1891641165598724441}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheel FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -891,7 +891,7 @@ GameObject:
   - component: {fileID: 439909141319946285}
   - component: {fileID: 9071899377618596587}
   - component: {fileID: 1594290988224282171}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -976,7 +976,7 @@ GameObject:
   - component: {fileID: 7759454353614962710}
   - component: {fileID: 6428534624676604825}
   - component: {fileID: 7758428730977921299}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Trunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1059,7 +1059,7 @@ GameObject:
   - component: {fileID: 2546379712961740749}
   - component: {fileID: 8278476065364890896}
   - component: {fileID: 6811788886449435575}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheel RR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1146,7 +1146,7 @@ GameObject:
   - component: {fileID: 1727161720668734986}
   - component: {fileID: 25211753616488627}
   - component: {fileID: 221334345914463561}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Chassis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1232,7 +1232,7 @@ GameObject:
   - component: {fileID: 7647630317049114443}
   - component: {fileID: 6859327511454692852}
   - component: {fileID: 8689230090188621653}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheel FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1321,6 +1321,10 @@ PrefabInstance:
     - target: {fileID: 4689027056670525960, guid: 526c4cd730845df40b32f0510dac3194, type: 3}
       propertyPath: m_Name
       value: mesh1148105982 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689027056670525960, guid: 526c4cd730845df40b32f0510dac3194, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4689027056670525960, guid: 526c4cd730845df40b32f0510dac3194, type: 3}
       propertyPath: m_NavMeshLayer

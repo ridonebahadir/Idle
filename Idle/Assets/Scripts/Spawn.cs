@@ -48,6 +48,8 @@ public class Spawn : MonoBehaviour
 
     [Header("KARGO ARAC")]
     public Transform kargoarac;
+    public Animator wheel1;
+    public Animator wheel2;
     public int borderCount;
     int borderStartCount;
     Vector3 startPosKargoarac;
@@ -244,11 +246,15 @@ public class Spawn : MonoBehaviour
         }
        
         yield return new WaitForSeconds(1f);
+        wheel1.enabled = true;
+        wheel2.enabled = true;
         kargoarac.DOLocalMoveZ(startPosKargoarac.z + 20, 1f).OnComplete(()=> 
         {
+           
             kargoarac.DOLocalMoveZ(startPosKargoarac.z, 5f).OnComplete(()=> 
             {
-                
+                wheel1.enabled = false;
+                wheel2.enabled = false;
                 backDoor.GetChild(0).DOLocalRotate(startRotateBackDoor, 0.5f);
                 backDoor.GetChild(1).DOLocalRotate(startRotateBackDoor2, 0.5f);
                 

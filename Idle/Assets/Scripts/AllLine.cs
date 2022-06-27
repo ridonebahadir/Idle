@@ -24,6 +24,7 @@ public class AllLine : MonoBehaviour
     private int oneMoneyValue;
     public Transform Truck;
     public GameObject TruckObj;
+    public Animator[] wheelAnim;
     public int carAdet;
     public GameObject newCar;
     private float axisXStart;
@@ -46,6 +47,10 @@ public class AllLine : MonoBehaviour
         {
             kasaCollider.enabled = false;
             showRoomXAxis = axisXStart;
+            for (int i = 0; i < wheelAnim.Length; i++)
+            {
+                wheelAnim[i].enabled = true;
+            }
             Truck.transform.DOMove(new Vector3(-40, 0, 0) + Truck.transform.position, 3f).OnComplete(()=>NextTruck());
             StartCoroutine(humanCollider.PayMoney(30, payParent, humanCollider.moneyListTir,humanCollider.payAreaTir));
         }
@@ -56,7 +61,18 @@ public class AllLine : MonoBehaviour
         Truck.gameObject.SetActive(false);
         GameObject obj = Instantiate(TruckObj, Truck.transform.position, Quaternion.identity);
         Truck = obj.transform;
-        obj.transform.DOMove(truckStartPos,3f).OnComplete(() => kasaCollider.enabled = true);
+        for (int i = 0; i < wheelAnim.Length; i++)
+        {
+            wheelAnim[i] = Truck.GetComponent<TirAnim>().anim[i];
+        }
+        obj.transform.DOMove(truckStartPos,3f).OnComplete(() => { 
+            kasaCollider.enabled = true;
+            wheelAnim[0].enabled = false;
+            wheelAnim[1].enabled = false;
+            wheelAnim[2].enabled = false;
+            wheelAnim[3].enabled = false;
+           
+        });
         carAdet = 0; carAdet = 0;
     }
     //void Update()
