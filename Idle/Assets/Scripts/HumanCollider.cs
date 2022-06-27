@@ -6,6 +6,7 @@ using System;
 
 public class HumanCollider : MonoBehaviour
 {
+    public GameObject paralar;
     public Vector3 startPos;
     public CameraFollow cameraFollow;
     public SellRaw sellRaw;
@@ -22,7 +23,7 @@ public class HumanCollider : MonoBehaviour
     public List<GameObject> bagListCam ;
     public List<GameObject> bagListKablo;
 
-    [Header("MACHÝNE OUT PUT")]
+    [Header("MACH?NE OUT PUT")]
     public List<GameObject> bagListSase;
     public List<GameObject> bagListWheel;
     public List<GameObject> bagListKoltuk;
@@ -37,7 +38,7 @@ public class HumanCollider : MonoBehaviour
     public GameObject cam;
     public GameObject kablo;
 
-    [Header("MACHÝNE OUT PUT")]
+    [Header("MACH?NE OUT PUT")]
     public GameObject sase;
     public GameObject wheel;
     public GameObject koltuk;
@@ -414,6 +415,7 @@ public class HumanCollider : MonoBehaviour
 
         }
         yield return new WaitForSeconds(0.1f);
+        paralar.SetActive(false);
         gameManager.money = 20000;
         gameManager.moneyText.text = gameManager.money.ToString();
         yield return new WaitForSeconds(0.5f);
