@@ -52,10 +52,13 @@ public class HumanCollider : MonoBehaviour
     [Header("MONEY")]
     public List<GameObject> moneyListKargo;
     public List<GameObject> moneyListTir;
+    public List<GameObject> moneyListRecycling;
     public int payMoney;
     public GameObject money;
     public Transform payArea;
     public Transform payAreaTir;
+    public Transform payAreaRecycling;
+    public Transform payRecyclingPoint;
     private void Awake()
     {
         startPos.x = PlayerPrefs.GetFloat("HumanStartPosX",transform.position.x);
@@ -137,6 +140,14 @@ public class HumanCollider : MonoBehaviour
             }
 
         }
+        if (other.tag == "PayRecycle")
+        {
+            if (moneyListRecycling.Count > 0)
+            {
+                StartCoroutine(ComeMoney(moneyListRecycling));
+            }
+
+        }
         if (other.tag=="Component")
         {
             run = true;
@@ -173,9 +184,14 @@ public class HumanCollider : MonoBehaviour
             StartCoroutine(Sell(recycleArea,bagListKoltuk,ValueObj.koltuk/2,true));
             StartCoroutine(Sell(recycleArea,bagListPencere,ValueObj.pencere/2,true));
             StartCoroutine(Sell(recycleArea,bagListSase,ValueObj.sase/2,true));
+            Invoke("MoneyCome",2f);
            
         }
      
+    }
+    void MoneyCome()
+    {
+        StartCoroutine(PayMoney(payMoney, payAreaRecycling, moneyListRecycling, payRecyclingPoint));
     }
     int bagAdet;
     private void OnTriggerExit(Collider other)
@@ -367,7 +383,7 @@ public class HumanCollider : MonoBehaviour
                  
                    if (count < 0) runSell = false;
 
-               }).SetEase(Ease.InQuint);
+               }).SetEase(Ease.OutSine);
                 yield return new WaitForSeconds(0.1f);
             }
             yield return new WaitForSeconds(2f);
@@ -402,7 +418,7 @@ public class HumanCollider : MonoBehaviour
 
             yield return new WaitForSeconds(0.1f);
 
-
+            payMoney = 0;
 
 
 

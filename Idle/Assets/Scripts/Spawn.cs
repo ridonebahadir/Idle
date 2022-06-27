@@ -384,8 +384,9 @@ public class Spawn : MonoBehaviour
         saseOut, wheelOut, koltukOut, engineOut, bodyOut, pencereOut,
         saseComponent, wheelComponenet,koltukComponent, engineComponent, bodyComponent, pencereComponent,
         raf,
-        kargoWheel,kargoKoltuk,
-        Recycle};
+        Recycle,
+        kargoWheel,kargoKoltuk //YENI LISTE EKLERKEN SONA EKLEME
+        };
 
     [Header("SELECT")]
     public ListSelect whichList;
