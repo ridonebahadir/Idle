@@ -384,7 +384,8 @@ public class Spawn : MonoBehaviour
         saseOut, wheelOut, koltukOut, engineOut, bodyOut, pencereOut,
         saseComponent, wheelComponenet,koltukComponent, engineComponent, bodyComponent, pencereComponent,
         raf,
-        kargoWheel,kargoKoltuk};
+        kargoWheel,kargoKoltuk,
+        Recycle};
 
     [Header("SELECT")]
     public ListSelect whichList;
@@ -501,6 +502,12 @@ public class Spawn : MonoBehaviour
                 price = 3;
                 break;
 
+            //Recycle
+            case ListSelect.Recycle:
+                currentList = humanCollider.bagListMetal;
+               
+                price = 3;
+                break;
         }
 
     }

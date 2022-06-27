@@ -16,7 +16,10 @@ public class HumanCollider : MonoBehaviour
     public GameManager gameManager;
     public Transform bag;
     public float bagYAxis;
-
+    [Header("Recycle")]
+    public Transform recycleArea;
+    public Transform kapak1;
+    public Transform kapak2;
     [Header("RAW MATERIAL LIST")]
     public List<GameObject> bagListMetal;
     public List<GameObject> bagListPolimer;
@@ -156,6 +159,22 @@ public class HumanCollider : MonoBehaviour
            
             
         }
+        if (other.tag=="Recycle")
+        {
+            kapak1.DOLocalRotate(new Vector3(0,0,-35),0.5f).SetEase(Ease.OutSine);
+            kapak2.DOLocalRotate(new Vector3(0,0,-35),0.75f).SetEase(Ease.OutSine);
+            StartCoroutine(Sell(recycleArea,bagListMetal,ValueObj.metal/2,true));
+            StartCoroutine(Sell(recycleArea,bagListPolimer,ValueObj.polimer/2,true));
+            StartCoroutine(Sell(recycleArea,bagListKablo,ValueObj.kablo/2,true));
+            StartCoroutine(Sell(recycleArea,bagListCam,ValueObj.cam/2,true));
+            StartCoroutine(Sell(recycleArea,bagListWheel,ValueObj.wheel/2,true));
+            StartCoroutine(Sell(recycleArea,bagListBody,ValueObj.body/2,true));
+            StartCoroutine(Sell(recycleArea,bagListEngine,ValueObj.engine/2,true));
+            StartCoroutine(Sell(recycleArea,bagListKoltuk,ValueObj.koltuk/2,true));
+            StartCoroutine(Sell(recycleArea,bagListPencere,ValueObj.pencere/2,true));
+            StartCoroutine(Sell(recycleArea,bagListSase,ValueObj.sase/2,true));
+           
+        }
      
     }
     int bagAdet;
@@ -227,7 +246,11 @@ public class HumanCollider : MonoBehaviour
         {
             other.transform.GetChild(0).transform.DOScaleY(1, 1f).SetEase(Ease.InExpo);
         }
-
+        if (other.tag== "Recycle")
+        {
+            kapak1.DOLocalRotate(Vector3.zero, 0.5f).SetEase(Ease.InSine);
+            kapak2.DOLocalRotate(Vector3.zero, 0.75f).SetEase(Ease.InSine);
+        }
     }
   
     public bool run;

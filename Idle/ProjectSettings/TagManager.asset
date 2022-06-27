@@ -28,6 +28,7 @@ TagManager:
   - Generator
   - BankTake
   - PayTir
+  - Recycle
   layers:
   - Default
   - TransparentFX
