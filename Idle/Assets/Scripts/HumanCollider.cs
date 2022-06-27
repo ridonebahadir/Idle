@@ -47,10 +47,12 @@ public class HumanCollider : MonoBehaviour
     public GameObject pencere;
 
     [Header("MONEY")]
-    public List<GameObject> moneyList;
+    public List<GameObject> moneyListKargo;
+    public List<GameObject> moneyListTir;
     public int payMoney;
     public GameObject money;
     public Transform payArea;
+    public Transform payAreaTir;
     private void Awake()
     {
         startPos.x = PlayerPrefs.GetFloat("HumanStartPosX",transform.position.x);
@@ -118,11 +120,19 @@ public class HumanCollider : MonoBehaviour
         }
         if (other.tag=="Pay")
         {
-            if (moneyList.Count>0)
+            if (moneyListKargo.Count>0)
             {
-                StartCoroutine(ComeMoney());
+                StartCoroutine(ComeMoney(moneyListKargo));
             }
             
+        }
+        if (other.tag == "PayTir")
+        {
+            if (moneyListTir.Count > 0)
+            {
+                StartCoroutine(ComeMoney(moneyListTir));
+            }
+
         }
         if (other.tag=="Component")
         {
@@ -154,19 +164,20 @@ public class HumanCollider : MonoBehaviour
        
         if (other.tag == "RawMaterial")
         {
-            bag.GetChild(0).transform.GetComponent<HingeJoint>().connectedBody = transform.GetChild(0).GetComponent<Rigidbody>();
-            bag.GetChild(0).transform.GetComponent<Rigidbody>().isKinematic = false;
+            StartCoroutine(FixedHeight());
+            //bag.GetChild(0).transform.GetComponent<HingeJoint>().connectedBody = transform.GetChild(0).GetComponent<Rigidbody>();
+            //bag.GetChild(0).transform.GetComponent<Rigidbody>().isKinematic = false;
 
 
-            for (int bagAdet = 1; bagAdet < bag.childCount; bagAdet++)
-            {
-                bag.GetChild(bagAdet).transform.GetComponent<HingeJoint>().connectedBody = bag.GetChild(bagAdet - 1).GetComponent<Rigidbody>();
-                bag.GetChild(bagAdet).transform.GetComponent<Rigidbody>().isKinematic = false;
-                if (bagAdet == bag.childCount-1)
-                {
-                    bagAdet = bag.childCount - 1;
-                }
-            }
+            //for (int bagAdet = 1; bagAdet < bag.childCount; bagAdet++)
+            //{
+            //    bag.GetChild(bagAdet).transform.GetComponent<HingeJoint>().connectedBody = bag.GetChild(bagAdet - 1).GetComponent<Rigidbody>();
+            //    bag.GetChild(bagAdet).transform.GetComponent<Rigidbody>().isKinematic = false;
+            //    if (bagAdet == bag.childCount-1)
+            //    {
+            //        bagAdet = bag.childCount - 1;
+            //    }
+            //}
             run = false;
             sellRaw = other.gameObject.transform.parent.parent.GetChild(1).GetChild(0).GetComponent<SellRaw>();
             sellRaw.Azalma();
@@ -175,12 +186,14 @@ public class HumanCollider : MonoBehaviour
 
         if (other.tag == "Put")
         {
+            StartCoroutine(FixedHeight());
             run = false;
            
         }
 
         if (other.tag == "OutPut")
         {
+            StartCoroutine(FixedHeight());
             run = false;
             spawn.Azalma(true);
            
@@ -190,7 +203,7 @@ public class HumanCollider : MonoBehaviour
         if (other.tag == "Sell")
         {
 
-
+            StartCoroutine(FixedHeight());
             run = false;
            
 
@@ -204,6 +217,7 @@ public class HumanCollider : MonoBehaviour
         }
         if (other.tag == "Component")
         {
+            StartCoroutine(FixedHeight());
             run = false;
             spawn.Azalma(false);
 
@@ -303,8 +317,8 @@ public class HumanCollider : MonoBehaviour
     {
         for (int i = 0; i < bag.transform.childCount; i++)
         {
-            bag.transform.GetChild(i).transform.DOLocalMove(new Vector3(0, i * 0.25f, 0),1f);
-            yield return new WaitForSeconds(0.1f);
+            bag.transform.GetChild(i).transform.DOLocalMove(new Vector3(0, i * 0.40f, 0),0.3f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
     
@@ -341,14 +355,14 @@ public class HumanCollider : MonoBehaviour
     int x;
     int y;
     int z;
-    public IEnumerator PayMoney(int countMoney,Transform sellArea)
+    public IEnumerator PayMoney(int countMoney,Transform sellArea,List<GameObject> whichList,Transform point)
     {
         Debug.Log("countMoney ="+countMoney);
         for (int i = 0; i < countMoney; i++)
         {
             GameObject obj = Instantiate(money,sellArea);
-            obj.transform.parent = payArea;
-            moneyList.Add(obj);
+            obj.transform.parent = point;
+            whichList.Add(obj);
             obj.transform.DOLocalJump(new Vector3(x*0.5f, y*0.25f, z*0.5f), 3, 0, 0.5f, false);
             x++;
             if (x == 4)
@@ -375,12 +389,12 @@ public class HumanCollider : MonoBehaviour
 
     }
 
-    IEnumerator ComeMoney()
+    IEnumerator ComeMoney(List<GameObject> whichList)
     {
-        float a = 1 / moneyList.Count;
-        for (int i = moneyList.Count-1; i > -1; i--)
+        float a = 1 / whichList.Count;
+        for (int i = whichList.Count-1; i > -1; i--)
         {
-            GameObject obj = moneyList[i];
+            GameObject obj = whichList[i];
             obj.transform.parent = bag.parent;
             obj.transform.DOLocalMove(Vector3.zero, 0.5f, false)
                 .OnComplete(()=> { 
@@ -396,7 +410,7 @@ public class HumanCollider : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.1f);
-        moneyList.Clear();
+        whichList.Clear();
         x = 0;y = 0;z = 0;
 
     }

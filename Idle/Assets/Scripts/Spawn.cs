@@ -229,7 +229,7 @@ public class Spawn : MonoBehaviour
     IEnumerator KargoAracMove()
     {
         first = PlayerPrefs.GetInt("First");
-        StartCoroutine(humanCollider.PayMoney(borderStartCount * price, transform));
+        StartCoroutine(humanCollider.PayMoney(borderStartCount * price, transform,humanCollider.moneyListKargo,humanCollider.payArea));
         if (first==0)
         {
             cameraFollow.Move();
@@ -435,7 +435,7 @@ public class Spawn : MonoBehaviour
                 //currentList2 = humanCollider.bagListKablo;
                 break;
             case ListSelect.pencere:
-                currentList2 = humanCollider.bagListCam;
+                currentList = humanCollider.bagListCam;
                 //currentList = humanCollider.bagListPolimer;
                 break;
 

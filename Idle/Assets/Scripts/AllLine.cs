@@ -6,7 +6,8 @@ using System;
 
 public class AllLine : MonoBehaviour
 {
-    
+    public HumanCollider humanCollider;
+    public Transform payParent;
     public GameManager gameManager;
     //public Transform customers;
     public Transform[] component;
@@ -46,7 +47,7 @@ public class AllLine : MonoBehaviour
             kasaCollider.enabled = false;
             showRoomXAxis = axisXStart;
             Truck.transform.DOMove(new Vector3(-40, 0, 0) + Truck.transform.position, 3f).OnComplete(()=>NextTruck());
-            
+            StartCoroutine(humanCollider.PayMoney(30, payParent, humanCollider.moneyListTir,humanCollider.payAreaTir));
         }
        
     }
