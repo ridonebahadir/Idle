@@ -389,18 +389,19 @@ public class HumanCollider : MonoBehaviour
     public IEnumerator PayMoney(int countMoney,Transform sellArea,List<GameObject> whichList,Transform point)
     {
         Debug.Log("countMoney ="+countMoney);
-        for (int i = 0; i < countMoney; i++)
+        int a = countMoney / 5;
+        for (int i = 0; i < a; i++)
         {
             GameObject obj = Instantiate(money,sellArea);
             obj.transform.parent = point;
             whichList.Add(obj);
-            obj.transform.DOLocalJump(new Vector3(x*0.5f, y*0.25f, z*0.5f), 3, 0, 0.5f, false);
+            obj.transform.DOLocalJump(new Vector3(x*0.75f, y*0.5f, z*1.5f), 3, 0, 0.5f, false);
             x++;
             if (x == 4)
             {
                 x = 0;
                 z++;
-                if (z==4)
+                if (z==3)
                 {
                     y++;
                     z = 0;
@@ -430,7 +431,7 @@ public class HumanCollider : MonoBehaviour
             obj.transform.DOLocalMove(Vector3.zero, 0.5f, false)
                 .OnComplete(()=> { 
                     obj.gameObject.SetActive(false);
-                    gameManager.money+=2;
+                    gameManager.money+=5;
                     gameManager.moneyText.text = gameManager.money.ToString();
                     Destroy(obj.gameObject);
                    
