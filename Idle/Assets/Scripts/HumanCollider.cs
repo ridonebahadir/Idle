@@ -26,7 +26,7 @@ public class HumanCollider : MonoBehaviour
     public List<GameObject> bagListCam ;
     public List<GameObject> bagListKablo;
 
-    [Header("MACH?NE OUT PUT")]
+    [Header("MACHINE OUT PUT")]
     public List<GameObject> bagListSase;
     public List<GameObject> bagListWheel;
     public List<GameObject> bagListKoltuk;
@@ -41,7 +41,7 @@ public class HumanCollider : MonoBehaviour
     public GameObject cam;
     public GameObject kablo;
 
-    [Header("MACH?NE OUT PUT")]
+    [Header("MACHINE OUT PUT")]
     public GameObject sase;
     public GameObject wheel;
     public GameObject koltuk;

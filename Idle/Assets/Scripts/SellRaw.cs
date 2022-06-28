@@ -7,6 +7,7 @@ using TMPro;
 
 public class SellRaw : MonoBehaviour
 {
+    public HumanMove humanMove;
     public int capasity = 5;
     public float animTime = 3;
     public int value;
@@ -28,6 +29,7 @@ public class SellRaw : MonoBehaviour
     public Upgrade[] upgrades;
     
     bool isTimer;
+    public GameObject warning;
     private void Update()
     {
        
@@ -55,6 +57,9 @@ public class SellRaw : MonoBehaviour
     {
         if (other.tag == "Human")
         {
+            warning.SetActive(false);
+            humanMove.anim.applyRootMotion = false;
+          
             Azalma();
             upGrade.SetActive(false);
             isTimer = false;
@@ -82,8 +87,13 @@ public class SellRaw : MonoBehaviour
         }
         else
         {
+            warning.SetActive(true);
+            Invoke("Late", 2);
             waitImage.fillAmount = 1;
             waitImage.color = Color.red;
+            humanMove.enabled = false;
+            humanMove.anim.SetTrigger("Yelling");
+            humanMove.anim.applyRootMotion = true;
         }
         yield return new WaitForSeconds(1f);
         while (run)
@@ -140,7 +150,10 @@ public class SellRaw : MonoBehaviour
 
           
     }
-
+    void Late()
+    {
+        humanMove.enabled = true;
+    }
     IEnumerator Timer()
     {
         while (isTimer) 
