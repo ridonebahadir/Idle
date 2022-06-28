@@ -30,6 +30,8 @@ TagManager:
   - PayTir
   - Recycle
   - PayRecycle
+  - PlayerEyes
+  - Kamyon
   layers:
   - Default
   - TransparentFX

@@ -7,7 +7,7 @@ using TMPro;
 
 public class SellRaw : MonoBehaviour
 {
-    public HumanMove humanMove;
+   
     public int capasity = 5;
     public float animTime = 3;
     public int value;
@@ -18,6 +18,7 @@ public class SellRaw : MonoBehaviour
     public Transform kamyon;
     public Transform kamyonObj;
     public Animator kamyonAnim;
+    public Transform[] backdoor;
     public GameManager gameManager;
   
     public TextMeshPro adetText;
@@ -58,7 +59,7 @@ public class SellRaw : MonoBehaviour
         if (other.tag == "Human")
         {
             warning.SetActive(false);
-            humanMove.anim.applyRootMotion = false;
+            
           
             Azalma();
             upGrade.SetActive(false);
@@ -81,19 +82,21 @@ public class SellRaw : MonoBehaviour
         if (outPoint.childCount<capasity)
         {
             kamyonObj.gameObject.SetActive(true);
-            kamyonObj.transform.DOLocalMove(Vector3.zero, 1f).OnComplete(()=>kamyonAnim.enabled=false).SetEase(Ease.OutExpo);
+            kamyonObj.transform.DOLocalMove(Vector3.zero, 1f).OnComplete(()=> {
+                kamyonAnim.enabled = false;
+                backdoor[0].transform.DORotate(new Vector3(-90,0,130),0.2f);
+                backdoor[1].transform.DORotate(new Vector3(-90,0,-130),0.2f);
+            }).SetEase(Ease.OutExpo);
 
 
         }
         else
         {
             warning.SetActive(true);
-            Invoke("Late", 2);
+           
             waitImage.fillAmount = 1;
             waitImage.color = Color.red;
-            humanMove.enabled = false;
-            humanMove.anim.SetTrigger("Yelling");
-            humanMove.anim.applyRootMotion = true;
+           
         }
         yield return new WaitForSeconds(1f);
         while (run)
@@ -114,7 +117,7 @@ public class SellRaw : MonoBehaviour
                 //adetText.text = outPoint.childCount.ToString();
 
 
-                obj.transform.DOLocalJump(new Vector3(x, y, z), 3, 0, animTime, false).OnComplete(() => { spawn.list.Add(obj); }).SetEase(Ease.InQuint);
+                obj.transform.DOLocalJump(new Vector3(x, y, z), 8, 0, animTime, false).OnComplete(() => { spawn.list.Add(obj); }).SetEase(Ease.InQuint);
                 x += 1.4f;
                 if (x >= 2.8f)
                 {
@@ -135,7 +138,13 @@ public class SellRaw : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
 
                 kamyonAnim.enabled = true;
-                kamyonObj.transform.DOLocalMove(new Vector3(20,0,0), 1f).OnComplete(()=> { kamyonObj.gameObject.SetActive(false); }).SetEase(Ease.InExpo);
+                backdoor[0].transform.DORotate(new Vector3(-90, 0, 0), 0.2f);
+                backdoor[1].transform.DORotate(new Vector3(-90, 0, 0), 0.2f).OnComplete(()=>
+                {
+
+                    kamyonObj.transform.DOLocalMove(new Vector3(20, 0, 0), 1f).OnComplete(() => { kamyonObj.gameObject.SetActive(false); }).SetEase(Ease.InExpo);
+
+                });
                 adet = 0;
                 run = false;
 
@@ -150,10 +159,7 @@ public class SellRaw : MonoBehaviour
 
           
     }
-    void Late()
-    {
-        humanMove.enabled = true;
-    }
+   
     IEnumerator Timer()
     {
         while (isTimer) 
