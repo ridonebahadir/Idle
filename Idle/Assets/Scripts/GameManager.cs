@@ -72,9 +72,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Application ending after " + Time.time + " seconds");
         PlayerPrefs.SetInt("Money",money);
-        PlayerPrefs.SetFloat("HumanStartPosX",human.transform.position.x);
-        PlayerPrefs.SetFloat("HumanStartPosY", human.transform.position.y);
-        PlayerPrefs.SetFloat("HumanStartPosZ", human.transform.position.z);
+     
     }
    
    

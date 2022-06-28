@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class CameraFollow : MonoBehaviour
 {
-    
+    public GameManager gameManager;
     public Transform human;
     public float smoothTime = 0.25f;
     private Vector3 velocity = Vector3.zero;
@@ -17,9 +17,18 @@ public class CameraFollow : MonoBehaviour
     Vector3 targetPos;
     Vector3 backPos;
     public Transform UpPoint;
+    
     private void Awake()
     {
-        turn = PlayerPrefs.GetInt("Turn", 0);
+        if (!gameManager.locked)
+        {
+            turn = 12;
+        }
+        else
+        {
+            turn = PlayerPrefs.GetInt("Turn", 0);
+        }
+       
     }
     private void Start()
     {

@@ -7,7 +7,7 @@ using System;
 public class HumanCollider : MonoBehaviour
 {
     public GameObject paralar;
-    public Vector3 startPos;
+
     public CameraFollow cameraFollow;
     public SellRaw sellRaw;
     public int capasity;
@@ -59,16 +59,8 @@ public class HumanCollider : MonoBehaviour
     public Transform payAreaTir;
     public Transform payAreaRecycling;
     public Transform payRecyclingPoint;
-    private void Awake()
-    {
-        startPos.x = PlayerPrefs.GetFloat("HumanStartPosX",transform.position.x);
-        startPos.y = PlayerPrefs.GetFloat("HumanStartPosY", transform.position.y);
-        startPos.z = PlayerPrefs.GetFloat("HumanStartPosZ", transform.position.z);
-    }
-    private void Start()
-    {
-        transform.position = startPos;
-    }
+  
+    
     private void OnTriggerEnter(Collider other)
     {
        

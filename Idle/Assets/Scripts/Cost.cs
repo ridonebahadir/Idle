@@ -31,10 +31,18 @@ public class Cost : MonoBehaviour
     private void Awake()
     {
         katsayi = costValue / 30;
-        closeOrOpen = PlayerPrefs.GetInt("CloseOrOpen"+id);
-        costValue = PlayerPrefs.GetFloat("CostValue" + id,costValue);
+        if (!gameManager.locked)
+        {
+            closeOrOpen = 1;
+        }
+        else
+        {
+            closeOrOpen = PlayerPrefs.GetInt("CloseOrOpen" + id);
+            costValue = PlayerPrefs.GetFloat("CostValue" + id, costValue);
+            imageValue = PlayerPrefs.GetFloat("ImageValue" + id);
+        }
+      
        
-        imageValue = PlayerPrefs.GetFloat("ImageValue" + id);
     
     }
     private void Start()
