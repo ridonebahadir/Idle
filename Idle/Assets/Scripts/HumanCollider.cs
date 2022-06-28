@@ -11,11 +11,14 @@ public class HumanCollider : MonoBehaviour
     public CameraFollow cameraFollow;
     public SellRaw sellRaw;
     public int capasity;
-    public AllLine allLine;
+    
     private Spawn spawn;
     public GameManager gameManager;
     public Transform bag;
     public float bagYAxis;
+    [Header("KASA")]
+    public AllLine allLine;
+    public Transform button;
     [Header("Recycle")]
     public Transform recycleArea;
     public Transform kapak1;
@@ -150,6 +153,7 @@ public class HumanCollider : MonoBehaviour
         if (other.tag == "Kasa")
         {
             allLine.transform.GetChild(allLine.currentCarNumber).transform.GetComponent<ProductLine>().SellCar();
+            button.transform.DOLocalMoveY(0,0.5f);
 
         }
         if (other.tag=="Door")
@@ -258,6 +262,10 @@ public class HumanCollider : MonoBehaviour
         {
             kapak1.DOLocalRotate(Vector3.zero, 0.5f).SetEase(Ease.InSine);
             kapak2.DOLocalRotate(Vector3.zero, 0.75f).SetEase(Ease.InSine);
+        }
+        if (other.tag=="Kasa")
+        {
+            button.transform.DOLocalMoveY(0.5f, 0.5f);
         }
     }
   
