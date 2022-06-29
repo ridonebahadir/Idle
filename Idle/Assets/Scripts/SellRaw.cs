@@ -10,7 +10,8 @@ public class SellRaw : MonoBehaviour
    
     public int capasity = 5;
     public float animTime = 3;
-    public int value;
+    public int id;
+    private int value;
     public int adet;
     public GameObject raw;
     public Spawn spawn;
@@ -31,6 +32,25 @@ public class SellRaw : MonoBehaviour
     
     bool isTimer;
     public GameObject warning;
+    private void Start()
+    {
+        switch (id)
+        {
+            case 1:
+                value=ValueObj.metal;
+                break;
+            case 2:
+                value = ValueObj.polimer;
+                break;
+            case 3:
+                value = ValueObj.kablo;
+                break;
+            case 4:
+                value = ValueObj.cam;
+                break;
+           
+        }
+    }
     private void Update()
     {
        

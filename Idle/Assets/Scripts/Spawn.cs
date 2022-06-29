@@ -231,6 +231,7 @@ public class Spawn : MonoBehaviour
     IEnumerator KargoAracMove()
     {
         first = PlayerPrefs.GetInt("First");
+
         StartCoroutine(humanCollider.PayMoney(borderStartCount * price, transform,humanCollider.moneyListKargo,humanCollider.payArea));
         if (first==0)
         {
@@ -260,7 +261,6 @@ public class Spawn : MonoBehaviour
                 
                 int a = System.Enum.GetValues(typeof(ListSelect)).Length;
                 whichList = (ListSelect)Random.Range(a-2, a);
-                
                 WhichList();
                 boxColliderSell.enabled = true;
                 borderCount = Random.Range(1, 5);
@@ -291,11 +291,11 @@ public class Spawn : MonoBehaviour
                 outPutCount++;
             }
            
-            if (productCount[0] <= 0)
+            if (productCount[0] < a)
             {
                
                 runMachine = false;
-                productCount[0] = 0;
+                //productCount[0] = 0;
             }
             //if (productCount[1] <= 0)
             //{
@@ -500,13 +500,13 @@ public class Spawn : MonoBehaviour
                 currentList = humanCollider.bagListWheel;
                 logo.GetChild(0).gameObject.SetActive(true);
                 logo.GetChild(1).gameObject.SetActive(false);
-                price = 4;
+                price = ValueObj.metal*4;
                 break;
             case ListSelect.kargoKoltuk:
                 currentList = humanCollider.bagListKoltuk;
                 logo.GetChild(0).gameObject.SetActive(false);
                 logo.GetChild(1).gameObject.SetActive(true);
-                price = 3;
+                price = ValueObj.polimer*8;
                 break;
 
             //Recycle

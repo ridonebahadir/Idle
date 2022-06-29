@@ -123,7 +123,7 @@ public class HumanCollider : MonoBehaviour
         {
             if (moneyListKargo.Count>0)
             {
-                StartCoroutine(ComeMoney(moneyListKargo));
+                StartCoroutine(ComeMoney(moneyListKargo,5));
             }
             
         }
@@ -131,7 +131,7 @@ public class HumanCollider : MonoBehaviour
         {
             if (moneyListTir.Count > 0)
             {
-                StartCoroutine(ComeMoney(moneyListTir));
+                StartCoroutine(ComeMoney(moneyListTir,20));
             }
 
         }
@@ -139,7 +139,7 @@ public class HumanCollider : MonoBehaviour
         {
             if (moneyListRecycling.Count > 0)
             {
-                StartCoroutine(ComeMoney(moneyListRecycling));
+                StartCoroutine(ComeMoney(moneyListRecycling,5));
             }
 
         }
@@ -372,7 +372,7 @@ public class HumanCollider : MonoBehaviour
             while (runSell)
             {
                 bagList[count].transform.parent = SellArea;
-                bagList[count].transform.DOLocalJump(Vector3.zero, 3, 0, 0.5f, false)
+                bagList[count].transform.DOLocalJump(Vector3.zero, 8, 0, 0.5f, false)
                .OnComplete(() => {
                   
                    
@@ -429,7 +429,7 @@ public class HumanCollider : MonoBehaviour
 
     }
 
-    IEnumerator ComeMoney(List<GameObject> whichList)
+    IEnumerator ComeMoney(List<GameObject> whichList,int balyaValue)
     {
         float a = 1 / whichList.Count;
         for (int i = whichList.Count-1; i > -1; i--)
@@ -439,7 +439,7 @@ public class HumanCollider : MonoBehaviour
             obj.transform.DOLocalMove(Vector3.zero, 0.5f, false)
                 .OnComplete(()=> { 
                     obj.gameObject.SetActive(false);
-                    gameManager.money+=5;
+                    gameManager.money+= balyaValue;
                     gameManager.moneyText.text = gameManager.money.ToString();
                     Destroy(obj.gameObject);
                    
