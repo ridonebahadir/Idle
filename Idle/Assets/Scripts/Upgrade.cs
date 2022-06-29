@@ -41,6 +41,8 @@ public class Upgrade : MonoBehaviour
             if (isCapacity)
             {
                 sellRaw.capasity += 5;
+                PlayerPrefs.SetInt("Capasity", sellRaw.capasity);
+               
                 textUpgrade.text = sellRaw.capasity.ToString();
             }
             else
@@ -48,6 +50,7 @@ public class Upgrade : MonoBehaviour
                 if (sellRaw.animTime>0.1f)
                 {
                     sellRaw.animTime -= 0.5f;
+                     PlayerPrefs.SetFloat("AnimTime", sellRaw.animTime);
                     textUpgrade.text = sellRaw.animTime.ToString();
                 }
                 

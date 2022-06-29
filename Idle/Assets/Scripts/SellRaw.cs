@@ -32,6 +32,11 @@ public class SellRaw : MonoBehaviour
     
     bool isTimer;
     public GameObject warning;
+    private void Awake()
+    {
+        capasity = PlayerPrefs.GetInt("Capasity",5);
+        animTime = PlayerPrefs.GetFloat("AnimTime", 3);
+    }
     private void Start()
     {
         switch (id)
