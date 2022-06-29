@@ -121,7 +121,7 @@ public class Cost : MonoBehaviour
            
 
             transforms[i].gameObject.SetActive(true);
-            transforms[i].transform.DOLocalMoveY(0, 0.5f).OnComplete(()=> {
+            transforms[i].transform.DOLocalMoveY(0, 1f).OnComplete(()=> {
                 mainCamera.DOShakeRotation(0.1f,0.3f);
                 //if (i == transforms.Length - 1)
                 //{
