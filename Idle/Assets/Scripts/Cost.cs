@@ -180,7 +180,7 @@ public class Cost : MonoBehaviour
            
             GameObject obj = Instantiate(money, human);
             obj.transform.parent = transform;
-            obj.transform.DOLocalJump(new Vector3(0, 0, 0), 3, 0, 1.5f, false).OnComplete(() => Destroy(obj)).SetEase(Ease.OutQuint);
+            obj.transform.DOLocalJump(new Vector3(0, -3, 0), 5, 0, 1.5f, false).OnComplete(() => Destroy(obj)).SetEase(Ease.OutQuint);
             Vibration.Vibrate(40);
             image.fillAmount += imageAmount;
             costValue--;             costText.text = costValue.ToString("f0");
@@ -227,7 +227,7 @@ public class Cost : MonoBehaviour
                 run = false;
                 pay = false;
             }
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
            
 
