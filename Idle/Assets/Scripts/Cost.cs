@@ -68,21 +68,25 @@ public class Cost : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag=="Human")
+        if (gameManager.money>0)
         {
-            co = Timer(other.transform);
-            run = true;
-           
+            if (other.tag == "Human")
+            {
+                co = Timer(other.transform);
+                run = true;
+
 
                 isTimer = true;
-            pay = true;
+                pay = true;
 
                 StartCoroutine(co);
 
 
-            
 
+
+            }
         }
+       
     }
     private void OnTriggerExit(Collider other)
     {
@@ -173,16 +177,15 @@ public class Cost : MonoBehaviour
         
         while (pay)
         {
-            
+           
             GameObject obj = Instantiate(money, human);
             obj.transform.parent = transform;
             obj.transform.DOLocalJump(new Vector3(0, 0, 0), 3, 0, 1.5f, false).OnComplete(() => Destroy(obj)).SetEase(Ease.OutQuint);
             Vibration.Vibrate(40);
             image.fillAmount += imageAmount;
-            costValue -= katsayi;
-            costText.text = costValue.ToString("f0");
+            costValue--;             costText.text = costValue.ToString("f0");
 
-            gameManager.money -= (int)katsayi;
+            gameManager.money--; ;
             gameManager.moneyText.text = gameManager.money.ToString();
             //if (gameManager.money <= 0)
             //{
@@ -197,11 +200,12 @@ public class Cost : MonoBehaviour
             //    run = false;
             //    pay = false;
             //}
+
             if (costValue <= 0)
             {
                 isTimer = false;
                 StopCoroutine(co);
-                Debug.Log("PAY");
+               
 
                 isTimer = true;
 
@@ -211,6 +215,17 @@ public class Cost : MonoBehaviour
 
 
 
+            }
+            if (gameManager.money <= 0)
+            {
+                PlayerPrefs.SetFloat("CostValue" + id, costValue);
+
+                PlayerPrefs.SetFloat("ImageValue" + id, image.fillAmount);
+
+                isTimer = false;
+                StopCoroutine(co);
+                run = false;
+                pay = false;
             }
             yield return new WaitForSeconds(0.1f);
         }

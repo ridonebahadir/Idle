@@ -439,7 +439,7 @@ public class Spawn : MonoBehaviour
                 //currentList2 = humanCollider.bagListKablo;
                 break;
             case ListSelect.body:
-                currentList = humanCollider.bagListMetal;
+                currentList = humanCollider.bagListKablo;
                 //currentList2 = humanCollider.bagListKablo;
                 break;
             case ListSelect.pencere:

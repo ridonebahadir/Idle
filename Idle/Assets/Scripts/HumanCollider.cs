@@ -470,7 +470,7 @@ public class HumanCollider : MonoBehaviour
         }
         yield return new WaitForSeconds(0.1f);
         paralar.SetActive(false);
-        gameManager.money = 20000;
+        gameManager.money = 75;
         gameManager.moneyText.text = gameManager.money.ToString();
         yield return new WaitForSeconds(0.5f);
         cameraFollow.Move();
