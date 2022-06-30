@@ -52,7 +52,7 @@ public class Cost : MonoBehaviour
         {
             transforms[i].localPosition = new Vector3(transforms[i].localPosition.x, transforms[i].localPosition.y + 20, transforms[i].localPosition.z);
         }
-        imageAmount = 1 / costValue*katsayi;
+        imageAmount = 1 / costValue;
         image.fillAmount = imageValue;
 
 
@@ -212,7 +212,7 @@ public class Cost : MonoBehaviour
                 OpenMachine();
                 //StartCoroutine(OpenMachine());
                 pay = false;
-                StartCoroutine(SoundManagerSfx.Play("Unlocked", 0));
+                StartCoroutine(SoundManagerSfx.Play("Unlocked", 0.5f));
 
 
             }
