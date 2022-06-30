@@ -15,11 +15,27 @@ public class SoundManagerSfx : MonoBehaviour
         kapiOpen = Resources.Load<AudioClip>("KapiOpen");
         kapiClose = Resources.Load<AudioClip>("KapiClose");
       
-
+        
         audioSrc = GetComponent<AudioSource>();
     }
-    public static void PlaySfx(string clip)
+    //public static void PlaySfx(string clip)
+    //{
+        
+    //    switch (clip)
+    //    {
+    //        case "KapiOpen":
+    //            audioSrc.PlayOneShot(kapiOpen);
+    //            Debug.Log("Kapi Sesi");
+    //            break;
+    //        case "KapiClose":
+    //            audioSrc.PlayOneShot(kapiOpen);
+    //            Debug.Log("Kapi Sesi");
+    //            break;
+    //    }
+    //}
+   public static IEnumerator Play(string clip,float invokeTime)
     {
+        yield return new WaitForSeconds(invokeTime);
         switch (clip)
         {
             case "KapiOpen":
