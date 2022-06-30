@@ -158,7 +158,8 @@ public class HumanCollider : MonoBehaviour
         }
         if (other.tag=="Door")
         {
-            other.transform.GetChild(0).transform.DOScaleY(0,1f).SetEase(Ease.InOutExpo); ;
+            other.transform.GetChild(0).transform.DOScaleY(0,1f).SetEase(Ease.InOutExpo);
+            SoundManagerSfx.PlaySfx("KapiOpen");
         }
         if (other.tag=="BankTake")
         {
@@ -257,6 +258,7 @@ public class HumanCollider : MonoBehaviour
         if (other.tag == "Door")
         {
             other.transform.GetChild(0).transform.DOScaleY(1, 1f).SetEase(Ease.InExpo);
+            SoundManagerSfx.PlaySfx("KapiClose");
         }
         if (other.tag== "Recycle")
         {
