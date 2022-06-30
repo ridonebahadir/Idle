@@ -258,7 +258,7 @@ public class HumanCollider : MonoBehaviour
         if (other.tag == "Door")
         {
             other.transform.GetChild(0).transform.DOScaleY(1, 1f).SetEase(Ease.InExpo);
-            StartCoroutine(SoundManagerSfx.Play("KapiClose", 0.8f));
+            StartCoroutine(SoundManagerSfx.Play("KapiClose", 0.6f));
 
 
 
