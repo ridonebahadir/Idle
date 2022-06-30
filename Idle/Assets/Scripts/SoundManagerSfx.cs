@@ -10,6 +10,8 @@ public class SoundManagerSfx : MonoBehaviour
     public static AudioClip alma;
     public static AudioClip verme;
     public static AudioClip unlocked;
+    public static AudioClip generatorOpen;
+    public static AudioClip generatorClose;
     
 
     static AudioSource audioSrc;
@@ -20,6 +22,8 @@ public class SoundManagerSfx : MonoBehaviour
         alma = Resources.Load<AudioClip>("Alma");
         verme = Resources.Load<AudioClip>("Verme");
         unlocked = Resources.Load<AudioClip>("Unlocked");
+        generatorOpen = Resources.Load<AudioClip>("GeneratorOpen");
+        generatorClose = Resources.Load<AudioClip>("GeneratorClose");
       
         
         audioSrc = GetComponent<AudioSource>();
@@ -49,6 +53,14 @@ public class SoundManagerSfx : MonoBehaviour
             case "Unlocked":
                 audioSrc.PlayOneShot(unlocked);
                 Debug.Log("Unlocked Sesi");
+                break;
+            case "GeneratorOpen":
+                audioSrc.PlayOneShot(generatorOpen);
+                Debug.Log("generatorOpen Sesi");
+                break;
+            case "GeneratorClose":
+                audioSrc.PlayOneShot(generatorClose);
+                Debug.Log("generatorClose Sesi");
                 break;
         }
     }
