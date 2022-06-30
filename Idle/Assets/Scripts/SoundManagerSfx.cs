@@ -7,6 +7,8 @@ public class SoundManagerSfx : MonoBehaviour
     [Header("AUDIO SFX")]
     public static AudioClip kapiOpen;
     public static AudioClip kapiClose;
+    public static AudioClip alma;
+    public static AudioClip verme;
     
 
     static AudioSource audioSrc;
@@ -14,25 +16,13 @@ public class SoundManagerSfx : MonoBehaviour
     {
         kapiOpen = Resources.Load<AudioClip>("KapiOpen");
         kapiClose = Resources.Load<AudioClip>("KapiClose");
+        alma = Resources.Load<AudioClip>("Alma");
+        verme = Resources.Load<AudioClip>("Verme");
       
         
         audioSrc = GetComponent<AudioSource>();
     }
-    //public static void PlaySfx(string clip)
-    //{
-        
-    //    switch (clip)
-    //    {
-    //        case "KapiOpen":
-    //            audioSrc.PlayOneShot(kapiOpen);
-    //            Debug.Log("Kapi Sesi");
-    //            break;
-    //        case "KapiClose":
-    //            audioSrc.PlayOneShot(kapiOpen);
-    //            Debug.Log("Kapi Sesi");
-    //            break;
-    //    }
-    //}
+  
    public static IEnumerator Play(string clip,float invokeTime)
     {
         yield return new WaitForSeconds(invokeTime);
@@ -43,8 +33,16 @@ public class SoundManagerSfx : MonoBehaviour
                 Debug.Log("Kapi Sesi");
                 break;
             case "KapiClose":
-                audioSrc.PlayOneShot(kapiOpen);
+                audioSrc.PlayOneShot(kapiClose);
                 Debug.Log("Kapi Sesi");
+                break;
+            case "Alma":
+                audioSrc.PlayOneShot(alma);
+                Debug.Log("Alma Sesi");
+                break;
+            case "Verme":
+                audioSrc.PlayOneShot(verme);
+                Debug.Log("Verme Sesi");
                 break;
         }
     }

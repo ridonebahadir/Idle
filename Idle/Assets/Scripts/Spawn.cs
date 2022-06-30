@@ -143,6 +143,7 @@ public class Spawn : MonoBehaviour
             list.RemoveAt(a);
             humanCollider.bagYAxis += 0.40f;
             //Azalma(true);
+            StartCoroutine(SoundManagerSfx.Play("Alma", 0));
             Vibration.Vibrate(10);
         }
         else
@@ -192,6 +193,7 @@ public class Spawn : MonoBehaviour
         
         productCount[id]++;
         textMesh[id].text = productCount[id].ToString();
+        StartCoroutine(SoundManagerSfx.Play("Verme", 0));
         Vibration.Vibrate(40);
        
     }
