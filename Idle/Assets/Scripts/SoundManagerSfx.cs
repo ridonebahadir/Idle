@@ -47,7 +47,7 @@ public class SoundManagerSfx : MonoBehaviour
                 Debug.Log("Verme Sesi");
                 break;
             case "Unlocked":
-                audioSrc.PlayOneShot(verme);
+                audioSrc.PlayOneShot(unlocked);
                 Debug.Log("Unlocked Sesi");
                 break;
         }
