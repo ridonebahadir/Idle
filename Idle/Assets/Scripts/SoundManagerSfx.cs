@@ -9,6 +9,7 @@ public class SoundManagerSfx : MonoBehaviour
     public static AudioClip kapiClose;
     public static AudioClip alma;
     public static AudioClip verme;
+    public static AudioClip unlocked;
     
 
     static AudioSource audioSrc;
@@ -18,6 +19,7 @@ public class SoundManagerSfx : MonoBehaviour
         kapiClose = Resources.Load<AudioClip>("KapiClose");
         alma = Resources.Load<AudioClip>("Alma");
         verme = Resources.Load<AudioClip>("Verme");
+        unlocked = Resources.Load<AudioClip>("Unlocked");
       
         
         audioSrc = GetComponent<AudioSource>();
@@ -43,6 +45,10 @@ public class SoundManagerSfx : MonoBehaviour
             case "Verme":
                 audioSrc.PlayOneShot(verme);
                 Debug.Log("Verme Sesi");
+                break;
+            case "Unlocked":
+                audioSrc.PlayOneShot(verme);
+                Debug.Log("Unlocked Sesi");
                 break;
         }
     }

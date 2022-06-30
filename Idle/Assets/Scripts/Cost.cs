@@ -212,12 +212,13 @@ public class Cost : MonoBehaviour
                 OpenMachine();
                 //StartCoroutine(OpenMachine());
                 pay = false;
-
+                StartCoroutine(SoundManagerSfx.Play("Unlocked", 0));
 
 
             }
             if (gameManager.money <= 0)
             {
+              
                 PlayerPrefs.SetFloat("CostValue" + id, costValue);
 
                 PlayerPrefs.SetFloat("ImageValue" + id, image.fillAmount);
