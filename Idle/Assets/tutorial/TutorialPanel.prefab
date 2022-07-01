@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5175456465262064664}
   - component: {fileID: 5175456465262064670}
-  - component: {fileID: 5175456465262064666}
   m_Layer: 5
   m_Name: TutorialPanel
   m_TagString: Untagged
@@ -47,20 +46,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5175456465262064665}
   m_CullTransparentMesh: 0
---- !u!114 &5175456465262064666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5175456465262064665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59d2c85aa67304de3a9adcf639fea3fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parent: {fileID: 0}
-  children: []
 --- !u!1 &5175456465816580372
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +113,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2ab4d6cae5bd04f3893976f91626166e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 35ead40c64f7d42bcab414fc50182b9b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -225,7 +210,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 68d9818ce53f24693b6bbebefca8ce79, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 533dbc73a23354a1ba1706556f7654e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -302,7 +287,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 68192e7e6aa434548974355eedb8016c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bd9bde820af9d4605bf07fea98efe6f5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -379,7 +364,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 9aa16a81bb2a448c8b3bc89f1e4903b4, type: 3}
+    m_Font: {fileID: 12800000, guid: c67c3a2a43e75624e9127427386fba0b, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
@@ -401,7 +386,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8729627753433690662}
-  - component: {fileID: 8729627753433690663}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -431,18 +415,3 @@ RectTransform:
   m_AnchoredPosition: {x: 9, y: 847}
   m_SizeDelta: {x: 18, y: 1694}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8729627753433690663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8729627753433690661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e7cc9ae882524194a35ea8d4d06ee09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ConformX: 1
-  ConformY: 1
-  Logging: 0

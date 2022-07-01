@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HumanMove : MonoBehaviour
 {
+    public Transform dragMove;
     public DynamicJoystick dynamicJoystick;
     public float speed;
     public Animator anim;
@@ -22,7 +23,7 @@ public class HumanMove : MonoBehaviour
         transform.Translate(movementDirection * speed * Time.deltaTime, Space.World);
 
 
-
+       
 
         if (movementDirection != Vector3.zero)
         {
