@@ -85,11 +85,13 @@ public class SellRaw : MonoBehaviour
     {
         if (other.tag == "Human")
         {
+            upGrade.SetActive(false);
+           
             warning.SetActive(false);
             
           
             Azalma();
-            upGrade.SetActive(false);
+            
             isTimer = false;
            
             StopCoroutine(co);
@@ -108,21 +110,23 @@ public class SellRaw : MonoBehaviour
     {
         if (outPoint.childCount<capasity)
         {
-            boxCollider.enabled = false;
+           
             float a = animTime;
 
-            waitImage.DOFillAmount(0,animTime);
+            waitImage.DOFillAmount(0, 3);
             for (int i = 0; i <= a; i++)
             {
                
                
                 textOrder.text = animTime.ToString();
-                yield return new WaitForSeconds(1);
                 animTime--;
+                yield return new WaitForSeconds(1);
+               
                
                
             }
-
+            
+            textOrder.text = "Order";
             animTime = PlayerPrefs.GetFloat("AnimTime", 3);
             kamyonObj.gameObject.SetActive(true);
             kamyonObj.transform.DOLocalMove(Vector3.zero, 1f).OnComplete(()=> {
@@ -185,7 +189,7 @@ public class SellRaw : MonoBehaviour
                 backdoor[0].transform.DORotate(new Vector3(-90, 0, 0), 0.2f);
                 backdoor[1].transform.DORotate(new Vector3(-90, 0, 0), 0.2f).OnComplete(()=>
                 {
-                    boxCollider.enabled = true;
+
                     kamyonObj.transform.DOLocalMove(new Vector3(20, 0, 0), 1f).OnComplete(() => { kamyonObj.gameObject.SetActive(false); }).SetEase(Ease.InExpo);
 
                 });
