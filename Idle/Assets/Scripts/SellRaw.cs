@@ -113,7 +113,7 @@ public class SellRaw : MonoBehaviour
            
             float a = animTime;
 
-            waitImage.DOFillAmount(0, 3);
+            waitImage.DOFillAmount(0, animTime);
             for (int i = 0; i <= a; i++)
             {
                
