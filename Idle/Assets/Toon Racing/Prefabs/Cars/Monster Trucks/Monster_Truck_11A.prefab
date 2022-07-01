@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 656030194400574425}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Monster_Truck_11A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &656030194400574425
 Transform:
   m_ObjectHideFlags: 0
@@ -25,7 +25,8 @@ Transform:
   m_GameObject: {fileID: 2149274485840748221}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.50931853, y: 0.50931853, z: 0.50931853}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1243933567041557759}
   - {fileID: 3507836653054034326}
@@ -46,7 +47,7 @@ GameObject:
   - component: {fileID: 4311642914737469198}
   - component: {fileID: 66430419319643581}
   - component: {fileID: 4813593688434440036}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheel_11A_F.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,6 +64,7 @@ Transform:
   m_LocalRotation: {x: -0.000000007450581, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: 1.1847153, y: -0.000009841919, z: 0.00031661987}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2516706928523203817}
   m_RootOrder: 0
@@ -86,9 +88,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -100,6 +105,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -112,6 +118,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2643183164348392968
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +130,7 @@ GameObject:
   - component: {fileID: 6606177457616920099}
   - component: {fileID: 6612049964379791935}
   - component: {fileID: 2755751994792146228}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Monster_Truck_11A_Suspension_R.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,6 +147,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.78111935, y: 1.120545, z: -2.3766823}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6175066606625251467}
   m_Father: {fileID: 656030194400574425}
@@ -164,9 +172,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -178,6 +189,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -190,6 +202,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &3769298105416673776
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +214,7 @@ GameObject:
   - component: {fileID: 3507836653054034326}
   - component: {fileID: 1010582226467717495}
   - component: {fileID: 158768574114448332}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Monster_Truck_11A_Suspension_F.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,6 +231,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.78111935, y: 1.120545, z: 2.3766823}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7452325923960675827}
   m_Father: {fileID: 656030194400574425}
@@ -242,9 +256,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -256,6 +273,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -268,6 +286,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &4332959104557518981
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +298,7 @@ GameObject:
   - component: {fileID: 2516706928523203817}
   - component: {fileID: 4353544291506793543}
   - component: {fileID: 6524339463875682056}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Monster_Truck_11A_Suspension_F.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,6 +315,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.78111935, y: 1.120545, z: 2.3766823}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4311642914737469198}
   m_Father: {fileID: 656030194400574425}
@@ -320,9 +340,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -334,6 +357,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -346,6 +370,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &5213749296622922107
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +382,7 @@ GameObject:
   - component: {fileID: 8984817639372321519}
   - component: {fileID: 656563920333690881}
   - component: {fileID: 6123947017771500839}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Monster_Truck_11A_Livery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,6 +399,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1243933567041557759}
   m_RootOrder: 0
@@ -397,9 +423,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -411,6 +440,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -423,6 +453,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &7526397562211427825
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,8 +465,7 @@ GameObject:
   - component: {fileID: 1243933567041557759}
   - component: {fileID: 7108284122370311927}
   - component: {fileID: 8615882215844574360}
-  - component: {fileID: 4141641145508388939}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Monster_Truck_11A_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,6 +482,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8984817639372321519}
   m_Father: {fileID: 656030194400574425}
@@ -476,9 +507,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -490,6 +524,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -502,20 +537,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4141641145508388939
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7526397562211427825}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300034, guid: 619ae6916ca3c408998ac0929fa53dbe, type: 3}
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8202473769340819483
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +549,7 @@ GameObject:
   - component: {fileID: 7452325923960675827}
   - component: {fileID: 4702807963560343262}
   - component: {fileID: 1900725756857256315}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheel_11A_F.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,6 +566,7 @@ Transform:
   m_LocalRotation: {x: -0.000000007450581, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -1.1847144, y: -0.000009841919, z: 0.00031661987}
   m_LocalScale: {x: 0.9999999, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3507836653054034326}
   m_RootOrder: 0
@@ -567,9 +590,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -581,6 +607,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -593,6 +620,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8916127280595256405
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,7 +632,7 @@ GameObject:
   - component: {fileID: 3567410360165268178}
   - component: {fileID: 5585170229969733938}
   - component: {fileID: 3546535647081778175}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheel_11A_R.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -621,6 +649,7 @@ Transform:
   m_LocalRotation: {x: 0.000000007450581, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: 1.1847144, y: -0.000009765625, z: 0.000022888184}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2218996974070024920}
   m_RootOrder: 0
@@ -644,9 +673,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -658,6 +690,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -670,6 +703,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &9000183236700666689
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,7 +715,7 @@ GameObject:
   - component: {fileID: 6175066606625251467}
   - component: {fileID: 7274112373175092357}
   - component: {fileID: 2298104008779626532}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheel_11A_R.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,6 +732,7 @@ Transform:
   m_LocalRotation: {x: 0.000000007450581, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -1.1847153, y: -0.000009841919, z: 0.00002670288}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6606177457616920099}
   m_RootOrder: 0
@@ -721,9 +756,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -735,6 +773,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -747,6 +786,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &9115339065076439020
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,7 +798,7 @@ GameObject:
   - component: {fileID: 2218996974070024920}
   - component: {fileID: 4785005844298747617}
   - component: {fileID: 6357292883785838439}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Monster_Truck_11A_Suspension_R.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -775,6 +815,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.78111935, y: 1.120545, z: -2.3766823}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3567410360165268178}
   m_Father: {fileID: 656030194400574425}
@@ -799,9 +840,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -813,6 +857,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -825,3 +870,4 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}

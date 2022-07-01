@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4000011781220822}
   - component: {fileID: 33000011238816786}
   - component: {fileID: 23000013157991882}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rally_Car_1A_Livery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4000010121095938}
   - component: {fileID: 33000010693937600}
   - component: {fileID: 23000013860396770}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rally_Car_1A_Roof_Scoop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4000011304645932}
   - component: {fileID: 33000014191803860}
   - component: {fileID: 23000010198219156}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rally_Car_1A_Side_Skirts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 4000013747599418}
   - component: {fileID: 33000010635060658}
   - component: {fileID: 23000013436806852}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheel_1A_R.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 4000011276139398}
   - component: {fileID: 33000013806902310}
   - component: {fileID: 23000013242332654}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rally_Car_1A_Front_Skirt_Livery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,14 +426,13 @@ GameObject:
   - component: {fileID: 4000013110666612}
   - component: {fileID: 33000011217989658}
   - component: {fileID: 23000013724434786}
-  - component: {fileID: 64000012645163198}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rally_Car_1A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4000013110666612
 Transform:
   m_ObjectHideFlags: 0
@@ -509,20 +508,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64000012645163198
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000011449946788}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: b31275923280c49e2b9cf05498f8c5be, type: 3}
 --- !u!1 &1000012148698100
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,8 +519,7 @@ GameObject:
   - component: {fileID: 4000011828522946}
   - component: {fileID: 33000010047298418}
   - component: {fileID: 23000013993259772}
-  - component: {fileID: 64000010256796416}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rally_Car_1A_Front_Skirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,20 +592,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64000010256796416
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000012148698100}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300010, guid: 0a8561d5627f24a0ca917661a4fe6d75, type: 3}
 --- !u!1 &1000012380077972
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +603,7 @@ GameObject:
   - component: {fileID: 4000011344055056}
   - component: {fileID: 33000012522619066}
   - component: {fileID: 23000012036347978}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheel_1A_R.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -716,7 +686,7 @@ GameObject:
   - component: {fileID: 4000012331421920}
   - component: {fileID: 33000013394860922}
   - component: {fileID: 23000013455304544}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheel_1A_F.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -799,8 +769,7 @@ GameObject:
   - component: {fileID: 4000013410130756}
   - component: {fileID: 33000013052643298}
   - component: {fileID: 23000014021297832}
-  - component: {fileID: 65000014097289732}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rally_Car_1A_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -872,19 +841,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &65000014097289732
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000013062283016}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.4304637, y: 0.33064997, z: 0.19286117}
-  m_Center: {x: 9.965537e-24, y: 1.895755, z: 0.061796382}
 --- !u!1 &1000013110245672
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,7 +852,7 @@ GameObject:
   - component: {fileID: 4000010579881644}
   - component: {fileID: 33000013490353752}
   - component: {fileID: 23000014055110480}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheel_1A_F.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -979,8 +935,7 @@ GameObject:
   - component: {fileID: 4000010808397250}
   - component: {fileID: 33000012910558080}
   - component: {fileID: 23000013211538732}
-  - component: {fileID: 64000010725088382}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rally_Car_1A_Spoiler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1052,17 +1007,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64000010725088382
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000013734908026}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300016, guid: 0a8561d5627f24a0ca917661a4fe6d75, type: 3}
