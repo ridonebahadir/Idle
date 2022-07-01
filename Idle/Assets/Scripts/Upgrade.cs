@@ -49,7 +49,7 @@ public class Upgrade : MonoBehaviour
             {
                 if (sellRaw.animTime>0.1f)
                 {
-                    sellRaw.animTime -= 0.5f;
+                    sellRaw.animTime -= 1f;
                      PlayerPrefs.SetFloat("AnimTime", sellRaw.animTime);
                     textUpgrade.text = sellRaw.animTime.ToString();
                 }

@@ -7,7 +7,8 @@ using TMPro;
 
 public class SellRaw : MonoBehaviour
 {
-   
+    private BoxCollider boxCollider;
+    public TextMeshPro textOrder;
     public int capasity = 5;
     public float animTime = 3;
     public int id;
@@ -39,6 +40,7 @@ public class SellRaw : MonoBehaviour
     }
     private void Start()
     {
+        boxCollider = GetComponent<BoxCollider>();
         switch (id)
         {
             case 1:
@@ -106,6 +108,22 @@ public class SellRaw : MonoBehaviour
     {
         if (outPoint.childCount<capasity)
         {
+            boxCollider.enabled = false;
+            float a = animTime;
+
+            waitImage.DOFillAmount(0,animTime);
+            for (int i = 0; i <= a; i++)
+            {
+               
+               
+                textOrder.text = animTime.ToString();
+                yield return new WaitForSeconds(1);
+                animTime--;
+               
+               
+            }
+
+            animTime = PlayerPrefs.GetFloat("AnimTime", 3);
             kamyonObj.gameObject.SetActive(true);
             kamyonObj.transform.DOLocalMove(Vector3.zero, 1f).OnComplete(()=> {
                 kamyonAnim.enabled = false;
@@ -142,7 +160,7 @@ public class SellRaw : MonoBehaviour
                 //adetText.text = outPoint.childCount.ToString();
 
 
-                obj.transform.DOLocalJump(new Vector3(x, y, z), 8, 0, animTime, false).OnComplete(() => { spawn.list.Add(obj); }).SetEase(Ease.InQuint);
+                obj.transform.DOLocalJump(new Vector3(x, y, z), 8, 0, 1, false).OnComplete(() => { spawn.list.Add(obj); }).SetEase(Ease.InQuint);
                 x += 1.4f;
                 if (x >= 2.8f)
                 {
@@ -162,11 +180,12 @@ public class SellRaw : MonoBehaviour
                 waitImage.color = Color.red;
                 yield return new WaitForSeconds(0.5f);
 
+               
                 kamyonAnim.enabled = true;
                 backdoor[0].transform.DORotate(new Vector3(-90, 0, 0), 0.2f);
                 backdoor[1].transform.DORotate(new Vector3(-90, 0, 0), 0.2f).OnComplete(()=>
                 {
-
+                    boxCollider.enabled = true;
                     kamyonObj.transform.DOLocalMove(new Vector3(20, 0, 0), 1f).OnComplete(() => { kamyonObj.gameObject.SetActive(false); }).SetEase(Ease.InExpo);
 
                 });
