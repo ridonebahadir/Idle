@@ -32,6 +32,7 @@ TagManager:
   - PayRecycle
   - PlayerEyes
   - Kamyon
+  - Machine
   layers:
   - Default
   - TransparentFX
