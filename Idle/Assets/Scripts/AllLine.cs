@@ -52,7 +52,7 @@ public class AllLine : MonoBehaviour
                 wheelAnim[i].enabled = true;
             }
             Truck.transform.DOMove(new Vector3(-40, 0, 0) + Truck.transform.position, 3f).OnComplete(()=>NextTruck());
-            StartCoroutine(humanCollider.PayMoney(30, payParent, humanCollider.moneyListTir,humanCollider.payAreaTir));
+            StartCoroutine(humanCollider.PayMoney(150, payParent, humanCollider.moneyListTir,humanCollider.payAreaTir));
         }
        
     }

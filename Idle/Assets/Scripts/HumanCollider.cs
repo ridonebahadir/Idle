@@ -131,7 +131,7 @@ public class HumanCollider : MonoBehaviour
         {
             if (moneyListTir.Count > 0)
             {
-                StartCoroutine(ComeMoney(moneyListTir,20));
+                StartCoroutine(ComeMoney(moneyListTir,5));
             }
 
         }

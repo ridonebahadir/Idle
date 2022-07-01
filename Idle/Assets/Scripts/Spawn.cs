@@ -508,7 +508,7 @@ public class Spawn : MonoBehaviour
                 currentList = humanCollider.bagListKoltuk;
                 logo.GetChild(0).gameObject.SetActive(false);
                 logo.GetChild(1).gameObject.SetActive(true);
-                price = ValueObj.polimer*8;
+                price = ValueObj.polimer*5;
                 break;
 
             //Recycle
