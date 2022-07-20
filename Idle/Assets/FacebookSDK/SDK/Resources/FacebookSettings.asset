@@ -24,7 +24,7 @@ MonoBehaviour:
   status: 1
   xfbml: 0
   frictionlessRequests: 1
-  androidKeystorePath: C:\Users\RBT\.android\debug.keystore
+  androidKeystorePath: /Users/kufu/Documents/keys/Auto Lab.keystore
   iosURLSuffix: 
   appLinkSchemes:
   - list: []
