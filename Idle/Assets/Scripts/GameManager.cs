@@ -11,15 +11,27 @@ public class GameManager : MonoBehaviour
     public int money;
     public TextMeshProUGUI moneyText;
     [Header("Lock")]
-    public GameObject[] close;
-    public GameObject[] open;
+   
     public Transform bant;
     public Transform productLine;
     public bool locked = true;
-
+    public Transform[] tasarimPos;
+    public Transform[] makineHammadde;
     private void Awake()
     {
         money = PlayerPrefs.GetInt("Money", 0);
+        if (locked)
+        {
+            for (int i = 0; i < tasarimPos.Length; i++)
+            {
+                tasarimPos[i].transform.localPosition = new Vector3(tasarimPos[i].transform.localPosition.x,20, tasarimPos[i].transform.localPosition.z);
+            }
+            for (int i = 0; i < makineHammadde.Length; i++)
+            {
+                makineHammadde[i].gameObject.SetActive(false);
+            }
+
+        }
     }
     private void Start()
     {
