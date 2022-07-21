@@ -35,7 +35,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/FacebookSDK/Examples/Pay.unity
     guid: 3ee189cdb21ea4bdb9d7022a0780c44c
-  - enabled: 1
-    path: Assets/FacebookSDK/Examples/TournamentsMenu.unity
-    guid: 6f8d688887086476cb9533793ffa1756
   m_configObjects: {}
