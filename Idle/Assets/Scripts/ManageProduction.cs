@@ -9,10 +9,14 @@ public class ManageProduction : MonoBehaviour
     public Transform[] breakPoints;
     public Transform hazne;
     public int turn;
+    public GameObject car;
+    public int setactiveTurn;
+    int startSetactive;
     int animTurn;
     bool oneTime;
     void Start()
     {
+        startSetactive = setactiveTurn;
         roboticAnim = GetComponent<Animator>();
     }
 
@@ -21,7 +25,7 @@ public class ManageProduction : MonoBehaviour
     {
         if (breakPoints[turn].childCount>0)
         {
-           
+            
             if (!oneTime)
             {
 
@@ -50,14 +54,17 @@ public class ManageProduction : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
         Destroy(obj);
+        car.transform.GetChild(setactiveTurn).gameObject.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         if (turn < 2)
         {
             animTurn++;
             turn++;
+            setactiveTurn++;
         }
         else
         {
+            setactiveTurn = startSetactive;
             animTurn = 0;
             turn = 0;
         }
