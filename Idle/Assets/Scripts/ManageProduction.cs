@@ -9,7 +9,7 @@ public class ManageProduction : MonoBehaviour
     public Transform[] breakPoints;
     int turn;
     int animTurn;
-    bool oneTÝme;
+    bool oneTime;
     void Start()
     {
         roboticAnim = GetComponent<Animator>();
@@ -20,7 +20,7 @@ public class ManageProduction : MonoBehaviour
     {
         if (breakPoints[turn].childCount>0)
         {
-            if (!oneTÝme)
+            if (!oneTime)
             {
                 roboticAnim.SetInteger("Turn", animTurn);
                 if (animTurn<3)
@@ -29,7 +29,7 @@ public class ManageProduction : MonoBehaviour
                     turn++;
                 }
               
-                oneTÝme = true;
+                oneTime = true;
             }
         }
     }
