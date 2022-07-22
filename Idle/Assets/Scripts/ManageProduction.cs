@@ -50,7 +50,7 @@ public class ManageProduction : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
         Destroy(obj);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         if (turn < 2)
         {
             animTurn++;
