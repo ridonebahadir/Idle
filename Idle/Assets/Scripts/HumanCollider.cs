@@ -258,7 +258,7 @@ public class HumanCollider : MonoBehaviour
 
         if (other.tag == "Sell")
         {
-
+            StartCoroutine(spawn.KargoAracMove(spawn.currentList));
             StartCoroutine(FixedHeight());
             run = false;
            

@@ -50,8 +50,8 @@ public class Spawn : MonoBehaviour
     public Transform kargoarac;
     public Animator wheel1;
     public Animator wheel2;
-    public int borderCount;
-    int borderStartCount;
+    //public int borderCount;
+    //int borderStartCount;
     Vector3 startPosKargoarac;
     Vector3 startRotateBackDoor;
     Vector3 startRotateBackDoor2;
@@ -69,8 +69,8 @@ public class Spawn : MonoBehaviour
     {
         if (kargoarac!=null)
         {
-            borderStartCount = borderCount;
-            borderCountText.text = borderCount.ToString();
+            //borderStartCount = borderCount;
+            //borderCountText.text = borderCount.ToString();
             boxColliderSell = GetComponent<BoxCollider>();
             startPosKargoarac = kargoarac.transform.localPosition;
             startRotateBackDoor = backDoor.GetChild(0).transform.localRotation.eulerAngles; 
@@ -199,42 +199,42 @@ public class Spawn : MonoBehaviour
     }
     public void GoObjKargo(List<GameObject> bagList, int id, bool grid)
     {
-        if (borderCount>0)
-        {
+        //if (borderCount>0)
+        //{
             int a = bagList.Count - 1;
             GameObject obj = bagList[a];
             obj.transform.parent = breakPoint;
             obj.transform.DOLocalRotate(new Vector3(0, 0, 0), 1f);
-
+            
 
 
 
 
             obj.transform.DOLocalJump(new Vector3(0, 0, 0), 3, 1, 0.3f, false)
-           .OnComplete(() => { if (!grid) obj.transform.gameObject.SetActive(false); }).SetEase(Ease.InQuint);
+           .OnComplete(() => { if (!grid) obj.transform.gameObject.SetActive(false); /*currentList.Add(obj);*/ }).SetEase(Ease.InQuint);
 
            
             bagList.RemoveAt(a);
-            borderCount--;
-            borderCountText.text = borderCount.ToString();
+            //borderCount--;
+            //borderCountText.text = borderCount.ToString();
             humanCollider.bagYAxis -= 0.40f;
 
             Vibration.Vibrate(40);
 
-        }
-        else
-        {
-            humanCollider.run = false;
-            StartCoroutine(KargoAracMove());
-        }
+        //}
+        //else
+        //{
+        //    humanCollider.run = false;
+        //    StartCoroutine(KargoAracMove());
+        //}
 
     }
     public int first;
-    IEnumerator KargoAracMove()
+    public IEnumerator KargoAracMove(List <GameObject> list)
     {
         first = PlayerPrefs.GetInt("First");
 
-        StartCoroutine(humanCollider.PayMoney(borderStartCount * price, transform,humanCollider.moneyListKargo,humanCollider.payArea));
+        StartCoroutine(humanCollider.PayMoney(list.Capacity * price, transform,humanCollider.moneyListKargo,humanCollider.payArea));
         if (first==0)
         {
             cameraFollow.Move();
@@ -265,9 +265,9 @@ public class Spawn : MonoBehaviour
                 whichList = (ListSelect)Random.Range(a-2, a);
                 WhichList();
                 boxColliderSell.enabled = true;
-                borderCount = Random.Range(1, 5);
-                borderStartCount = borderCount;
-                borderCountText.text = borderCount.ToString();
+                //borderCount = Random.Range(1, 5);
+                //borderStartCount = borderCount;
+                //borderCountText.text = borderCount.ToString();
                 logo.transform.parent.gameObject.SetActive(true);
                
 ;            }).SetEase(Ease.OutExpo);
