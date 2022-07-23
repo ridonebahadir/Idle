@@ -9,11 +9,17 @@ public class ManageProduction : MonoBehaviour
     public Transform[] breakPoints;
     public Transform hazne;
     public int turn;
-    public GameObject car;
+   
     public int setactiveTurn;
+    public CarGo carGo;
     int startSetactive;
     int animTurn;
     bool oneTime;
+    public bool firsRobotic;
+    public ManageProduction manageProduction;
+    private GameObject car;
+    public GameObject carPrefab;
+    public CarParent carParent;
     void Start()
     {
         startSetactive = setactiveTurn;
@@ -28,7 +34,10 @@ public class ManageProduction : MonoBehaviour
             
             if (!oneTime)
             {
-
+                if (firsRobotic && turn == 0)
+                {
+                    car = Instantiate(carPrefab, carParent.transform.position,Quaternion.Euler(0,-90,0),carParent.transform);
+                }
                 StartCoroutine(Run());
                 
 
@@ -38,10 +47,14 @@ public class ManageProduction : MonoBehaviour
         }
         
     }
-  
+   
     IEnumerator Run()
     {
-        
+        if (!firsRobotic&&turn==0)
+        {
+            car = manageProduction.car;
+        }
+      
         roboticAnim.SetInteger("Turn", animTurn);
         GameObject obj = breakPoints[turn].GetChild(0).gameObject;
        
@@ -55,6 +68,19 @@ public class ManageProduction : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Destroy(obj);
         car.transform.GetChild(setactiveTurn).gameObject.SetActive(true);
+       
+        if (turn==2)
+        {
+            if (!firsRobotic)
+            {
+                carGo = carParent.transform.GetChild(carParent.a).GetComponent<CarGo>();
+                carGo.Go();
+                carParent.a++;
+
+
+            }
+            yield return new WaitForSeconds(2f);//arac olusturuldu
+        }
         yield return new WaitForSeconds(0.5f);
         if (turn < 2)
         {
