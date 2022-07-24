@@ -33,6 +33,7 @@ TagManager:
   - PlayerEyes
   - Kamyon
   - Machine
+  - BotArea
   layers:
   - Default
   - TransparentFX

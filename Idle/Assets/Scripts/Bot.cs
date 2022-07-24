@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+
+[System.Serializable]
+public class RawMaterials
+{
+    public Transform[] target;
+}
+
 public class Bot : MonoBehaviour
 {
+    public RawMaterials[] rawMaterials;
     private NavMeshAgent navMeshAgent;
-    public Transform[] target;
+   
     //public Transform[] machine;
     public Transform startPos;
     private Animator anim;
@@ -26,9 +34,11 @@ public class Bot : MonoBehaviour
    
     void Update()
     {
+        
+        
         if (go)
         {
-            navMeshAgent.SetDestination(target[stations].position);
+            navMeshAgent.SetDestination(rawMaterials[0].target[stations].position);
             if (bag.transform.childCount>0)
             {
                 anim.SetBool("Carry", true);
@@ -62,18 +72,32 @@ public class Bot : MonoBehaviour
 
 
     }
-    
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag=="BotArea")
+        {
+            if (rawMaterials[0].target[0].transform.GetChild(0).childCount > 0)
+            {
+                go = true;
+            }
+            else
+            {
+                go = false;
+            }
+
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag=="Order")
+        if (other.tag== "RawMaterial")
         {
 
-            go = false;
+           
 
             StartCoroutine(Station(0, 1, 3));
 
         }
-        if (other.tag == "RawMaterial")
+        if (other.tag == "Put")
         {
             if (touch[0])
             {
@@ -81,7 +105,7 @@ public class Bot : MonoBehaviour
                 StartCoroutine(Station(1,2,3));
             }
         }
-        if (other.tag == "Put")
+        if (other.tag == "OutPut")
         {
             if (touch[1])
             {
@@ -89,24 +113,24 @@ public class Bot : MonoBehaviour
                 StartCoroutine(Station(2, 3, 3));
             }
         }
-        if (other.tag == "OutPut")
+        if (other.tag == "Component")
         {
             if (touch[2])
             {
                
                 StartCoroutine(Station(3, 4, 3));
+
+                if (rawMaterials[0].target[0].transform.GetChild(0).childCount<= 0)
+                {
+                    go = false;
+                }
             }
         }
-        if (other.tag == "Component")
+        if (other.tag=="BotArea")
         {
-            if (touch[3])
-            {
-               
-
-                StartCoroutine(Station(4,0,1));
-
-            }
+            stations = 0;
         }
+       
     }
 
     IEnumerator Station(int touchValue,int stationsVAlue,float waitValue)
@@ -121,7 +145,9 @@ public class Bot : MonoBehaviour
             }
             touch[touchValue] = true;
             stations = stationsVAlue;
-
-        go = true;
+       
+       go = true;
+        
+       
     }
 }
