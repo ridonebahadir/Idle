@@ -76,7 +76,7 @@ public class Spawn : MonoBehaviour
             startRotateBackDoor = backDoor.GetChild(0).transform.localRotation.eulerAngles; 
             startRotateBackDoor2 = backDoor.GetChild(1).transform.localRotation.eulerAngles; 
         }
-        WhichList();
+        //WhichList();
         //if (start)
         //{
         //    for (int y = 0; y < gridY; y++)
@@ -97,9 +97,15 @@ public class Spawn : MonoBehaviour
      int x;
      int y;
      int z;
-    bool oneTime = true;
-  
    
+   
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.tag=="Human")
+    //    {
+    //        humanCollider = other.GetComponent<HumanCollider>();
+    //    }
+    //}
     private void Update()
     {
         if (productLine)
@@ -400,9 +406,16 @@ public class Spawn : MonoBehaviour
     public ListSelect whichList;
     public List<GameObject> currentList;
     public List<GameObject> currentList2;
-   
-    
-  
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag=="Human")
+        {
+            humanCollider = other.GetComponent<HumanCollider>();
+            WhichList();
+        }
+    }
 
     public void WhichList()
     {

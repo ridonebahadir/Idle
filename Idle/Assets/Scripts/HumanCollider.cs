@@ -63,8 +63,8 @@ public class HumanCollider : MonoBehaviour
     public Transform payAreaTir;
     public Transform payAreaRecycling;
     public Transform payRecyclingPoint;
+
   
-    
     private void OnTriggerEnter(Collider other)
     {
        
@@ -72,6 +72,7 @@ public class HumanCollider : MonoBehaviour
         {
            
                 spawn = other.transform.GetComponent<Spawn>();
+
                 run = true;
                 StartCoroutine(ComeObj(true));
             
@@ -302,6 +303,7 @@ public class HumanCollider : MonoBehaviour
    
     IEnumerator ComeObj(bool add)
     {
+        yield return new WaitForSeconds(1f);
         while (run)
         {
             if (bag.childCount < capasity)
