@@ -57,8 +57,14 @@ public class ManageProduction : MonoBehaviour
       
         roboticAnim.SetInteger("Turn", animTurn);
         GameObject obj = breakPoints[turn].GetChild(0).gameObject;
-       
-        yield return new WaitForSeconds(0.45f);
+        if (firsRobotic)
+        {
+            yield return new WaitForSeconds(0.30f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.45f);
+        }
         obj.transform.parent = hazne;
         obj.transform.DOLocalMove(Vector3.zero,0.2f);
         for (int i = 0; i < breakPoints[turn].childCount; i++)
