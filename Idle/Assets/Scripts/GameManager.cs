@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
     public void DeleteAll()
     {
         PlayerPrefs.DeleteAll();
+        MachineButtons.close = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     void OnApplicationQuit()
@@ -92,5 +93,5 @@ public class GameManager : MonoBehaviour
     {
         cameraFollow.CameraGoUp();
     }
-
+    
 }

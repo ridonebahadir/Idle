@@ -16,6 +16,7 @@ public class Spawn : MonoBehaviour
     public List<GameObject> list = new List<GameObject>();
     public HumanCollider humanCollider;
     public bool start;
+    public bool isMachine;
     //public GameObject warning;
     [Header("SHAKE")]
     public Transform machine;
@@ -67,6 +68,10 @@ public class Spawn : MonoBehaviour
 
     void Start()
     {
+        if (isMachine)
+        {
+            popUp.gameObject.SetActive(false);
+        }
         if (kargoarac!=null)
         {
             //borderStartCount = borderCount;
@@ -211,7 +216,7 @@ public class Spawn : MonoBehaviour
             GameObject obj = bagList[a];
             obj.transform.parent = breakPoint;
             obj.transform.DOLocalRotate(new Vector3(0, 0, 0), 1f);
-        Debug.Log("A = "+a);
+            
 
 
 
@@ -411,16 +416,33 @@ public class Spawn : MonoBehaviour
     public List<GameObject> currentList;
     public List<GameObject> currentList2;
 
-
+    public Transform popUp;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag=="Human")
         {
+            if (isMachine)
+            {
+
+                popUp.gameObject.SetActive(true);
+            }
+           
             humanCollider = other.GetComponent<HumanCollider>();
             WhichList();
+
         }
     }
-
+    private void OnTriggerExit(Collider other)
+    {
+        if (isMachine)
+        {
+            if (other.tag == "Human")
+            {
+                popUp.gameObject.SetActive(false);
+            }
+        }
+        
+    }
     public void WhichList()
     {
         switch (whichList)
