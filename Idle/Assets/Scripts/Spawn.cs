@@ -211,7 +211,7 @@ public class Spawn : MonoBehaviour
             GameObject obj = bagList[a];
             obj.transform.parent = breakPoint;
             obj.transform.DOLocalRotate(new Vector3(0, 0, 0), 1f);
-            
+        Debug.Log("A = "+a);
 
 
 
@@ -226,7 +226,10 @@ public class Spawn : MonoBehaviour
             humanCollider.bagYAxis -= 0.40f;
 
             Vibration.Vibrate(40);
-
+        if (a==0)
+        {
+            StartCoroutine(KargoAracMove(currentList));
+        }
         //}
         //else
         //{
@@ -253,7 +256,8 @@ public class Spawn : MonoBehaviour
         {
             item.DOLocalRotate(Vector3.zero, 0.5f);
         }
-       
+        list.Clear();
+        
         yield return new WaitForSeconds(1f);
         wheel1.enabled = true;
         wheel2.enabled = true;

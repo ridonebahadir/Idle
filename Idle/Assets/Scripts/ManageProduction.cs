@@ -20,8 +20,10 @@ public class ManageProduction : MonoBehaviour
     private GameObject car;
     public GameObject carPrefab;
     public CarParent carParent;
+    
     void Start()
     {
+       
         startSetactive = setactiveTurn;
         roboticAnim = GetComponent<Animator>();
     }
@@ -38,7 +40,10 @@ public class ManageProduction : MonoBehaviour
                 {
                     car = Instantiate(carPrefab, carParent.transform.position,Quaternion.Euler(0,-90,0),carParent.transform);
                 }
-                StartCoroutine(Run());
+                
+                    StartCoroutine(Run());
+                
+               
                 
 
 
@@ -54,7 +59,7 @@ public class ManageProduction : MonoBehaviour
         {
             car = manageProduction.car;
         }
-      
+        
         roboticAnim.SetInteger("Turn", animTurn);
         GameObject obj = breakPoints[turn].GetChild(0).gameObject;
         if (firsRobotic)
@@ -73,6 +78,7 @@ public class ManageProduction : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
         Destroy(obj);
+       
         car.transform.GetChild(setactiveTurn).gameObject.SetActive(true);
        
         if (turn==2)
