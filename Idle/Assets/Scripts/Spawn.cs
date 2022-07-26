@@ -421,13 +421,14 @@ public class Spawn : MonoBehaviour
     {
         if (other.tag=="Human")
         {
-            if (isMachine)
+            humanCollider = other.GetComponent<HumanCollider>();
+            if (isMachine&& humanCollider.human)
             {
 
                 popUp.gameObject.SetActive(true);
             }
            
-            humanCollider = other.GetComponent<HumanCollider>();
+            
             WhichList();
 
         }

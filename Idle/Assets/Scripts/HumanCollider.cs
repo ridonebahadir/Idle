@@ -6,6 +6,7 @@ using System;
 
 public class HumanCollider : MonoBehaviour
 {
+    public bool human;
     public GameObject paralar;
 
     public CameraFollow cameraFollow;
@@ -86,14 +87,15 @@ public class HumanCollider : MonoBehaviour
             if (spawn.currentList.Count>0)
             {
                 StartCoroutine(GoObj(spawn.currentList, 0, false));
+                spawn.runMachine = true;
+                StartCoroutine(spawn.OutPut(2, 1));
             }
             //if (spawn.currentList2.Count > 0)
             //{
             //    StartCoroutine(GoObj(spawn.currentList2, 1, false));
             //}
            
-            spawn.runMachine = true;
-            StartCoroutine(spawn.OutPut(2,1));
+           
         }
         if (other.tag=="OutPut")
         {
@@ -385,9 +387,11 @@ public class HumanCollider : MonoBehaviour
     }
     IEnumerator FixedHeight()
     {
+        bagYAxis = 0;
         for (int i = 0; i < bag.transform.childCount; i++)
         {
             bag.transform.GetChild(i).transform.DOLocalMove(new Vector3(0, i * 0.40f, 0),0.3f);
+            bagYAxis+=0.40f;
             yield return new WaitForSeconds(0.05f);
         }
     }

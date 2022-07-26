@@ -69,9 +69,13 @@ public class SellRaw : MonoBehaviour
     {
         if (other.tag=="Human")
         {
-            upGrade.SetActive(true);
-            upgrades[0].Control();
-            upgrades[1].Control();
+            if (other.GetComponent<HumanCollider>().human)
+            {
+                upGrade.SetActive(true);
+                upgrades[0].Control();
+                upgrades[1].Control();
+            }
+          
            
             isTimer = true;
             co = Timer();

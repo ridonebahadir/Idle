@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public Transform[] makineHammadde;
     private void Awake()
     {
-        money = PlayerPrefs.GetInt("Money", 0);
+        //money = PlayerPrefs.GetInt("Money", 0);
         if (locked)
         {
             for (int i = 0; i < tasarimPos.Length; i++)

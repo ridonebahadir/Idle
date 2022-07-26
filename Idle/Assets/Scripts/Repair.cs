@@ -53,7 +53,7 @@ public class Repair : MonoBehaviour
             navMeshAgent.SetDestination(target);
             yield return new WaitForSeconds(1);
             destination = navMeshAgent.remainingDistance;
-            Debug.Log(destination);
+            
             if (destination < 1)
             {
                 anim.SetBool("Repair", true);
@@ -72,8 +72,8 @@ public class Repair : MonoBehaviour
 
     void GoBack()
     {
+        StartCoroutine(Go());
         
-        Debug.Log("Done");
         target = startPos;
         spawnsCollider[randomMachine].enabled = true;
         repairButton[randomMachine].gameObject.SetActive(false);

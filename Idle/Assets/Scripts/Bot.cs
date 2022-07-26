@@ -4,23 +4,20 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-[System.Serializable]
-public class RawMaterials
-{
-    public Transform[] target;
-}
+
 
 public class Bot : MonoBehaviour
 {
-    public RawMaterials[] rawMaterials;
+    
     private NavMeshAgent navMeshAgent;
    
     //public Transform[] machine;
-    public Transform startPos;
+   
     private Animator anim;
     public int stations;
     public bool[] touch;
     public Transform bag;
+    public Transform[] target;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -28,7 +25,7 @@ public class Bot : MonoBehaviour
         //int a = Random.Range(0, machine.Length);
         //target = machine[a];
         navMeshAgent = GetComponent<NavMeshAgent>();
-       
+        anim.SetBool("Walk", true);
     }
     public bool go;
    
@@ -38,7 +35,7 @@ public class Bot : MonoBehaviour
         
         if (go)
         {
-            navMeshAgent.SetDestination(rawMaterials[0].target[stations].position);
+            navMeshAgent.SetDestination(target[stations].position);
             if (bag.transform.childCount>0)
             {
                 anim.SetBool("Carry", true);
@@ -72,64 +69,34 @@ public class Bot : MonoBehaviour
 
 
     }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.tag=="BotArea")
-        {
-            if (rawMaterials[0].target[0].transform.GetChild(0).childCount > 0)
-            {
-                go = true;
-            }
-            else
-            {
-                go = false;
-            }
-
-        }
-    }
+    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag== "RawMaterial")
+        if (other.tag== "Order")
         {
 
-           
 
-            StartCoroutine(Station(0, 1, 3));
+            Debug.Log("Deðdi = "+other.tag);
+            StartCoroutine(Station(0, 1, 8));
 
         }
-        if (other.tag == "Put")
+        if (other.tag == "RawMaterial")
         {
             if (touch[0])
             {
-                
-                StartCoroutine(Station(1,2,3));
+                Debug.Log("Deðdi = " + other.tag);
+                StartCoroutine(Station(1,2,5));
             }
         }
-        if (other.tag == "OutPut")
+        if (other.tag == "Put")
         {
             if (touch[1])
             {
-                
-                StartCoroutine(Station(2, 3, 3));
+                Debug.Log("Deðdi = " + other.tag);
+                StartCoroutine(Station(2, 0, 3));
             }
         }
-        if (other.tag == "Component")
-        {
-            if (touch[2])
-            {
-               
-                StartCoroutine(Station(3, 4, 3));
-
-                if (rawMaterials[0].target[0].transform.GetChild(0).childCount<= 0)
-                {
-                    go = false;
-                }
-            }
-        }
-        if (other.tag=="BotArea")
-        {
-            stations = 0;
-        }
+  
        
     }
 
