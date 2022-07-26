@@ -38,6 +38,7 @@ public class MachineButtons : MonoBehaviour
         {
             
             gameManager.money -= botCost;
+            gameManager.moneyText.text = gameManager.money.ToString();
             bot.SetActive(true);
             close = true;
             transform.gameObject.SetActive(false);
