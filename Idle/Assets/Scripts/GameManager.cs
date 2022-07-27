@@ -17,10 +17,12 @@ public class GameManager : MonoBehaviour
     public bool locked = true;
     public Transform[] tasarimPos;
     public Transform[] makineHammadde;
-
     [Header("Upgrade")]
-    public Spawn[] outPutSpawn;
+  
     public int upgradeCount;
+    public Transform[] breakingPoints;
+    public ManageProduction manageProduction;
+
     private void Awake()
     {
         upgradeCount = PlayerPrefs.GetInt("UpgradeCount",0);
@@ -98,14 +100,27 @@ public class GameManager : MonoBehaviour
     {
         cameraFollow.CameraGoUp();
     }
+
     public void Upgrade()
     {
+       
         if (upgradeCount<2)
         {
             upgradeCount++;
             PlayerPrefs.SetInt("UpgradeCount", upgradeCount);
         }
-        
+       
+        for (int i = 0; i < breakingPoints.Length; i++)
+        {
+            for (int x = 0; x < breakingPoints[i].childCount; x++)
+            {
+                breakingPoints[i].GetChild(x).GetChild(upgradeCount - 1).gameObject.SetActive(false);
+                breakingPoints[i].GetChild(x).GetChild(upgradeCount).gameObject.SetActive(true);
+            }
 
+        }
+
+        
     }
+    
 }
