@@ -34,6 +34,9 @@ TagManager:
   - Kamyon
   - Machine
   - BotArea
+  - WaitArea
+  - WaitPoint
+  - Exit
   layers:
   - Default
   - TransparentFX
@@ -42,23 +45,23 @@ TagManager:
   - Water
   - UI
   - HUMAN
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - WAITAREA
+  - SASE
+  - KOLTUK
+  - ENGINE
+  - BODY
+  - PENCERE
+  - WHEEL
+  - BOT1
+  - BOT2
+  - BOT3
+  - BOT4
+  - BOT5
+  - BOT6
+  - METAL
+  - POLYMER
+  - KABLO
+  - SILICON
   - 
   - 
   - 

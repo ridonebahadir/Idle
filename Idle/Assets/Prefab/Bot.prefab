@@ -551,14 +551,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15deccaf91198ce408328bb885f3b44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPos: {fileID: 0}
   stations: 0
-  touch: 000000
+  touch: 00000000
   bag: {fileID: 6185055192325915690}
   target:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  waitArea: {fileID: 0}
   go: 1
 --- !u!114 &2235441002967724537
 MonoBehaviour:

@@ -72,7 +72,7 @@ public class Repair : MonoBehaviour
 
     void GoBack()
     {
-        StartCoroutine(Go());
+        //StartCoroutine(Go());
         
         target = startPos;
         spawnsCollider[randomMachine].enabled = true;

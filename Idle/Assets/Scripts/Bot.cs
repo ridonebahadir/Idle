@@ -18,24 +18,27 @@ public class Bot : MonoBehaviour
     public bool[] touch;
     public Transform bag;
     public Transform[] target;
+    public WaitArea waitArea;
     void Start()
     {
+        touch[0] = true;
         anim = GetComponent<Animator>();
         //startPos.position = transform.position;
         //int a = Random.Range(0, machine.Length);
         //target = machine[a];
         navMeshAgent = GetComponent<NavMeshAgent>();
-        anim.SetBool("Walk", true);
+        des = navMeshAgent.remainingDistance;
     }
     public bool go;
-   
+    float des;
     void Update()
     {
-        
-        
+
+        des = navMeshAgent.remainingDistance;
         if (go)
         {
             navMeshAgent.SetDestination(target[stations].position);
+            
             if (bag.transform.childCount>0)
             {
                 anim.SetBool("Carry", true);
@@ -45,6 +48,12 @@ public class Bot : MonoBehaviour
             {
                 anim.SetBool("Carry", false);
                 anim.SetBool("Run", true);
+            }
+            if (des<1)
+            {
+                anim.SetBool("Carry", false);
+                anim.SetBool("Run", false);
+                anim.SetBool("Walk", false);
             }
         }
         else
@@ -69,31 +78,47 @@ public class Bot : MonoBehaviour
 
 
     }
-    
+   
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag== "Order")
+
+        if (other.tag == "WaitPoint")
         {
 
-
-            Debug.Log("Deðdi = "+other.tag);
-            StartCoroutine(Station(0, 1, 8));
-
-        }
-        if (other.tag == "RawMaterial")
-        {
-            if (touch[0])
+            if (waitArea.isEmpty&&touch[0])
             {
                 Debug.Log("Deðdi = " + other.tag);
-                StartCoroutine(Station(1,2,5));
+                StartCoroutine(Station(1, 1, 0));
             }
+
+
         }
-        if (other.tag == "Put")
+        if (other.tag== "Order")
         {
             if (touch[1])
             {
                 Debug.Log("Deðdi = " + other.tag);
-                StartCoroutine(Station(2, 0, 3));
+                StartCoroutine(Station(2, 2, 8));
+            }
+
+            
+
+        }
+        if (other.tag == "RawMaterial")
+        {
+           
+            if (touch[2])
+            {
+                Debug.Log("Deðdi = " + other.tag);
+                StartCoroutine(Station(3,3,5));
+            }
+        }
+        if (other.tag == "Put")
+        {
+            if (touch[3])
+            {
+                Debug.Log("Deðdi = " + other.tag);
+                StartCoroutine(Station(0, 0, 3));
             }
         }
   
