@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Cost : MonoBehaviour
 {
+    
     public CameraFollow cameraFollow;
     public GameManager gameManager;
     public float costValue;
@@ -28,9 +29,12 @@ public class Cost : MonoBehaviour
     int closeOrOpen;
     public int id;
     float imageValue;
+    [Header("For UPGRADE CAR")]
+    public bool isUpgrade;
+   
     private void Awake()
     {
-        katsayi = costValue / 30;
+       
         if (!gameManager.locked)
         {
             closeOrOpen = 1;
@@ -64,7 +68,11 @@ public class Cost : MonoBehaviour
         {
             StartCoroutine(OpenTurn(false));
         }
-
+        if (isUpgrade)
+        {
+            close.SetActive(true);  
+            boxCollider.enabled = true;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -167,7 +175,7 @@ public class Cost : MonoBehaviour
 
     }
     bool pay = true;
-    public float katsayi;
+    //public float katsayi;
     
    
     IEnumerator MoneyGo(Transform human)
@@ -183,7 +191,8 @@ public class Cost : MonoBehaviour
             obj.transform.DOLocalJump(new Vector3(0, -3, 0), 5, 0, 1.5f, false).OnComplete(() => Destroy(obj)).SetEase(Ease.OutQuint);
             Vibration.Vibrate(40);
             image.fillAmount += imageAmount;
-            costValue--;             costText.text = costValue.ToString("f0");
+            costValue--;             
+            costText.text = costValue.ToString("f0");
 
             gameManager.money--; ;
             gameManager.moneyText.text = gameManager.money.ToString();
@@ -208,8 +217,15 @@ public class Cost : MonoBehaviour
                
 
                 isTimer = true;
+                if (isUpgrade)
+                {
+                    gameManager.Upgrade();
+                }
+                else
+                {
+                    OpenMachine();
 
-                OpenMachine();
+                }
                 //StartCoroutine(OpenMachine());
                 pay = false;
                 StartCoroutine(SoundManagerSfx.Play("Unlocked", 0.5f));

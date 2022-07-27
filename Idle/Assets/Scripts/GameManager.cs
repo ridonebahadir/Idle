@@ -17,8 +17,13 @@ public class GameManager : MonoBehaviour
     public bool locked = true;
     public Transform[] tasarimPos;
     public Transform[] makineHammadde;
+
+    [Header("Upgrade")]
+    public Spawn[] outPutSpawn;
+    public int upgradeCount;
     private void Awake()
     {
+        upgradeCount = PlayerPrefs.GetInt("UpgradeCount",0);
         //money = PlayerPrefs.GetInt("Money", 0);
         if (locked)
         {
@@ -85,7 +90,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Application ending after " + Time.time + " seconds");
         PlayerPrefs.SetInt("Money",money);
-     
+        PlayerPrefs.SetInt("UpgradeCount",upgradeCount);
     }
    
    
@@ -93,5 +98,14 @@ public class GameManager : MonoBehaviour
     {
         cameraFollow.CameraGoUp();
     }
-    
+    public void Upgrade()
+    {
+        if (upgradeCount<2)
+        {
+            upgradeCount++;
+            PlayerPrefs.SetInt("UpgradeCount", upgradeCount);
+        }
+        
+
+    }
 }

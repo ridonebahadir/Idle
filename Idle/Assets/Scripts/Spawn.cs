@@ -6,9 +6,9 @@ using TMPro;
 
 public class Spawn : MonoBehaviour
 {
-    
+    public GameManager gameManager;
     public bool productLine;
-    public GameObject prefab;
+    public GameObject[] prefab;
     public float gridX = 0.3f;
     public float gridY = 0.3f;
     public float spacingx = 0.1f;
@@ -325,7 +325,7 @@ public class Spawn : MonoBehaviour
         yield return new WaitForSeconds(1f);
         for (int i = 0; i < outPutCount; i++)
         {
-            GameObject obj = Instantiate(prefab,breakPoint);
+            GameObject obj = Instantiate(prefab[gameManager.upgradeCount],breakPoint);
 
             obj.transform.parent = outPoint;
 

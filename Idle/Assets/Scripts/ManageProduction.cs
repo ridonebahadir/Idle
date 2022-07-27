@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class ManageProduction : MonoBehaviour
 {
+    public GameManager gameManager;
     public Animator[] roboticAnim;
     public Transform[] breakPoints;
     public Transform[] hazne;
@@ -19,7 +20,7 @@ public class ManageProduction : MonoBehaviour
    
    
     private GameObject car;
-    public GameObject carPrefab;
+    public GameObject[] carPrefab;
     public CarParent carParent;
     
     void Start()
@@ -39,7 +40,7 @@ public class ManageProduction : MonoBehaviour
             {
                 if ( turn == 0)
                 {
-                    car = Instantiate(carPrefab, carParent.transform.position,Quaternion.Euler(0,-90,0),carParent.transform);
+                    car = Instantiate(carPrefab[gameManager.upgradeCount], carParent.transform.position,Quaternion.Euler(0,-90,0),carParent.transform);
                 }
                 
                     StartCoroutine(Run());
