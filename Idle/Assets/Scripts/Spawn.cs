@@ -475,7 +475,7 @@ public class Spawn : MonoBehaviour
                 //currentList2 = humanCollider.bagListKablo;
                 break;
             case ListSelect.wheel:
-                currentList = humanCollider.bagListMetal;
+                currentList = humanCollider.bagListKablo;
                 //currentList2 = humanCollider.bagListPolimer;
                 break;
             case ListSelect.koltuk:
