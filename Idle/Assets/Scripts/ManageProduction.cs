@@ -92,9 +92,13 @@ public class ManageProduction : MonoBehaviour
        
         if (turn==5)
         {
-            yield return new WaitForSeconds(1f);
             carGo = carParent.transform.GetChild(carParent.a).GetComponent<CarGo>();
+            yield return new WaitForSeconds(1f);
+           
+           
             carGo.Go();
+            yield return new WaitForSeconds(0.5f);
+            car.transform.GetChild(setactiveTurn + 1).gameObject.SetActive(true);
             carParent.a++;
             
             //yield return new WaitForSeconds(0.5f);//arac olusturuldu

@@ -32,6 +32,7 @@ public class Spawn : MonoBehaviour
     public int outPutCount;
     public bool runMachine;
     public TextMeshPro[] textMesh;
+    public bool isOutPut;
 
     [Header("COMPONENT ARALIK")]
     public int xComponent;
@@ -421,7 +422,12 @@ public class Spawn : MonoBehaviour
     {
         if (other.tag=="Human")
         {
-            humanCollider = other.GetComponent<HumanCollider>();
+            if (!isOutPut)
+            {
+                humanCollider = other.GetComponent<HumanCollider>();
+            }
+           
+           
             if (isMachine&& humanCollider.human)
             {
 

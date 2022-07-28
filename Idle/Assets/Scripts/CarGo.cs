@@ -24,7 +24,8 @@ public class CarGo : MonoBehaviour
    
     IEnumerator GoCar()
     {
-       
+        
+
         for (int i = 0; i < stations.Length; i++)
         {
             transform.DOLocalMove(stations[i], time[i]);

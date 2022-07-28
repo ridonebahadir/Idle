@@ -100,6 +100,7 @@ public class HumanCollider : MonoBehaviour
         if (other.tag=="OutPut")
         {
             spawn = other.transform.parent.GetChild(1).GetComponent<Spawn>();
+            spawn.humanCollider = transform.GetComponent<HumanCollider>();
             run = true;
             
             StartCoroutine(ComeObj(false));
