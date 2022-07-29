@@ -20,15 +20,15 @@ public class CarParent : MonoBehaviour
 
 
    
-    public void SellCar(Collider other)
+    public void SellCar(BoxCollider boxCollider)
     {
-         
+        boxCollider.enabled = false;
        int  a = willGoCar.Count;
         if (a > 0)
         {
-            other.enabled = false;
+           
              GameObject obj = willGoCar[0];
-            obj.transform.DOMoveX(xAxis, 2f).OnComplete(()=>PayMoney());
+            obj.transform.DOMoveX(xAxis, 2f).OnComplete(()=>PayMoney(boxCollider));
            
             willGoCar.RemoveAt(0);
             a = willGoCar.Count;
@@ -38,24 +38,33 @@ public class CarParent : MonoBehaviour
                 for (int i = 0; i < a; i++)
                 {
                     willGoCar[i].transform.DOMoveZ(willGoCar[i].transform.position.z-5, moveZCarTime);
-                    zAxis -= 5;
+                    if (zAxis>=-10)
+                    {
+                        zAxis -= 5;
+                    }
+                    
                 }
             }
             else
             {
-                zAxis -= 5;
+                if (zAxis >= -10)
+                {
+                    zAxis -= 5;
+                }
+               
             }
-            StartCoroutine(Late(other));
+            StartCoroutine(Late());
 
         }
     }
-    IEnumerator Late(Collider other)
+    IEnumerator Late()
     {
         yield return new WaitForSeconds(moveZCarTime+0.5f);
-        other.enabled = true;
+       
     }
-    void PayMoney()
+    void PayMoney(BoxCollider boxCollider)
     {
+        boxCollider.enabled = true;
         StartCoroutine(humanCollider.PayMoney(costMoneyCar[gameManager.upgradeCount], sellArea, humanCollider.moneyListTir, humanCollider.payAreaTir));
     }
 }

@@ -482,7 +482,7 @@ public class HumanCollider : MonoBehaviour
             yield return new WaitForSeconds(a);
         }
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
         whichList.Clear();
         x = 0;y = 0;z = 0;
 
