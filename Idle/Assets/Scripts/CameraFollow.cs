@@ -96,15 +96,15 @@ public class CameraFollow : MonoBehaviour
         {
             cameraFollow = false;
             currentPoint = transform.position;
-            transform.DOMove(UpPoint.position, 2f);
-             transform.DORotate(new Vector3(90, 0, 0), 2f);
+            transform.DOMove(UpPoint.position, 1.5f).SetEase(Ease.InOutSine);
+            transform.DORotate(new Vector3(90, -90, 0), 1.5f).SetEase(Ease.InOutSine);
             go = false;
             return;
         }
         else
         {
             cameraFollow = true;
-            transform.DORotate(new Vector3(45, 0, 0), 2f);
+            transform.DORotate(new Vector3(45, 0, 0), 1.5f).SetEase(Ease.InOutSine);
             go = true;
         }
        
