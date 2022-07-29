@@ -10,9 +10,10 @@ public class CarGo : MonoBehaviour
     public float[] time;
     private CarParent carParent;
     public float zAxisYan = 5;
-
+   
     private void Start()
     {
+       
         carParent = transform.parent.GetComponent<CarParent>();
     }
     public void Go()
@@ -29,17 +30,22 @@ public class CarGo : MonoBehaviour
         for (int i = 0; i < stations.Length; i++)
         {
             transform.DOLocalMove(stations[i], time[i]);
+           
             yield return new WaitForSeconds(time[i]);
             
             
             
         }
-        transform.DOMoveZ(carParent.zAxis, 2f);
+        transform.DOLocalMoveZ(carParent.zAxis, 2f).OnComplete(()=> 
+        { 
+            transform.parent = null;
+            carParent.willGoCar.Add(gameObject);
+        });
+
         carParent.zAxis += zAxisYan;
 
-           
-        
-       
+
+
 
     }
 }

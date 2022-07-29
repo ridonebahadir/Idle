@@ -21,6 +21,7 @@ public class HumanCollider : MonoBehaviour
     public AllLine allLine;
     public Transform button;
     public CarParent carParent;
+    
     [Header("Recycle")]
     public Transform recycleArea;
     public Transform kapak1;
@@ -157,29 +158,25 @@ public class HumanCollider : MonoBehaviour
         }
         if (other.tag == "Kasa")
         {
-            //allLine.transform.GetChild(allLine.currentCarNumber).transform.GetComponent<ProductLine>().SellCar();
-            other.GetComponent<BoxCollider>().enabled = false;
 
-            GameObject obj = carParent.transform.GetChild(carParent.gidenAraba).gameObject;
-            obj.transform.DOLocalMoveX(carParent.xAxis,2f).OnComplete(()=>
-             other.GetComponent<BoxCollider>().enabled = true
-            );
-
-            GameObject obj1 = carParent.transform.GetChild(carParent.gidenAraba+1).gameObject;
-            obj1.transform.DOLocalMoveZ(obj.transform.localPosition.z, 2f);
-            
-            carParent.gidenAraba++;
-            carParent.xAxis += 15;
-            int a = carParent.gidenAraba % 3;
-            if (a==0)
+            if (carParent.willGoCar.Count>0)
             {
-                carParent.zAxis = carParent.StartzAxis;
-                carParent.xAxis = carParent.StartxAxis;
-                Debug.Log("TýrGo");
-
+                carParent.SellCar(other.GetComponent<BoxCollider>());
             }
            
+           
           
+
+
+
+            //int a = carParent.gidenAraba % 3;
+            //if (a==0)
+            //{
+
+
+            //}
+
+
             //button.transform.DOLocalMoveY(0,0.5f);
 
         }

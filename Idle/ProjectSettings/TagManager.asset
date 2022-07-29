@@ -37,6 +37,7 @@ TagManager:
   - WaitArea
   - WaitPoint
   - Exit
+  - WillGoCar
   layers:
   - Default
   - TransparentFX

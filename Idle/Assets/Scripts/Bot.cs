@@ -109,7 +109,7 @@ public class Bot : MonoBehaviour
 
             if (waitArea.isEmpty&&touch[0])
             {
-                Debug.Log("Deðdi = " + other.tag);
+               
                 StartCoroutine(Station(1, 1, 0));
                
             }
@@ -121,7 +121,7 @@ public class Bot : MonoBehaviour
         {
             if (touch[1])
             {
-                Debug.Log("Deðdi = " + other.tag);
+              
                 StartCoroutine(Station(2, 2, 8));
                 anim.SetBool("Run", false);
                 anim.SetBool("Carry", false);
@@ -140,7 +140,7 @@ public class Bot : MonoBehaviour
             if (touch[2])
             {
                
-                Debug.Log("Deðdi = " + other.tag);
+               
                 StartCoroutine(Station(3,3,5));
                 anim.SetBool("Run", false);
                 anim.SetBool("Wait", false);
@@ -152,7 +152,7 @@ public class Bot : MonoBehaviour
             if (touch[3])
             {
                 
-                Debug.Log("Deðdi = " + other.tag);
+                
                 StartCoroutine(Station(0, 0, 3));
                 anim.SetBool("Carry", false);
                 anim.SetBool("CarryRun", false);
@@ -187,7 +187,7 @@ public class Bot : MonoBehaviour
             Invoke("Late",1f);
             if (touch[0])
             {
-                Debug.Log("dlgkldjkshlþþi");
+               
                 anim.SetBool("Run", true);
                 anim.SetBool("Wait", false);
             }

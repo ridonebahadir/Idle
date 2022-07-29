@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public Transform[] tasarimPos;
     public Transform[] makineHammadde;
     [Header("Upgrade")]
-  
+   
     public int upgradeCount;
     public Transform[] breakingPoints;
     public ManageProduction manageProduction;
@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Application ending after " + Time.time + " seconds");
         PlayerPrefs.SetInt("Money",money);
         PlayerPrefs.SetInt("UpgradeCount",upgradeCount);
+       
     }
    
    

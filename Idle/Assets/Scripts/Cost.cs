@@ -31,7 +31,8 @@ public class Cost : MonoBehaviour
     float imageValue;
     [Header("For UPGRADE CAR")]
     public bool isUpgrade;
-   
+    public int[] costCarUpgrade;
+    public Transform[] icons;
     private void Awake()
     {
        
@@ -45,13 +46,21 @@ public class Cost : MonoBehaviour
             costValue = PlayerPrefs.GetFloat("CostValue" + id, costValue);
             imageValue = PlayerPrefs.GetFloat("ImageValue" + id);
         }
-      
+        if (isUpgrade)
+        {
+            //costValue = costCarUpgrade[gameManager.upgradeCount];
+            for (int i = 0; i < icons.Length; i++)
+            {
+                icons[i].gameObject.SetActive(false);
+            }
+            icons[gameManager.upgradeCount].gameObject.SetActive(true);
+        }
        
     
     }
     private void Start()
     {
-
+        
         for (int i = 0; i < transforms.Length; i++)
         {
             transforms[i].localPosition = new Vector3(transforms[i].localPosition.x, transforms[i].localPosition.y + 20, transforms[i].localPosition.z);
@@ -220,6 +229,14 @@ public class Cost : MonoBehaviour
                 if (isUpgrade)
                 {
                     gameManager.Upgrade();
+                    costValue = costCarUpgrade[gameManager.upgradeCount];
+                    costText.text = costCarUpgrade[gameManager.upgradeCount].ToString();
+                    image.fillAmount = 0;
+                    for (int i = 0; i < icons.Length; i++)
+                    {
+                        icons[i].gameObject.SetActive(false);
+                    }
+                    icons[gameManager.upgradeCount].gameObject.SetActive(true);
                 }
                 else
                 {
