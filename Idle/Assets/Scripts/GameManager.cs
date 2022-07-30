@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
     public void DeleteAll()
     {
         PlayerPrefs.DeleteAll();
-        MachineButtons.close = false;
+       
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     void OnApplicationQuit()

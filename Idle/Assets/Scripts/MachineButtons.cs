@@ -5,18 +5,21 @@ using UnityEngine;
 public class MachineButtons : MonoBehaviour
 {
     public GameObject bot;
-    public static bool close;
+    public int close;
     public GameManager gameManager;
     public int botCost;
     public SpriteRenderer sprite;
     public Material[] materials;
     private void Start()
     {
+        close = PlayerPrefs.GetInt("Close",0);
         sprite = GetComponent<SpriteRenderer>();
-        if (close)
+        if (close==1)
         {
             transform.gameObject.SetActive(false);
+            bot.SetActive(true);
         }
+       
         
     }
     private void Update()
@@ -34,13 +37,14 @@ public class MachineButtons : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (gameManager.money>botCost)
+        if (gameManager.money>=botCost)
         {
             
             gameManager.money -= botCost;
             gameManager.moneyText.text = gameManager.money.ToString();
             bot.SetActive(true);
-            close = true;
+            close = 1;
+            PlayerPrefs.SetInt("Close", close);
             transform.gameObject.SetActive(false);
         }
        
