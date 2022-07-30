@@ -101,7 +101,7 @@ public class Spawn : MonoBehaviour
         
     }
      int x;
-     int y;
+     public int y;
      int z;
    
    

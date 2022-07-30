@@ -81,9 +81,11 @@ public class ManageProduction : MonoBehaviour
         }
         //obj.transform.parent = hazne;
         obj.transform.DOLocalMove(Vector3.zero,0.2f);
+        breakPoints[turn].transform.parent.GetChild(0).GetComponent<Spawn>().y -= 1;
         for (int i = 0; i < breakPoints[turn].childCount; i++)
         {
             breakPoints[turn].GetChild(i).DOLocalMove(new Vector3(0,i+1,0),0.5f);
+            
         }
         yield return new WaitForSeconds(1f);
         Destroy(obj);
