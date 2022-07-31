@@ -10,9 +10,11 @@ public class MachineButtons : MonoBehaviour
     public int botCost;
     public SpriteRenderer sprite;
     public Material[] materials;
+    public int id;
+    
     private void Start()
     {
-        close = PlayerPrefs.GetInt("Close",0);
+        close = PlayerPrefs.GetInt("Close"+id,0);
         sprite = GetComponent<SpriteRenderer>();
         if (close==1)
         {
@@ -44,7 +46,7 @@ public class MachineButtons : MonoBehaviour
             gameManager.moneyText.text = gameManager.money.ToString();
             bot.SetActive(true);
             close = 1;
-            PlayerPrefs.SetInt("Close", close);
+            PlayerPrefs.SetInt("Close"+ id, close);
             transform.gameObject.SetActive(false);
         }
        
