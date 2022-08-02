@@ -158,9 +158,10 @@ public class Spawn : MonoBehaviour
             if (humanCollider.human)
             {
                 StartCoroutine(SoundManagerSfx.Play("Alma", 0));
+                Vibration.Vibrate(10);
 
             }
-            Vibration.Vibrate(10);
+           
         }
         else
         {
@@ -212,9 +213,10 @@ public class Spawn : MonoBehaviour
         if (humanCollider.human)
         {
             StartCoroutine(SoundManagerSfx.Play("Verme", 0));
+            Vibration.Vibrate(40);
         }
        
-        Vibration.Vibrate(40);
+        
        
     }
     public void GoObjKargo(List<GameObject> bagList, int id, bool grid)

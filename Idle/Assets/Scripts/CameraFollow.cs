@@ -26,6 +26,7 @@ public class CameraFollow : MonoBehaviour
         }
         else
         {
+            transforms[0].gameObject.SetActive(false);
             turn = PlayerPrefs.GetInt("Turn", 0);
         }
        

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Cost : MonoBehaviour
 {
-    
+    public GameObject moneyBar;
     public CameraFollow cameraFollow;
     public GameManager gameManager;
     public float costValue;
@@ -25,6 +25,7 @@ public class Cost : MonoBehaviour
     [Header("For BANT")]
     public bool isBant;
     public GameObject productLine;
+    public GameObject[] BotOpen;
     bool run;
     int closeOrOpen;
     public int id;
@@ -103,7 +104,12 @@ public class Cost : MonoBehaviour
 
             }
         }
-       
+        else
+        {
+            moneyBar.transform.DOShakeRotation(3, 5f);
+
+        }
+
     }
     private void OnTriggerExit(Collider other)
     {
@@ -157,6 +163,10 @@ public class Cost : MonoBehaviour
         if (isBant)
         {
             productLine.SetActive(true);
+            foreach (GameObject item in BotOpen)
+            {
+                item.SetActive(true);
+            }
         }
         yield return new WaitForSeconds(2f);
         if (levelup)
@@ -251,7 +261,8 @@ public class Cost : MonoBehaviour
             }
             if (gameManager.money <= 0)
             {
-              
+                moneyBar.transform.DOShakeRotation(3, 5f);
+
                 PlayerPrefs.SetFloat("CostValue" + id, costValue);
 
                 PlayerPrefs.SetFloat("ImageValue" + id, image.fillAmount);

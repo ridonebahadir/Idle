@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         upgradeCount = PlayerPrefs.GetInt("UpgradeCount",0);
-        //money = PlayerPrefs.GetInt("Money", 0);
+        money = PlayerPrefs.GetInt("Money", 0);
         if (locked)
         {
             for (int i = 0; i < tasarimPos.Length; i++)

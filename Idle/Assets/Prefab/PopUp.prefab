@@ -81,12 +81,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bot: {fileID: 0}
+  close: 0
   gameManager: {fileID: 0}
-  botCost: 50
+  botCost: 100
   sprite: {fileID: 0}
   materials:
   - {fileID: 2100000, guid: 3b27fccde1acbc44d9fa5975fd68811e, type: 2}
   - {fileID: 2100000, guid: f9ffde85303004b45b8411075952ae16, type: 2}
+  id: 0
 --- !u!212 &125130972698601267
 SpriteRenderer:
   m_ObjectHideFlags: 0
