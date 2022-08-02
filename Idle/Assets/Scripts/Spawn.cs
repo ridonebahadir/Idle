@@ -155,7 +155,11 @@ public class Spawn : MonoBehaviour
             list.RemoveAt(a);
             humanCollider.bagYAxis += 0.40f;
             //Azalma(true);
-            StartCoroutine(SoundManagerSfx.Play("Alma", 0));
+            if (humanCollider.human)
+            {
+                StartCoroutine(SoundManagerSfx.Play("Alma", 0));
+
+            }
             Vibration.Vibrate(10);
         }
         else
@@ -167,7 +171,7 @@ public class Spawn : MonoBehaviour
 
     }
    
-    public void GoObj(List<GameObject> bagList, int id, bool grid)
+    public void GoObj(List<GameObject> bagList, int id, bool grid,HumanCollider humanCollider)
     {
         
         int a = bagList.Count - 1;
@@ -205,7 +209,11 @@ public class Spawn : MonoBehaviour
         
         productCount[id]++;
         textMesh[id].text = productCount[id].ToString();
-        StartCoroutine(SoundManagerSfx.Play("Verme", 0));
+        if (humanCollider.human)
+        {
+            StartCoroutine(SoundManagerSfx.Play("Verme", 0));
+        }
+       
         Vibration.Vibrate(40);
        
     }

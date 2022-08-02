@@ -14,18 +14,21 @@ public class HumanMove : MonoBehaviour
     [Header("VEHICLE")]
     public bool[] whichVehicle;
     public Transform[] vehicle;
-    private HumanCollider humanCollider;
+   
     
     protected AnimatorOverrideController animatorOverrideController;
     protected int weaponIndex;
     public AnimationClip[] runClip;
+    public AnimationClip[] runMoveClip;
+    Rigidbody rb;
     // Update is called once per frame
 
 
 
     private void Start()
     {
-        humanCollider = GetComponent<HumanCollider>();
+        rb = GetComponent<Rigidbody>();
+        
         weaponIndex = 0;
         animatorOverrideController = new AnimatorOverrideController(anim.runtimeAnimatorController);
         anim.runtimeAnimatorController = animatorOverrideController;
@@ -71,25 +74,29 @@ public class HumanMove : MonoBehaviour
             {
                 anim.SetBool("Carry", false);
                 anim.SetBool("Run", true);
-                if (whichVehicle[1])
-                {
-                    transform.position = new Vector3(transform.position.x, 0.3f, transform.position.z);
-                    vehicle[1].gameObject.SetActive(true);
-                }
+                //if ((!whichVehicle[1])||(!whichVehicle[2]))
+                //{
+                //    transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+                //}
+                //transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+                //if (whichVehicle[1])
+                //{
+                   
+                    
+                //}
               
-                if (whichVehicle[2])
-                {
-                    transform.position = new Vector3(transform.position.x,  0.3f, transform.position.z);
+                //if (whichVehicle[2])
+                //{
+                //    transform.position = new Vector3(transform.position.x,  0.3f, transform.position.z);
 
-                    vehicle[2].gameObject.SetActive(true);
-                }
+                    
+                //}
                
             }
             else
             {
-                transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-                vehicle[1].gameObject.SetActive(false);
-                vehicle[2].gameObject.SetActive(false);
+                //transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+               
                 anim.SetBool("Carry", false);
                 anim.SetBool("Run", false);
                 anim.SetBool("Walk", false);
@@ -100,15 +107,20 @@ public class HumanMove : MonoBehaviour
     }
     public void VehicleChange(int vecihleCount)
     {
+        //transform.position = new Vector3(transform.position.x, 0.3f, transform.position.z);
         for (int i = 0; i < whichVehicle.Length; i++)
         {
             vehicle[i].gameObject.SetActive(false);
             whichVehicle[i] = false;
         }
+        vehicle[vecihleCount].gameObject.SetActive(true);
         speed = (vecihleCount + 5) * 2;
        
         whichVehicle[vecihleCount] = true;
         animatorOverrideController["Running(1)"] = runClip[vecihleCount];
+        animatorOverrideController["Running"] = runMoveClip[vecihleCount];
+
 
     }
+   
 }

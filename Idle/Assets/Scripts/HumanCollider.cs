@@ -6,6 +6,7 @@ using System;
 
 public class HumanCollider : MonoBehaviour
 {
+    private HumanCollider humanCollider;
     public bool human;
     public GameObject paralar;
 
@@ -66,7 +67,10 @@ public class HumanCollider : MonoBehaviour
     public Transform payAreaRecycling;
     public Transform payRecyclingPoint;
 
-  
+    private void Start()
+    {
+        humanCollider = GetComponent<HumanCollider>();
+    }
     private void OnTriggerEnter(Collider other)
     {
        
@@ -208,7 +212,7 @@ public class HumanCollider : MonoBehaviour
             Invoke("MoneyCome",2f);
            
         }
-     
+       
     }
     
     void MoneyCome()
@@ -328,7 +332,7 @@ public class HumanCollider : MonoBehaviour
         {
             if (list.Count>0)
             {
-                spawn.GoObj(list,id,grid);
+                spawn.GoObj(list,id,grid,humanCollider);
                 bagYAxis -= 0.40f;
                
             }
