@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class HumanMove : MonoBehaviour
 {
+    public Transform[] palet;
     public Transform dragMove;
     public DynamicJoystick dynamicJoystick;
     public float speed;
@@ -112,7 +113,26 @@ public class HumanMove : MonoBehaviour
         {
             vehicle[i].gameObject.SetActive(false);
             whichVehicle[i] = false;
+            palet[i].gameObject.SetActive(false);
         }
+        switch (vecihleCount)
+        {
+            case 0:
+                palet[1].gameObject.SetActive(true);
+                palet[2].gameObject.SetActive(true);
+                break;
+            case 1:
+                palet[1].gameObject.SetActive(false);
+                palet[2].gameObject.SetActive(true);
+                break;
+            case 2:
+                palet[1].gameObject.SetActive(true);
+                palet[2].gameObject.SetActive(false);
+                break;
+            default:
+                break;
+        }
+
         vehicle[vecihleCount].gameObject.SetActive(true);
         speed = (vecihleCount + 5) * 2;
        
