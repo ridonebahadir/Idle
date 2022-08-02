@@ -12,7 +12,7 @@ public class Bot : MonoBehaviour
     private NavMeshAgent navMeshAgent;
    
     //public Transform[] machine;
-   
+    public Transform pamarlik; 
     private Animator anim;
     public int stations;
     public bool[] touch;
