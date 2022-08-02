@@ -34,6 +34,8 @@ public class Cost : MonoBehaviour
     public bool isUpgrade;
     public int[] costCarUpgrade;
     public Transform[] icons;
+    [Header("For Vehicle")]
+    public bool isVehicle;
     private void Awake()
     {
        
@@ -62,10 +64,10 @@ public class Cost : MonoBehaviour
     private void Start()
     {
         
-        for (int i = 0; i < transforms.Length; i++)
-        {
-            transforms[i].localPosition = new Vector3(transforms[i].localPosition.x, transforms[i].localPosition.y + 20, transforms[i].localPosition.z);
-        }
+        //for (int i = 0; i < transforms.Length; i++)
+        //{
+        //    transforms[i].localPosition = new Vector3(transforms[i].localPosition.x, transforms[i].localPosition.y + 20, transforms[i].localPosition.z);
+        //}
         imageAmount = 1 / costValue;
         image.fillAmount = imageValue;
 
@@ -171,10 +173,14 @@ public class Cost : MonoBehaviour
         yield return new WaitForSeconds(2f);
         if (levelup)
         {
-            if (cameraFollow.turn<cameraFollow.transforms.Length-1)
+            if (!isVehicle&&!isUpgrade)
             {
-                cameraFollow.Move();
+                if (cameraFollow.turn < cameraFollow.transforms.Length - 1)
+                {
+                    cameraFollow.Move();
+                }
             }
+           
            
         }
         

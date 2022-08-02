@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         {
             for (int i = 0; i < tasarimPos.Length; i++)
             {
-                tasarimPos[i].transform.localPosition = new Vector3(tasarimPos[i].transform.localPosition.x,20, tasarimPos[i].transform.localPosition.z);
+                tasarimPos[i].transform.localPosition = new Vector3(tasarimPos[i].transform.localPosition.x,50, tasarimPos[i].transform.localPosition.z);
             }
             for (int i = 0; i < makineHammadde.Length; i++)
             {
