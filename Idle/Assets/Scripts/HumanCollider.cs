@@ -92,8 +92,14 @@ public class HumanCollider : MonoBehaviour
             if (spawn.currentList.Count>0)
             {
                 StartCoroutine(GoObj(spawn.currentList, 0, false));
-                spawn.runMachine = true;
-                StartCoroutine(spawn.OutPut(2, 1));
+                if (spawn.outPoint.childCount<=spawn.capasity)
+                {
+                    spawn.runMachine = true;
+                    StartCoroutine(spawn.OutPut(2, 1));
+                }
+               
+
+                
             }
             //if (spawn.currentList2.Count > 0)
             //{
@@ -107,7 +113,7 @@ public class HumanCollider : MonoBehaviour
             spawn = other.transform.parent.GetChild(1).GetComponent<Spawn>();
             spawn.humanCollider = transform.GetComponent<HumanCollider>();
             run = true;
-            
+           
             StartCoroutine(ComeObj(false));
         }
         if (other.tag=="Sell")
@@ -254,6 +260,15 @@ public class HumanCollider : MonoBehaviour
 
         if (other.tag == "OutPut")
         {
+            if (spawn.currentList.Count>1)
+            {
+                if (spawn.outPoint.childCount <= spawn.capasity)
+                {
+                    spawn.runMachine = true;
+                    StartCoroutine(spawn.OutPut(2, 1));
+                }
+            }
+           
             StartCoroutine(FixedHeight());
             run = false;
             spawn.Azalma(true);
@@ -507,7 +522,7 @@ public class HumanCollider : MonoBehaviour
         }
         yield return new WaitForSeconds(0.1f);
         paralar.SetActive(false);
-        gameManager.money = 10000;
+        gameManager.money = 200;
         gameManager.moneyText.text = gameManager.money.ToString();
         yield return new WaitForSeconds(0.5f);
         cameraFollow.Move();

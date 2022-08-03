@@ -33,9 +33,11 @@ public class Bot : MonoBehaviour
     public bool go;
     float des;
     bool wait;
+    Spawn spawn;
+    BoxCollider boxCollider;
     void Update()
     {
-
+        boxCollider = GetComponent<BoxCollider>();
         des = navMeshAgent.remainingDistance;
 
         if (go)
@@ -139,8 +141,8 @@ public class Bot : MonoBehaviour
             }
             if (touch[2])
             {
-               
-               
+
+                
                 StartCoroutine(Station(3,3,5));
                 anim.SetBool("Run", false);
                 anim.SetBool("Wait", false);
@@ -151,11 +153,20 @@ public class Bot : MonoBehaviour
         {
             if (touch[3])
             {
-                
-                
-                StartCoroutine(Station(0, 0, 3));
+
+                spawn = other.GetComponent<Spawn>();
                 anim.SetBool("Carry", false);
                 anim.SetBool("CarryRun", false);
+                if (spawn.outPoint.childCount<spawn.capasity)
+                {
+                    StartCoroutine(Station(0, 0, 3));
+                    
+                }
+                else
+                {
+                    boxCollider.enabled = false;
+                }
+               
                 
             }
         }

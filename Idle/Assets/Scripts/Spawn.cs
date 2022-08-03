@@ -6,6 +6,7 @@ using TMPro;
 
 public class Spawn : MonoBehaviour
 {
+
     public GameManager gameManager;
     public bool productLine;
     public GameObject[] prefab;
@@ -18,22 +19,31 @@ public class Spawn : MonoBehaviour
     public bool start;
     public bool isMachine;
     //public GameObject warning;
+
+    [Space(50)]
     [Header("SHAKE")]
     public Transform machine;
     private float shakePower = 0.8f;
     private float shakeTimer = 1f;
-   
-    
 
+
+    [Space(50)]
     [Header("OUTPUT")]
+    public bool isOutPut;
     public Transform outPoint;
     public Transform breakPoint;
     public int[] productCount;
     public int outPutCount;
     public bool runMachine;
     public TextMeshPro[] textMesh;
-    public bool isOutPut;
+    public int capasity;
+    public BoxCollider botCollider;
+    public GameObject warningOutPut;
+    public GameObject capasityMachine;
 
+
+
+    [Space(50)]
     [Header("COMPONENT ARALIK")]
     public int xComponent;
     public int zComponent;
@@ -41,6 +51,8 @@ public class Spawn : MonoBehaviour
     public int enComponent;
     public int boyComponent;
 
+
+    [Space(50)]
     [Header("OUTPUT ARALIK")]
     public int xOutPut;
     public int zOutPut;
@@ -48,6 +60,7 @@ public class Spawn : MonoBehaviour
     public int enOutPut;
     public int boyOutPut;
 
+    [Space(50)]
     [Header("KARGO ARAC")]
     public Transform kargoarac;
     public Animator wheel1;
@@ -66,9 +79,13 @@ public class Spawn : MonoBehaviour
     //[Header("PRODUCT L?NE")]
     //public bool runLine;
 
-
     void Start()
     {
+        if (isMachine)
+        {
+            warningOutPut.gameObject.SetActive(false);
+            capasityMachine.gameObject.SetActive(false);
+        }
         if (isMachine)
         {
             popUp.gameObject.SetActive(false);
@@ -129,6 +146,7 @@ public class Spawn : MonoBehaviour
         }
        
     }
+
 
     public void ComeObj(Transform bag,float bagYaxis,bool add)
     {
@@ -301,69 +319,94 @@ public class Spawn : MonoBehaviour
         
        
     }
-
+    
     public IEnumerator OutPut(int a,int b)
     {
+        
+        warningOutPut.gameObject.SetActive(false);
         yield return new WaitForSeconds(3f);
        
         while (runMachine)
         {
+          
+            if (productCount[0]<=1)
+            {
+                botCollider.enabled = true;
+            }
+           
 
-            if (((productCount[0] -= a) >= 0)/* && ((productCount[1] -= b) >= 0)*/)
+            if (((productCount[0] -= a) >= 0))
             {
                 machine.DOShakeRotation(shakeTimer, shakePower, fadeOut: true);
                 textMesh[0].text = productCount[0].ToString();
                 //textMesh[1].text = productCount[1].ToString();
-              
+
 
                 outPutCount++;
             }
-           
+
             if (productCount[0] < a)
             {
-               
+
                 runMachine = false;
                 //productCount[0] = 0;
             }
+
             //if (productCount[1] <= 0)
             //{
-                
+
             //    runMachine = false;
             //    productCount[1] = 0;
             //}
             yield return new WaitForSeconds(0.1f);
         }
+
+
         yield return new WaitForSeconds(1f);
         for (int i = 0; i < outPutCount; i++)
         {
-            GameObject obj = Instantiate(prefab[gameManager.upgradeCount],breakPoint);
+            if (outPoint.childCount<capasity)
+            {
+                //warningOutPut.gameObject.SetActive(false);
+                GameObject obj = Instantiate(prefab[gameManager.upgradeCount], breakPoint);
 
-            obj.transform.parent = outPoint;
+                obj.transform.parent = outPoint;
 
-            obj.transform.DOLocalRotate(new Vector3(0, 0, 0), 1f);
-            obj.transform.DOLocalJump(new Vector3(x*0.5f, y*0.5f, z*0.5f), 3, 3, 0.3f, false).SetEase(Ease.InQuint);
+                obj.transform.DOLocalRotate(new Vector3(0, 0, 0), 1f);
+                obj.transform.DOLocalJump(new Vector3(x * 0.5f, y * 0.5f, z * 0.5f), 3, 3, 0.3f, false).SetEase(Ease.InQuint);
 
-            x+=xOutPut;
-                if (x == xOutPut*enOutPut)
+                x += xOutPut;
+                if (x == xOutPut * enOutPut)
                 {
                     x = 0;
-                    z+=zOutPut;
-                    if (z == zOutPut*boyOutPut)
+                    z += zOutPut;
+                    if (z == zOutPut * boyOutPut)
                     {
-                        y+=yOutPut;
+                        y += yOutPut;
                         z = 0;
                     }
 
                 }
-            
-            
-            list.Add(obj);
-            textMesh[0].text = productCount[0].ToString();
-            textMesh[1].text = productCount[1].ToString();  
-            yield return new WaitForSeconds(0.1f);
+
+
+                list.Add(obj);
+                textMesh[0].text = productCount[0].ToString();
+                textMesh[1].text = productCount[1].ToString();
+                yield return new WaitForSeconds(0.1f);
+            }
+            else
+            {
+                warningOutPut.gameObject.SetActive(true);
+                productCount[0]+=a;
+                textMesh[0].text = productCount[0].ToString();
+            }
+           
 
         }
         outPutCount = 0;
+
+
+
     }
 
   
@@ -436,14 +479,17 @@ public class Spawn : MonoBehaviour
             {
                 humanCollider = other.GetComponent<HumanCollider>();
             }
-           
+            else
+            {
+                capasityMachine.gameObject.SetActive(true);
+            }
            
             if (isMachine&& humanCollider.human)
             {
-
+               
                 popUp.gameObject.SetActive(true);
             }
-           
+            
             
             WhichList();
 
@@ -456,6 +502,14 @@ public class Spawn : MonoBehaviour
             if (other.tag == "Human")
             {
                 popUp.gameObject.SetActive(false);
+            }
+        }
+        if (isOutPut)
+        {
+            if (other.tag == "Human")
+            {
+                capasityMachine.gameObject.SetActive(false);
+              
             }
         }
         
