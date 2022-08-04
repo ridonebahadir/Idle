@@ -17,7 +17,7 @@ public class CameraFollow : MonoBehaviour
     Vector3 targetPos;
     Vector3 backPos;
     public Transform UpPoint;
-    
+    public HumanCollider humanCollider;
     private void Awake()
     {
         if (!gameManager.locked)
@@ -56,7 +56,7 @@ public class CameraFollow : MonoBehaviour
     {
         if (cameraFollow)
         {
-            targetPos = human.position + offset;
+            targetPos = human.position+new Vector3(0,humanCollider.bagYAxis,0) + offset;
             transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothTime);
         }
 
