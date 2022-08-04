@@ -14,6 +14,7 @@ public class CapasityMachine : MonoBehaviour
     private BoxCollider2D boxCollider2D;
     private void Start()
     {
+        cost = PlayerPrefs.GetInt("CapasityMachineCost", 10);
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         mevcutValueText.text = spawn.capasity.ToString();
@@ -21,7 +22,7 @@ public class CapasityMachine : MonoBehaviour
     }
     private void Update()
     {
-        if (gameManager.money<=cost)
+        if (gameManager.money>=cost)
         {
             spriteRenderer.color = Color.green;
             boxCollider2D.enabled = true;
@@ -34,11 +35,14 @@ public class CapasityMachine : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (gameManager.money<=cost)
+        if (gameManager.money>=cost)
         {
+            gameManager.money -= cost;
             spawn.capasity += 5;
+            PlayerPrefs.SetInt("Spawncapasity",spawn.capasity);
             mevcutValueText.text = spawn.capasity.ToString();
             cost += 50;
+            PlayerPrefs.SetInt("CapasityMachineCost",cost);
             costValueText.text = "$ " + cost.ToString();
 
         }

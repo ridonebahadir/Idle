@@ -12,9 +12,11 @@ public class SoundManagerSfx : MonoBehaviour
     public static AudioClip unlocked;
     public static AudioClip generatorOpen;
     public static AudioClip generatorClose;
+    public static AudioClip skate;
     
 
     static AudioSource audioSrc;
+    static AudioSource audioSrc2;
     private void Start()
     {
         kapiOpen = Resources.Load<AudioClip>("KapiOpen");
@@ -24,13 +26,16 @@ public class SoundManagerSfx : MonoBehaviour
         unlocked = Resources.Load<AudioClip>("Unlocked");
         generatorOpen = Resources.Load<AudioClip>("GeneratorOpen");
         generatorClose = Resources.Load<AudioClip>("GeneratorClose");
+        skate = Resources.Load<AudioClip>("Skate");
       
         
         audioSrc = GetComponent<AudioSource>();
+        audioSrc2 =transform.GetChild(0).GetComponent<AudioSource>();
     }
   
    public static IEnumerator Play(string clip,float invokeTime)
     {
+       
         yield return new WaitForSeconds(invokeTime);
         switch (clip)
         {
@@ -61,6 +66,16 @@ public class SoundManagerSfx : MonoBehaviour
             case "GeneratorClose":
                 audioSrc.PlayOneShot(generatorClose);
                 Debug.Log("generatorClose Sesi");
+                break;
+            case "Skate":
+
+                audioSrc2.clip = skate;
+                audioSrc2.Play();
+                Debug.Log("skate Sesi");
+                break;
+            case "SkateStop":
+                audioSrc2.Stop();
+                Debug.Log("skate Sesi durdu");
                 break;
         }
     }

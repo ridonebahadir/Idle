@@ -70,6 +70,7 @@ public class HumanMove : MonoBehaviour
             
             if (Input.GetMouseButton(0))
             {
+                
                 if (!acceleration)
                 {
                     Acceleration(newEase, duration);
@@ -82,6 +83,7 @@ public class HumanMove : MonoBehaviour
             }
             else
             {
+                StartCoroutine(SoundManagerSfx.Play("SkateStop", 0));
                 speed = startSpeed;
                 DOTween.Kill(uid);
                 sequence = null;
@@ -94,7 +96,6 @@ public class HumanMove : MonoBehaviour
            
             if (Input.GetMouseButton(0))
             {
-                
                 if (!acceleration)
                 {
                     Acceleration(newEase, duration);
@@ -102,28 +103,12 @@ public class HumanMove : MonoBehaviour
                 }
                 anim.SetBool("Carry", false);
                 anim.SetBool("Run", true);
-                //if ((!whichVehicle[1])||(!whichVehicle[2]))
-                //{
-                //    transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-                //}
-                //transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-                //if (whichVehicle[1])
-                //{
-                   
-                    
-                //}
-              
-                //if (whichVehicle[2])
-                //{
-                //    transform.position = new Vector3(transform.position.x,  0.3f, transform.position.z);
-
-                    
-                //}
                
             }
             else
             {
                 //transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+                StartCoroutine(SoundManagerSfx.Play("SkateStop", 0));
                 DOTween.Kill(uid);
                 sequence = null;
                 speed = startSpeed;
@@ -137,6 +122,7 @@ public class HumanMove : MonoBehaviour
     }
     public void VehicleChange(int vecihleCount)
     {
+        
         //transform.position = new Vector3(transform.position.x, 0.3f, transform.position.z);
         for (int i = 0; i < whichVehicle.Length; i++)
         {
@@ -159,7 +145,7 @@ public class HumanMove : MonoBehaviour
             case 1:
                 palet[1].gameObject.SetActive(false);
                 palet[2].gameObject.SetActive(true);
-
+                
 
                 duration = 4f;
                 speed = 13;
@@ -191,6 +177,8 @@ public class HumanMove : MonoBehaviour
    
    public void Acceleration(Ease ease,float time)
     {
+        
+        StartCoroutine(SoundManagerSfx.Play("Skate", 0));
         sequence = DOTween.Sequence();
         sequence.Append(DOTween.To(() => speed, x => speed = x, maxSpeed, time)
               .OnUpdate(() => {
