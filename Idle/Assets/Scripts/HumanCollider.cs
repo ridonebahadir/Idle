@@ -260,14 +260,14 @@ public class HumanCollider : MonoBehaviour
 
         if (other.tag == "OutPut")
         {
-            if (spawn.currentList.Count>1)
-            {
+           
                 if (spawn.outPoint.childCount <= spawn.capasity)
                 {
                     spawn.runMachine = true;
-                    StartCoroutine(spawn.OutPut(2, 1));
+                   spawn.warningOutPut.gameObject.SetActive(false);
+                   StartCoroutine(spawn.OutPut(2, 1));
                 }
-            }
+            
            
             StartCoroutine(FixedHeight());
             run = false;
@@ -483,7 +483,7 @@ public class HumanCollider : MonoBehaviour
 
     IEnumerator ComeMoney(List<GameObject> whichList,int balyaValue)
     {
-        float a = 1 / whichList.Count;
+        float a = (1 / whichList.Count)-0.1f;
         for (int i = whichList.Count-1; i > -1; i--)
         {
             GameObject obj = whichList[i];
@@ -501,7 +501,7 @@ public class HumanCollider : MonoBehaviour
             yield return new WaitForSeconds(a);
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(4f);
         whichList.Clear();
         x = 0;y = 0;z = 0;
 
