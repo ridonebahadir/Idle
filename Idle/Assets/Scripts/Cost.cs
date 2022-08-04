@@ -108,7 +108,7 @@ public class Cost : MonoBehaviour
         }
         else
         {
-            moneyBar.transform.DOShakeRotation(3, 5f);
+            moneyBar.transform.DOPunchScale(new Vector3(0.1f,0.1f,0.1f), 1f);
 
         }
 
@@ -267,7 +267,7 @@ public class Cost : MonoBehaviour
             }
             if (gameManager.money <= 0)
             {
-                moneyBar.transform.DOShakeRotation(3, 5f);
+                moneyBar.transform.DOPunchScale(new Vector3(0.1f,0.1f,0.1f), 1f);
 
                 PlayerPrefs.SetFloat("CostValue" + id, costValue);
 

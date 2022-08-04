@@ -85,7 +85,7 @@ public class Spawn : MonoBehaviour
         {
             warningOutPut.gameObject.SetActive(false);
             capasityMachine.gameObject.SetActive(false);
-            capasity = PlayerPrefs.GetInt("Spawncapasity",5);
+            capasity = PlayerPrefs.GetInt("Spawncapasity"+capasityMachine.GetComponent<CapasityMachine>().id,5);
         }
         if (isMachine)
         {
