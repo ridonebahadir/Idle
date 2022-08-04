@@ -56,7 +56,7 @@ public class CameraFollow : MonoBehaviour
     {
         if (cameraFollow)
         {
-            targetPos = human.position+new Vector3(0,humanCollider.bagYAxis,0) + offset;
+            targetPos = human.position+new Vector3(0,humanCollider.bag.childCount/3,0) + offset;
             transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothTime);
         }
 
