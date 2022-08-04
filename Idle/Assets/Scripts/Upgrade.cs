@@ -41,7 +41,7 @@ public class Upgrade : MonoBehaviour
             if (isCapacity)
             {
                 sellRaw.capasity += 5;
-                PlayerPrefs.SetInt("Capasity", sellRaw.capasity);
+                PlayerPrefs.SetInt("Capasity"+ sellRaw.id, sellRaw.capasity);
                
                 textUpgrade.text = sellRaw.capasity.ToString();
             }
