@@ -19,8 +19,10 @@ public class MachineButtons : MonoBehaviour
     public int costCapasity;
     public TextMeshPro capasityText;
     private HumanCollider botHumanCollider;
+    BoxCollider2D boxCollider;
     private void Start()
     {
+        boxCollider = GetComponent<BoxCollider2D>();
         botHumanCollider = bot.GetComponent<HumanCollider>();
         botHumanCollider.capasity=PlayerPrefs.GetInt("BotCapasity" + id, 5);
         close = PlayerPrefs.GetInt("Close"+id,0);
@@ -48,10 +50,12 @@ public class MachineButtons : MonoBehaviour
         {
             if (gameManager.money >= costCapasity)
             {
+                boxCollider.enabled = true;
                 sprite.material = materials[0];
             }
             else
             {
+                boxCollider.enabled = false;
                 sprite.material = materials[1];
             }
         }
