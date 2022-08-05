@@ -9,20 +9,23 @@ public class Vehicle : MonoBehaviour
     public int a = 0;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag=="Human"&&humanCollider.human)
+        if (other.tag=="Human")
         {
-           
-            if (a<humanMove.runClip.Length-1)
+            if (humanCollider.human)
             {
-                a++;
-                humanMove.VehicleChange(a);
-                
+                if (a < humanMove.runClip.Length - 1)
+                {
+                    a++;
+                    humanMove.VehicleChange(a);
+
+                }
+                else
+                {
+                    a = 0;
+                    humanMove.VehicleChange(a);
+                }
             }
-            else
-            {
-                a = 0;
-                humanMove.VehicleChange(a);
-            }
+            
         }
     }
 }
