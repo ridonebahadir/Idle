@@ -37,11 +37,14 @@ public class CarParent : MonoBehaviour
             {
                 for (int i = 0; i < a; i++)
                 {
-                    willGoCar[i].transform.DOMoveZ(willGoCar[i].transform.position.z-5, moveZCarTime);
-                    if (zAxis>=-10)
+                    willGoCar[i].transform.DOMoveZ(willGoCar[i].transform.position.z-5, moveZCarTime).OnComplete(() =>
                     {
-                        zAxis -= 5;
-                    }
+                        if (zAxis >= -10)
+                        {
+                            zAxis -= 5;
+                        }
+                    });
+                   
                     
                 }
             }
