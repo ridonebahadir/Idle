@@ -68,7 +68,7 @@ public class ManageProduction : MonoBehaviour
         {
             roboticAnim[1].SetInteger("Turn", animTurn1);
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         //roboticAnim.SetInteger("Turn", animTurn);
        
         if (a == 0)
@@ -87,7 +87,7 @@ public class ManageProduction : MonoBehaviour
             breakPoints[turn].GetChild(i).DOLocalMove(new Vector3(0,i+1,0),0.5f);
             
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(obj);
        
         car.transform.GetChild(setactiveTurn).gameObject.SetActive(true);
@@ -96,7 +96,7 @@ public class ManageProduction : MonoBehaviour
         {
             car.transform.GetChild(setactiveTurn + 1).gameObject.SetActive(true);
             carGo = carParent.transform.GetChild(0).GetComponent<CarGo>();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.25f);
             //willGoCar.Add(car);
 
             carGo.Go();
@@ -106,7 +106,7 @@ public class ManageProduction : MonoBehaviour
             
             //yield return new WaitForSeconds(0.5f);//arac olusturuldu
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         if (turn < 5)
         {
             if (a == 0)
