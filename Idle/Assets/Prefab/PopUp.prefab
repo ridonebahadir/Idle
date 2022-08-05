@@ -91,10 +91,9 @@ MonoBehaviour:
   id: 0
   costText: {fileID: 8987802268954946432}
   logoSprite: {fileID: 18920709066852764}
-  botCapasityLogo: {fileID: 21300000, guid: 2c447e8557bdc4e14b57f6844c0abb70, type: 3}
+  botCapasityLogo: {fileID: 21300000, guid: 15e2a6284785248b783cd53a0739e83d, type: 3}
   costCapasity: 50
   capasityText: {fileID: 3181263568791544711}
-  botHumanCollider: {fileID: 0}
 --- !u!212 &125130972698601267
 SpriteRenderer:
   m_ObjectHideFlags: 0

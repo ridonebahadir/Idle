@@ -93,6 +93,12 @@ public class MachineButtons : MonoBehaviour
                 gameManager.money -= botCost;
                 gameManager.moneyText.text = gameManager.money.ToString();
                 bot.SetActive(true);
+                capasityText.gameObject.SetActive(true);
+                capasityText.text = botHumanCollider.capasity.ToString();
+
+                costCapasity = PlayerPrefs.GetInt("CostCapasity" + id, costCapasity);
+                costText.text = "$ " + costCapasity.ToString();
+                logoSprite.sprite = botCapasityLogo;
                 close = 1;
                 PlayerPrefs.SetInt("Close" + id, close);
                 //transform.gameObject.SetActive(false);
