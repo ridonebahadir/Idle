@@ -274,11 +274,11 @@ public class Spawn : MonoBehaviour
 
     }
     public int first;
-    public IEnumerator KargoAracMove(List <GameObject> list)
+    private IEnumerator KargoAracMove(List <GameObject> list)
     {
         first = PlayerPrefs.GetInt("First");
 
-        StartCoroutine(humanCollider.PayMoney(list.Capacity * price, transform,humanCollider.moneyListKargo,humanCollider.payArea));
+        StartCoroutine(humanCollider.PayMoney(currentList.Capacity * price, transform,humanCollider.moneyListKargo,humanCollider.payArea));
         if (first==0)
         {
             cameraFollow.Move();
