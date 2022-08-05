@@ -157,6 +157,7 @@ public class Bot : MonoBehaviour
                 spawn = other.GetComponent<Spawn>();
                 anim.SetBool("Carry", false);
                 anim.SetBool("CarryRun", false);
+                anim.SetBool("Run", false);
                 if (spawn.outPoint.childCount<spawn.capasity)
                 {
                     StartCoroutine(Station(0, 0, 3));
