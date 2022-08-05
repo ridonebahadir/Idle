@@ -316,6 +316,7 @@ public class HumanCollider : MonoBehaviour
         }
         if (other.tag=="Kasa")
         {
+            x = 0;y = 0;z = 0;
             button.transform.DOLocalMoveY(0.5f, 0.5f);
         }
     }
