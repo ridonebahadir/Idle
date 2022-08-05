@@ -91,7 +91,7 @@ MonoBehaviour:
   id: 0
   costText: {fileID: 8987802268954946432}
   logoSprite: {fileID: 18920709066852764}
-  botCapasityLogo: {fileID: 21300000, guid: 15e2a6284785248b783cd53a0739e83d, type: 3}
+  botCapasityLogo: {fileID: 21300000, guid: ca1682543dfc34001970bbbebc6b96c2, type: 3}
   costCapasity: 50
   capasityText: {fileID: 3181263568791544711}
 --- !u!212 &125130972698601267
@@ -207,7 +207,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -15.4}
+  m_AnchoredPosition: {x: 8.9, y: 0.69}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &5319810558719134486
@@ -230,7 +230,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 447359628786332626, guid: a14a7a608dd5c4dc5bd1557c665ea5eb, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -250,7 +250,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &3181263568791544711
 MonoBehaviour:
@@ -272,10 +272,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 111
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a14a7a608dd5c4dc5bd1557c665ea5eb, type: 2}
-  m_sharedMaterial: {fileID: 447359628786332626, guid: a14a7a608dd5c4dc5bd1557c665ea5eb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -402,7 +402,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 447359628786332626, guid: a14a7a608dd5c4dc5bd1557c665ea5eb, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -422,7 +422,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &8987802268954946432
 MonoBehaviour:
@@ -446,8 +446,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: $ 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a14a7a608dd5c4dc5bd1557c665ea5eb, type: 2}
-  m_sharedMaterial: {fileID: 447359628786332626, guid: a14a7a608dd5c4dc5bd1557c665ea5eb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -542,7 +542,7 @@ Transform:
   m_GameObject: {fileID: 4621120679075924020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -2.5, z: -3.3}
-  m_LocalScale: {x: 0.82281744, y: 0.8228176, z: 0.82281744}
+  m_LocalScale: {x: 0.98285544, y: 0.9828556, z: 0.98285544}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 125130972698601266}
