@@ -70,6 +70,7 @@ public class HumanCollider : MonoBehaviour
     private void Start()
     {
         humanCollider = GetComponent<HumanCollider>();
+        
     }
     private void OnTriggerEnter(Collider other)
     {

@@ -531,6 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15deccaf91198ce408328bb885f3b44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pamarlik: {fileID: 0}
   stations: 0
   touch: 00000000
   bag: {fileID: 6185055192325915690}
@@ -557,7 +558,7 @@ MonoBehaviour:
   paralar: {fileID: 0}
   cameraFollow: {fileID: 0}
   sellRaw: {fileID: 0}
-  capasity: 100
+  capasity: 5
   gameManager: {fileID: 0}
   bag: {fileID: 6185055192325915690}
   bagYAxis: 0

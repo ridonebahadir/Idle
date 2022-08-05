@@ -15,7 +15,8 @@ public class CapasityMachine : MonoBehaviour
     public int id;
     private void Start()
     {
-        cost = PlayerPrefs.GetInt("CapasityMachineCost", 10+id);
+        spawn.capasity= PlayerPrefs.GetInt("Spawncapasity"+id,5);
+        cost = PlayerPrefs.GetInt("CapasityMachineCost"+id, 10);
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         mevcutValueText.text = spawn.capasity.ToString();
@@ -39,11 +40,12 @@ public class CapasityMachine : MonoBehaviour
         if (gameManager.money>=cost)
         {
             gameManager.money -= cost;
+            gameManager.moneyText.text = gameManager.money.ToString();
             spawn.capasity += 5;
-            PlayerPrefs.SetInt("Spawncapasity",spawn.capasity+id);
+            PlayerPrefs.SetInt("Spawncapasity"+id,spawn.capasity);
             mevcutValueText.text = spawn.capasity.ToString();
             cost += 50;
-            PlayerPrefs.SetInt("CapasityMachineCost",cost+id);
+            PlayerPrefs.SetInt("CapasityMachineCost"+id,cost);
             costValueText.text = "$ " + cost.ToString();
 
         }
