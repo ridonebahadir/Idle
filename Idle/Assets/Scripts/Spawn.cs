@@ -78,11 +78,21 @@ public class Spawn : MonoBehaviour
     public CameraFollow cameraFollow;
     //[Header("PRODUCT L?NE")]
     //public bool runLine;
-
+    [Space(50)]
+    [Header("Bot")]
+    public GameObject bot;
+    public MachineButtons machineButtons;
+    int close;
+    
     void Start()
     {
         if (isMachine)
         {
+            close = PlayerPrefs.GetInt("Close" + machineButtons.id, 0);
+            if (close==1)
+            {
+                bot.SetActive(true);
+            }
             warningOutPut.gameObject.SetActive(false);
             capasityMachine.gameObject.SetActive(false);
             //capasity = PlayerPrefs.GetInt("Spawncapasity"+capasityMachine.GetComponent<CapasityMachine>().id,5);
