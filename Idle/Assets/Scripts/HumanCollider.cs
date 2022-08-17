@@ -325,7 +325,7 @@ public class HumanCollider : MonoBehaviour
    
     IEnumerator ComeObj(bool add)
     {
-        yield return new WaitForSeconds(1f);
+       
         while (run)
         {
             if (bag.childCount < capasity)
