@@ -384,10 +384,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stations:
-  - {x: -30, y: 5, z: 0}
-  - {x: -55, y: 5, z: 0}
-  - {x: -55, y: 5, z: 35.7}
-  - {x: -72, y: 5, z: 35.7}
+  - {x: 0, y: 5, z: 0}
+  - {x: -38, y: 5, z: 0}
+  - {x: -38, y: 5, z: 35.7}
+  - {x: -53, y: 5, z: 35.7}
   time:
   - 0.5
   - 1.25

@@ -101,6 +101,10 @@ public class GameManager : MonoBehaviour
     {
         cameraFollow.CameraGoUp();
     }
+    public void GoRotateCamera()
+    {
+        cameraFollow.CameraRotate();
+    }
 
     public void Upgrade()
     {

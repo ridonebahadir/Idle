@@ -73,10 +73,10 @@ public class SoundManagerSfx : MonoBehaviour
                 audioSrc2.Play();
                 Debug.Log("skate Sesi");
                 break;
-            case "SkateStop":
-                audioSrc2.Stop();
-                Debug.Log("skate Sesi durdu");
-                break;
+            //case "SkateStop":
+            //    audioSrc2.Stop();
+            //    Debug.Log("skate Sesi durdu");
+            //    break;
         }
     }
 }

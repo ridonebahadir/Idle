@@ -26,17 +26,17 @@ MonoBehaviour:
   UserMessagesFailed: 0
   CustomArea: 
   gameKey:
-  - e83574a2e667f146dec6aa030bbe9165
+  - 902332e056f51ee4273bd1e611531e6d
   secretKey:
-  - e67be9a6f3416b9854318210eb6a914d8240d340
+  - cea0c28a26470e34d744351fdcaa9ebce5b6b513
   Build:
   - 0.1
   SelectedPlatformOrganization:
-  - 
+  - Midcat Game
   SelectedPlatformStudio:
-  - 
+  - MidCat
   SelectedPlatformGame:
-  - 
+  - Auto Lab
   SelectedPlatformGameID: b02c0300
   SelectedOrganization: 01000000
   SelectedStudio: 01000000

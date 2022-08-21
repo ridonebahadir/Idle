@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class CameraFollow : MonoBehaviour
@@ -18,6 +19,8 @@ public class CameraFollow : MonoBehaviour
     Vector3 backPos;
     public Transform UpPoint;
     public HumanCollider humanCollider;
+    public Transform[] changeRotate;
+    public Transform cameraRotateParent;
     private void Awake()
     {
         if (!gameManager.locked)
@@ -52,14 +55,16 @@ public class CameraFollow : MonoBehaviour
       
       
     }
+    
     void Update()
     {
+        cameraRotateParent.transform.position = human.transform.position;
         if (cameraFollow)
         {
             targetPos = human.position+new Vector3(0,humanCollider.bag.childCount/2,0) + offset;
             transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothTime);
         }
-
+       
       
     }
     public void Move()
@@ -108,6 +113,38 @@ public class CameraFollow : MonoBehaviour
             transform.DORotate(new Vector3(45, 0, 0), 1.5f).SetEase(Ease.InOutSine);
             go = true;
         }
+    }
+    public int value;
+    public HumanMove humanMove;
+    public Button cameraRotateButton;
+    public DynamicJoystick dynamicJoystick;
+    public void CameraRotate()
+    {
+        humanMove.run = false;
+        dynamicJoystick.enabled = false;
+        cameraRotateButton.interactable = false;
        
+        cameraFollow = false;
+        
+
+        transform.DOMove(changeRotate[value].position, 2f).OnComplete(() =>
+        {
+            offset = transform.position - human.transform.position;
+            cameraRotateButton.interactable = true;
+            humanMove.run = true;
+            dynamicJoystick.enabled = true;
+            cameraFollow = true;
+
+        });
+        
+        transform.DORotate(changeRotate[value].rotation.eulerAngles,2f);
+        if (value<3)
+        {
+            value++;
+        }
+        else
+        {
+            value = 0;
+        }
     }
 }

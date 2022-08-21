@@ -43,23 +43,29 @@ public class HumanMove : MonoBehaviour
         anim.runtimeAnimatorController = animatorOverrideController;
 
     }
+    public CameraFollow cameraFollow;
+    public bool run;
     void Update()
     {
+
         float horizontalInput = dynamicJoystick.Horizontal;
         float verticalInput = dynamicJoystick.Vertical;
-
-        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
-        movementDirection.Normalize();
-
-        transform.Translate(movementDirection * speed * Time.deltaTime, Space.World);
-
-       
-        if (movementDirection != Vector3.zero)
+        switch (cameraFollow.value)
         {
-            Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
-            humanBody.rotation = Quaternion.RotateTowards(humanBody.rotation, toRotation, 720 * Time.deltaTime);
+            case 0:
+                Movement(horizontalInput, verticalInput);
+                break;
+            case 1:
+                Movement(verticalInput, -horizontalInput);
+                break;
+            case 2:
+                Movement(-horizontalInput, -verticalInput);
+                break;
+            case 3:
+                Movement(-verticalInput, horizontalInput);
+                break;
+           
         }
-
         if (Input.GetMouseButtonDown(0))
         {
             acceleration = false;
@@ -68,7 +74,7 @@ public class HumanMove : MonoBehaviour
         if (bag.transform.childCount>0)
         {
             
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0)&&run)
             {
                 
                 if (!acceleration)
@@ -94,7 +100,7 @@ public class HumanMove : MonoBehaviour
         else
         {
            
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0)&&run)
             {
                 if (!acceleration)
                 {
@@ -119,6 +125,21 @@ public class HumanMove : MonoBehaviour
             }
         }
        
+    }
+    void Movement(float a,float b)
+    {
+       
+        Vector3 movementDirection;
+        movementDirection = new Vector3(a, 0, b);
+        movementDirection.Normalize();
+        transform.Translate(movementDirection * speed * Time.deltaTime, Space.World);
+
+
+        if (movementDirection != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+            humanBody.rotation = Quaternion.RotateTowards(humanBody.rotation, toRotation, 720 * Time.deltaTime);
+        }
     }
     public void VehicleChange(int vecihleCount)
     {
