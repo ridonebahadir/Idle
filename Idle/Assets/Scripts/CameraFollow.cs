@@ -120,7 +120,7 @@ public class CameraFollow : MonoBehaviour
     public DynamicJoystick dynamicJoystick;
     public Transform[] rotateObj;
     public Transform[] OrderObj;
-    public Transform[] unlockMachine;
+    public Transform[] upGraade;
     public void CameraRotate()
     {
         humanMove.run = false;
@@ -144,16 +144,18 @@ public class CameraFollow : MonoBehaviour
         {
             rotateObj[i].transform.DOLocalRotate(new Vector3(rotateObj[i].transform.eulerAngles.x, changeRotate[value].rotation.eulerAngles.y, 0), 1.2f);
         }
+        for (int i = 0; i < upGraade.Length; i++)
+        {
+            upGraade[i].transform.DOLocalRotate(new Vector3(125, changeRotate[value].rotation.eulerAngles.y-90, 0), 1.2f);
+        }
         if (value==2||value==0)
         {
             for (int i = 0; i < OrderObj.Length; i++)
             {
                 OrderObj[i].transform.DOLocalRotate(new Vector3(OrderObj[i].transform.rotation.eulerAngles.x, changeRotate[value].rotation.eulerAngles.y - 90, 0), 1.2f);
             }
-            for (int i = 0; i < unlockMachine.Length; i++)
-            {
-                unlockMachine[i].transform.DOLocalRotate(new Vector3(0, changeRotate[value].rotation.eulerAngles.y - 90, 0), 1.2f);
-            }
+           
+
 
         }
        
