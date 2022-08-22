@@ -127,7 +127,7 @@ public class CameraFollow : MonoBehaviour
         cameraFollow = false;
         
 
-        transform.DOMove(changeRotate[value].position, 2f).OnComplete(() =>
+        transform.DOMove(changeRotate[value].position, 1.2f).OnComplete(() =>
         {
             offset = transform.position - human.transform.position;
             cameraRotateButton.interactable = true;
@@ -135,9 +135,9 @@ public class CameraFollow : MonoBehaviour
             dynamicJoystick.enabled = true;
             cameraFollow = true;
 
-        });
+        }).SetEase(Ease.InOutSine);
         
-        transform.DORotate(changeRotate[value].rotation.eulerAngles,2f);
+        transform.DORotate(changeRotate[value].rotation.eulerAngles,1.2f).SetEase(Ease.InOutSine);
         if (value<3)
         {
             value++;
