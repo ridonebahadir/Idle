@@ -19,10 +19,10 @@ public class MachineButtons : MonoBehaviour
     public int costCapasity;
     public TextMeshPro capasityText;
     private HumanCollider botHumanCollider;
-    BoxCollider2D boxCollider;
+    BoxCollider boxCollider;
     private void Start()
     {
-        boxCollider = GetComponent<BoxCollider2D>();
+        boxCollider = GetComponent<BoxCollider>();
         botHumanCollider = bot.GetComponent<HumanCollider>();
         botHumanCollider.capasity=PlayerPrefs.GetInt("BotCapasity" + id, 5);
         close = PlayerPrefs.GetInt("Close"+id,0);
