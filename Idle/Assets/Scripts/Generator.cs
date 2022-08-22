@@ -52,8 +52,11 @@ public class Generator : MonoBehaviour
                 item.GetComponent<CarGo>().enabled = true;
             }
             manageProduction.enabled = true;
-            animatorsRobot[0].enabled = true;
-            animatorsRobot[1].enabled = true;
+            for (int i = 0; i < animatorsRobot.Length; i++)
+            {
+                animatorsRobot[i].enabled = true;
+            }
+            
             lightDirect.intensity = 1;
             flashlight.SetActive(false);
             RenderSettings.ambientLight = whiteColor;

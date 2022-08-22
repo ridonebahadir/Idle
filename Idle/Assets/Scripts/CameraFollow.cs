@@ -118,15 +118,16 @@ public class CameraFollow : MonoBehaviour
     public HumanMove humanMove;
     public Button cameraRotateButton;
     public DynamicJoystick dynamicJoystick;
+    public Transform[] rotateObj;
+    public Transform[] OrderObj;
+    public Transform[] unlockMachine;
     public void CameraRotate()
     {
         humanMove.run = false;
         dynamicJoystick.enabled = false;
         cameraRotateButton.interactable = false;
-       
         cameraFollow = false;
-        
-
+       
         transform.DOMove(changeRotate[value].position, 1.2f).OnComplete(() =>
         {
             offset = transform.position - human.transform.position;
@@ -136,15 +137,25 @@ public class CameraFollow : MonoBehaviour
             cameraFollow = true;
 
         }).SetEase(Ease.InOutSine);
-        
         transform.DORotate(changeRotate[value].rotation.eulerAngles,1.2f).SetEase(Ease.InOutSine);
-        if (value<3)
+        if (value<3) value++;
+        else value = 0;
+        for (int i = 0; i < rotateObj.Length; i++)
         {
-            value++;
+            rotateObj[i].transform.DOLocalRotate(new Vector3(rotateObj[i].transform.eulerAngles.x, changeRotate[value].rotation.eulerAngles.y, 0), 1.2f);
         }
-        else
+        if (value==2||value==0)
         {
-            value = 0;
+            for (int i = 0; i < OrderObj.Length; i++)
+            {
+                OrderObj[i].transform.DOLocalRotate(new Vector3(OrderObj[i].transform.rotation.eulerAngles.x, changeRotate[value].rotation.eulerAngles.y - 90, 0), 1.2f);
+            }
+            for (int i = 0; i < unlockMachine.Length; i++)
+            {
+                unlockMachine[i].transform.DOLocalRotate(new Vector3(0, changeRotate[value].rotation.eulerAngles.y - 90, 0), 1.2f);
+            }
+
         }
+       
     }
 }
