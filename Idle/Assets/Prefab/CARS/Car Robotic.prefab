@@ -399,10 +399,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stations:
-  - {x: 0, y: 5, z: 0}
-  - {x: -40.5, y: 5, z: 0}
-  - {x: -40.5, y: 5, z: 35.7}
-  - {x: -57.6, y: 5, z: 35.7}
+  - {x: -30, y: 5, z: 0}
+  - {x: -54, y: 5, z: 0}
+  - {x: -54, y: 5, z: 37}
+  - {x: -70, y: 5, z: 37}
   time:
   - 0.3
   - 0.3

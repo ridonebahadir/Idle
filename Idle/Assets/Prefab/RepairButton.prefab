@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6694905774959875313}
   - component: {fileID: 7146224111269114378}
   - component: {fileID: 1247800954284203228}
-  - component: {fileID: 8214638720638878536}
+  - component: {fileID: 8031952888428025918}
   m_Layer: 0
   m_Name: repair_ui@4x
   m_TagString: Untagged
@@ -101,32 +101,19 @@ MonoBehaviour:
   repair: {fileID: 0}
   gameManager: {fileID: 0}
   repairCost: 0
---- !u!61 &8214638720638878536
-BoxCollider2D:
+--- !u!65 &8031952888428025918
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947303426085781078}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.9537201}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 29.94, y: 33.78354}
-    newSize: {x: 29.94, y: 33.78354}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 29.94, y: 71.51909}
-  m_EdgeRadius: 0
+  m_Size: {x: 29.939999, y: 33.78354, z: 0.20000003}
+  m_Center: {x: -0.000030517578, y: 0, z: -0.000030517578}
 --- !u!1 &5827561226864788861
 GameObject:
   m_ObjectHideFlags: 0

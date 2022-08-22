@@ -11,14 +11,14 @@ public class CapasityMachine : MonoBehaviour
     public TextMeshPro costValueText;
     public TextMeshPro mevcutValueText;
     private SpriteRenderer spriteRenderer;
-    private BoxCollider2D boxCollider2D;
+    private BoxCollider boxCollider2D;
     public int id;
     private void Start()
     {
         spawn.capasity= PlayerPrefs.GetInt("Spawncapasity"+id,5);
         cost = PlayerPrefs.GetInt("CapasityMachineCost"+id, 10);
         spriteRenderer = GetComponent<SpriteRenderer>();
-        boxCollider2D = GetComponent<BoxCollider2D>();
+        boxCollider2D = GetComponent<BoxCollider>();
         mevcutValueText.text = spawn.capasity.ToString();
         costValueText.text = "$ "+ cost.ToString();
     }
