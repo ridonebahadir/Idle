@@ -30,7 +30,7 @@ public class Robotic : MonoBehaviour
 
     }
 
-
+    int asd;
     void Update()
     {
         if (breakPoints[turn].childCount > 0)
@@ -38,8 +38,8 @@ public class Robotic : MonoBehaviour
 
             if (!oneTime)
             {
-               
-
+                asd++;
+                Debug.Log("asd"+asd);
                 StartCoroutine(Run());
 
 

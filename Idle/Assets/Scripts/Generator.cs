@@ -22,7 +22,8 @@ public class Generator : MonoBehaviour
     public Animator[] animators;
     public BoxCollider[] colliders;
     [Header("ROBOT")]
-    public ManageProduction manageProduction;
+    //public ManageProduction manageProduction;
+    public Robotic robotic;
     public Animator[] animatorsRobot;
     [Header("CAR PARENT")]
     public Transform carparent;
@@ -51,7 +52,8 @@ public class Generator : MonoBehaviour
             {
                 item.GetComponent<CarGo>().enabled = true;
             }
-            manageProduction.enabled = true;
+            //manageProduction.enabled = true;
+            robotic.enabled = true;
             for (int i = 0; i < animatorsRobot.Length; i++)
             {
                 animatorsRobot[i].enabled = true;
@@ -94,7 +96,8 @@ public class Generator : MonoBehaviour
             {
                 item.GetComponent<CarGo>().enabled = false;
             }
-            manageProduction.enabled = false;
+            //manageProduction.enabled = false;
+            robotic.enabled = true;
             animatorsRobot[0].enabled = false;
             animatorsRobot[1].enabled = false;
             modelGenarator.enabled = false;
