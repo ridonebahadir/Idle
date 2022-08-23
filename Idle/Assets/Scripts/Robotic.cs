@@ -25,7 +25,7 @@ public class Robotic : MonoBehaviour
 
     void Start()
     {
-
+        oneTime = false;
         startSetactive = setactiveTurn;
 
     }
@@ -136,6 +136,7 @@ public class Robotic : MonoBehaviour
             animTurn1 = 0;
             turn = 0;
         }
+        yield return new WaitForSeconds(0.31f);
         oneTime = false;
 
 
