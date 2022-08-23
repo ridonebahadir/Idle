@@ -21,6 +21,7 @@ public class CameraFollow : MonoBehaviour
     public HumanCollider humanCollider;
     public Transform[] changeRotate;
     public Transform cameraRotateParent;
+   
     private void Awake()
     {
         if (!gameManager.locked)
@@ -121,6 +122,7 @@ public class CameraFollow : MonoBehaviour
     public Transform[] rotateObj;
     public Transform[] OrderObj;
     public Transform[] upGraade;
+    public Transform unlockMachineUpgrade;
     public void CameraRotate()
     {
         humanMove.run = false;
@@ -138,6 +140,8 @@ public class CameraFollow : MonoBehaviour
 
         }).SetEase(Ease.InOutSine);
         transform.DORotate(changeRotate[value].rotation.eulerAngles,1.2f).SetEase(Ease.InOutSine);
+        unlockMachineUpgrade.transform.DOLocalRotate(new Vector3(unlockMachineUpgrade.localRotation.eulerAngles.x, changeRotate[value].rotation.eulerAngles.y, 0), 1.2f);
+
         if (value<3) value++;
         else value = 0;
         for (int i = 0; i < rotateObj.Length; i++)
