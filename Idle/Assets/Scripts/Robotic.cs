@@ -38,10 +38,7 @@ public class Robotic : MonoBehaviour
 
             if (!oneTime)
             {
-                if (turn == 0)
-                {
-                    car = Instantiate(carPrefab[gameManager.upgradeCount], carParent.transform.position, Quaternion.Euler(0, -90, 0), carParent.transform);
-                }
+               
 
                 StartCoroutine(Run());
 
@@ -57,6 +54,10 @@ public class Robotic : MonoBehaviour
 
     IEnumerator Run()
     {
+        if (turn == 0)
+        {
+            car = Instantiate(carPrefab[gameManager.upgradeCount], carParent.transform.position, Quaternion.Euler(0, -90, 0), carParent.transform);
+        }
         GameObject obj = breakPoints[turn].GetChild(0).gameObject;
         int a = turn % 2;
         roboticAnim[turn].SetTrigger("Run");
@@ -115,7 +116,7 @@ public class Robotic : MonoBehaviour
             //yield return new WaitForSeconds(0.5f);//arac olusturuldu
         }
         yield return new WaitForSeconds(0.25f);
-        oneTime = false;
+       
         if (turn < 5)
         {
             if (a == 0)
@@ -137,8 +138,10 @@ public class Robotic : MonoBehaviour
             animTurn1 = 0;
             turn = 0;
         }
+        yield return new WaitForSeconds(0.25f);
+        oneTime = false;
         //yield return new WaitForSeconds(0.31f);
-       
+
 
 
     }
