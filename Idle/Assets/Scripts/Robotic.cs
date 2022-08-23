@@ -115,6 +115,7 @@ public class Robotic : MonoBehaviour
             //yield return new WaitForSeconds(0.5f);//arac olusturuldu
         }
         yield return new WaitForSeconds(0.25f);
+        oneTime = false;
         if (turn < 5)
         {
             if (a == 0)
@@ -136,8 +137,8 @@ public class Robotic : MonoBehaviour
             animTurn1 = 0;
             turn = 0;
         }
-        yield return new WaitForSeconds(0.31f);
-        oneTime = false;
+        //yield return new WaitForSeconds(0.31f);
+       
 
 
     }
